@@ -3,6 +3,7 @@ TRAIN MANAGEMENT*/
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Date{     //done
@@ -21,17 +22,23 @@ class Date{     //done
     }
 };
 
+class Wagon{
+    private:
+    int number,seats;
+    vector <string> IDs;
+};
+
 class Trip{
-private:
-    
-public:
+    private:
+    Date trainDate;
+    string departureStation,arrivalStation;
+    int distance;
 };
 
 class Train{
 private:
-    Date departureDate;
-    string departureStation,arrivalStation;
-    int distance;
+    Trip viaje;
+    vector <Wagon> part;
 };
 
 class Passenger{
@@ -39,20 +46,8 @@ private:
     string ID,name,adress;
     int age,baggage;
     char gender;
-    Trip 
-public:
-    Passenger(/* args */);
-    ~Passenger();
+    vector <Trip> travels;
 };
-
-Passenger::Passenger(/* args */)
-{
-}
-
-Passenger::~Passenger()
-{
-}
-
 
 int main(){
     cout <<"hello world";
