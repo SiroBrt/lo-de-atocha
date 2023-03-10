@@ -1,5 +1,6 @@
-/*Nombres y nias
-TRAIN MANAGEMENT*/
+//Siro Brotón 
+//Virginia Herce
+//TRAIN MANAGEMENT*/
 
 #include <iostream>
 #include <string>
