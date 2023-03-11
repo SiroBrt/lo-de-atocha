@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+using namespace std;
 
 class Date{
     private:
@@ -52,14 +53,18 @@ class Persona{
         cumple.setYear(num3);
     }
     static void printBirthday(Persona input){
-        cout <<input.cumple.getDay() <<"/" <<input.cumple.getMonth() <<"/" <<input.cumple.getYear();
+        int day=input.cumple.getDay();
+        int month=input.cumple.getMonth();
+        int year=input.cumple.getYear();
+        cout <<(day>=10? "":"0") <<day <<":";
+        cout <<(month>=10? "":"0") <<month <<":";
+        cout <<(year>=1000? "":year>=100? "0":year>=10?"00":"000") <<year;      //if else pero con mas "clase" :)
     }
-
 };
 
 int main(){
     Persona yo;
-    yo.setBirthday(23,8,2004);
+    yo.setBirthday(50,21,308);
     Persona::printBirthday(yo);
 
 }
