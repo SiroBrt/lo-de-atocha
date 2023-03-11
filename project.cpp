@@ -7,7 +7,7 @@
 #include <vector>
 using namespace std;
 
-class Date{     //done
+class Date{
     private:
     int day,month,year;
     public:
@@ -33,7 +33,7 @@ class Trip{
     private:
     Date trainDate;
     string departureStation,arrivalStation;
-    int distance;
+    int distance,money,seat,wagon;
 };
 
 class Train{
