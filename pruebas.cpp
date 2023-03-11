@@ -85,7 +85,7 @@ class Persona{
     int getID(){
         return ID;
     }
-    void addGame(Juego &game,string password){
+    void addGame(Juego &game,string password){ //aquí es importante pasarlo por referencia para cambiarlo fuera de la función 
         pair <Juego,string> input;
         input.first=game;
         input.second=password;
