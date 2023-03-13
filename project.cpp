@@ -63,11 +63,12 @@ class Trip{
             bool occupied=0;
             money=m;
             distance=d;
-            if(Wagons[w-1].first.second.first!=station1 && Wagons[w-1].first.second.second!=station2){
+            if(Wagons[w-1].first.second.first!=station1 || Wagons[w-1].first.second.second!=station2){
                 cout <<"that wagon doesnt go there" <<endl;
             }else if(Wagons[w-1].second.size()>=Wagons[w-1].first.first){
                 cout <<"wagon already full" <<endl;
-
+            }else if(s>Wagons[w-1].first.first){
+                cout <<"seat doesnt exist" <<endl;
             }else{
                 for(int i=0;i<Wagons[w-1].second.size();i++){
                     if(Wagons[w-1].second[i].first==s){
@@ -76,11 +77,12 @@ class Trip{
                         break;
                     }
                 }
-                if(occupied=0){
+                if(occupied==0){
                     pair <int,string> newPassenger;
                     newPassenger.first=s;
                     newPassenger.second=ID;
                     Wagons[w-1].second.push_back(newPassenger);
+                    cout <<"seat reserved" <<endl;
                 }
             }
         }
@@ -102,17 +104,30 @@ private:
 };
 
 int mainMenu(){
-    string output;
     //usamos string para aceptar cualquier input
+    string output;
     cout <<"---------- Choose an option ----------\n1. Add new passenger's trip to a train\n2. Remove a passenger's trip from a train\n3. Show trips of a passenger \n4. Show list of passengers in a specific train\n5. Show an alphabetically ordered list of passengers in all the trains\n6. Show passengers of cities\n7. End program \n";
     cin >>output;
     //pasar string a int sin stoi (solo queremos del 1 al 7) y si no se puede devuelve 0
     return (output=="1"? 1:output=="2"? 2:output=="3"? 3:output=="4"? 4:output=="5"? 5:output=="6"? 6:output=="7"? 7:0);
 }
 
+//TEMPORAL (no es una funcion permitida pero viene bien)
+//sin control de errores
+void addWagon(){
+    pair <pair <int,pair <string,string>>,vector <pair <int,string>>> newWagon;
+    cout <<"asientos? ";
+    cin >>newWagon.first.first;
+    cout <<"salida? ";
+    cin >>newWagon.first.second.first;
+    cout <<"llegada? ";
+    cin >>newWagon.first.second.second;
+    Wagons.push_back(newWagon);
+}
+
 int main(){
     int selection;
-    while(selection!=7){
+    /*while(selection!=7){
         selection=mainMenu();
         switch (selection){
             case 0:
@@ -122,5 +137,10 @@ int main(){
             cout <<"Goodbye";
             break;
         }
-    }
+    }*/
+    addWagon();
+    Date dia;
+    Trip prueba1(1,"leganes","madrid",10,20,2,dia,"DNI1");
+    Trip prueba2(1,"leganes","madrid",10,20,5,dia,"DNI2");
+
 }
