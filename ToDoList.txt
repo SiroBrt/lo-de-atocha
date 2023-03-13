@@ -1,3 +1,4 @@
 crear constructors de clases
-añadir funciones (especialmente la de crear vagones para testeo)
-pensar en si cambiamos Passenger de clase a vector/lista (para poder buscar con funciones)
+añadir funciones
+volver a poner vagones como clase
+pensar en si 
