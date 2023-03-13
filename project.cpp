@@ -77,7 +77,7 @@ class Trip{
                     pair <int,string> newPassenger;
                     newPassenger.first=s;
                     newPassenger.second=ID;
-                    Wagons[w-1].second.push_back(newPassenger)
+                    Wagons[w-1].second.push_back(newPassenger);
                 }
             }
         }
