@@ -1,2 +1,2 @@
 crear constructors de clases
-añadir funciones
+añadir funciones (especialmente la de crear vagones)
