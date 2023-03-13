@@ -5,7 +5,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <map>
 using namespace std;
+
+//vector for wagons. Each wagon is the pair of station1-station2 and a vector of pairs seat-ID. The number of the wagon is its position-1
+static vector <pair <pair <string,string>,vector <pair <int,string>>>> Wagons;
+
 //cortesía de pruebas.cpp
 class Date{
     private:
@@ -42,23 +47,47 @@ class Date{
     }
 };
 
-class Wagon{
-    private:
-    int number,seats;
-    vector <string> IDs;
-};
-
 class Trip{
     private:
     Date trainDate;
-    string departureStation,arrivalStation;
     int distance,money,seat,wagon;
+    map <pair <string,string>,int> registeredTrips;
+    public:
+    Trip(int w,string station1,string station2,int d,int m,int s,Date day,string ID){
+        if(w>Wagons.size()){
+            cout <<"That wagon doesnt exist";
+            money=0;
+            distance=0;
+
+        }else{
+            bool occupied=0;
+            money=m;
+            distance=d;
+            if(Wagons[w-1].first.first!=station1 && Wagons[w-1].first.second!=station2){
+                cout <<"that wagon doesnt go there" <<endl;
+            }else{
+                for(int i=0;i<Wagons[w-1].second.size();i++){
+                    if(Wagons[w-1].second[i].first==s){
+                        cout <<"seat already occupied" <<endl;
+                        occupied=1;
+                        break;
+                    }
+                }
+                if(occupied=0){
+                    pair <int,string> newPassenger;
+                    newPassenger.first=s;
+                    newPassenger.second=ID;
+                    Wagons[w-1].second.push_back(newPassenger)
+                }
+            }
+        }
+    }
 };
 
 class Train{
 private:
     Trip viaje;
-    vector <Wagon> part;
+    //vector <Wagon> part;
 };
 
 class Passenger{
