@@ -8,8 +8,8 @@
 #include <map>
 using namespace std;
 
-//vector for wagons. Each wagon is the pair of station1-station2 and a vector of pairs seat-ID. The number of the wagon is its position-1
-static vector <pair <pair <string,string>,vector <pair <int,string>>>> Wagons;
+//vector for wagons. Each wagon is the pair of its data (max seats,station1-station2) and a vector of pairs seat-ID. The number of the wagon is its position-1
+static vector <pair <pair <int,pair <string,string>>,vector <pair <int,string>>>> Wagons;
 
 //cortesía de pruebas.cpp
 class Date{
@@ -63,8 +63,11 @@ class Trip{
             bool occupied=0;
             money=m;
             distance=d;
-            if(Wagons[w-1].first.first!=station1 && Wagons[w-1].first.second!=station2){
+            if(Wagons[w-1].first.second.first!=station1 && Wagons[w-1].first.second.second!=station2){
                 cout <<"that wagon doesnt go there" <<endl;
+            }else if(Wagons[w-1].second.size()>=Wagons[w-1].first.first){
+                cout <<"wagon already full" <<endl;
+
             }else{
                 for(int i=0;i<Wagons[w-1].second.size();i++){
                     if(Wagons[w-1].second[i].first==s){

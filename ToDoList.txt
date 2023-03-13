@@ -1,2 +1,2 @@
-apañar el tamaño maximo de los vagones
 crear constructors de clases
+añadir funciones
