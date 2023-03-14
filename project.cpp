@@ -8,8 +8,8 @@
 #include <map>
 using namespace std;
 
-//vector for wagons. Each wagon is the pair of its data (max seats,station1-station2) and a vector of pairs seat-ID. The number of the wagon is its position-1
-static vector <pair <pair <int,pair <string,string>>,vector <pair <int,string>>>> Wagons;
+static vector <Wagon> Wagons;
+//me arrepiento de vector<pair <pair <int,pair <string,string>>,vector <pair <int,string>>>> y reflexionare sobre ello
 
 //cortesía de pruebas.cpp
 class Date{
@@ -47,46 +47,101 @@ class Date{
     }
 };
 
+class Wagon{
+    private:
+    int distance,capacity;
+    string departureStation,arrivalStation;
+    vector <pair <int,string>> reservedSeats;   //seat-ID
+    bool assigned;
+    public:
+    Wagon(){
+        capacity=5;
+        distance=0;
+        departureStation="";
+        arrivalStation="";
+    }
+    Wagon(int seats,string station1,string station2,int d){
+        //seats
+        if(seats>=5){
+            capacity=seats;
+        }else{
+            cout <<"the minimum number of seats is 5";
+            capacity=5;
+        }
+        //stations
+        departureStation=station1;
+        arrivalStation=station2;
+        //distances
+        distance=d;
+        //añadir comprobador de distancia para que un mismo trayecto no tenga 2 distancias
+    }
+    string getDepartureStation(){
+        return departureStation;
+    }
+    string getArrivalStation(){
+        return arrivalStation;
+    }
+    int getCapacity(){
+        return capacity;
+    }
+    bool assigned(){
+        return assigned;
+    }
+    
+    //añadir algo para el vector de pasajeros
+
+    void setDepartureStation(string input){
+        departureStation=input;
+    }
+    void setArrivalStation(string input){
+        arrivalStation=input;
+    }
+    void setCapacity(int input){
+        if(reservedSeats.size()>input){
+            cout <<"There are already passengers there" <<endl;
+        }else{
+            capacity=input;
+        }
+    }
+    void changeAssignation(bool input){
+        assigned=input;
+    }
+    void addPassenger(pair <int,string> input){
+        if(capacity>reservedSeats.size()){
+            bool found=0,occupied=0;
+            for(auto i:reservedSeats){
+                if(input.first==i.first){
+                    found=1;
+                    break;
+                }else if(input.second==i.second){
+                    occupied=1;
+                    break;
+                }
+            }
+            if(found==1){
+                cout <<"That passenger already has a seat" <<endl;
+            }else if(occupied==1){
+                cout <<"That seat is already reserved" <<endl;
+            }else{
+                reservedSeats.push_back(input);
+            }
+        }else{
+            cout <<"The wagon is already full" <<endl;
+        }
+    }
+    void removePassenger(pair <int,string> input){
+        bool found=0;
+        
+    }
+};
+
 class Trip{
     private:
     Date trainDate;
-    int distance,money,seat,wagon;
-    map <pair <string,string>,int> registeredTrips;
+    int money,wagon;
     public:
-    Trip(int w,string station1,string station2,int d,int m,int s,Date day,string ID){
-        if(w>Wagons.size()){
-            cout <<"That wagon doesnt exist";
-            money=0;
-            distance=0;
-
-        }else{
-            bool occupied=0;
-            money=m;
-            distance=d;
-            if(Wagons[w-1].first.second.first!=station1 || Wagons[w-1].first.second.second!=station2){
-                cout <<"that wagon doesnt go there" <<endl;
-            }else if(Wagons[w-1].second.size()>=Wagons[w-1].first.first){
-                cout <<"wagon already full" <<endl;
-            }else if(s>Wagons[w-1].first.first){
-                cout <<"seat doesnt exist" <<endl;
-            }else{
-                for(int i=0;i<Wagons[w-1].second.size();i++){
-                    if(Wagons[w-1].second[i].first==s){
-                        cout <<"seat already occupied" <<endl;
-                        occupied=1;
-                        break;
-                    }
-                }
-                if(occupied==0){
-                    pair <int,string> newPassenger;
-                    newPassenger.first=s;
-                    newPassenger.second=ID;
-                    Wagons[w-1].second.push_back(newPassenger);
-                    cout <<"seat reserved" <<endl;
-                }
-            }
-        }
-    }
+    Trip(int w,,int m,int seat,Date day,string ID){
+        
 };
 
 class Train{

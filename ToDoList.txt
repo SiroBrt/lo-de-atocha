@@ -1,4 +1,4 @@
 crear constructors de clases
 añadir funciones
-volver a poner vagones como clase
+arreglar Trip
 pensar en si me mato
