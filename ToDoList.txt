@@ -2,3 +2,4 @@ crear constructors de clases
 añadir funciones
 arreglar Trip
 pensar en si me mato
+matarme

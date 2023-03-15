@@ -13,61 +13,39 @@ class Date{
     private:
     int day,month,year;
     public:
-    Date(){
-        day=1;
-        month=1;
-        year=1;
-
-    }
+    Date(){day=month=year=1;}
     Date(int num1,int num2,int num3){
         day=num1;
         month=num2;
         year=num3;
     }
-    void setDay(int num){
-        day=num;
-    }
-    void setMonth(int num){
-        month=num;
-    }
-    void setYear(int num){
-        year=num;
-    }
-    int getDay(){
-        return day;
-    }
-    int getMonth(){
-        return month;
-    }
-    int getYear(){
-        return year;
-    }
+    void setDay(int num){day=num;}
+    void setMonth(int num){month=num;}
+    void setYear(int num){year=num;}
+    int getDay(){return day;}
+    int getMonth(){return month;}
+    int getYear(){return year;}
 };
 
 class Wagon{
     private:
-    int capacity;
+    int capacity, wagonNumber;
     vector <pair <int,string>> reservedSeats;   //seat-ID
-    bool wagonNumber;
     public:
     Wagon(){
         capacity=5;
+        wagonNumber=1;
     }
     Wagon(int seats){
-        //seats
         if(seats>=5){
             capacity=seats;
         }else{
-            cout <<"the minimum number of seats is 5" <<endl;
+            cout <<"The minimum number of seats is 5" <<endl;
             capacity=5;
         }
     }
-    int getCapacity(){
-        return capacity;
-    }
-    int getNumber(){
-        return wagonNumber;
-    }
+    int getCapacity(){return capacity;}
+    int getWagonNum(){return wagonNumber;}
     //da el ID a partir del sitio. si no está da -1
     string getPassenger(int input){
         string output="-1";
@@ -93,13 +71,13 @@ class Wagon{
     
     void setCapacity(int input){
         if(reservedSeats.size()>input){
-            cout <<"There are already passengers there" <<endl;
+            cout <<"The wagon is full!" <<endl;
         }else{
             capacity=input;
         }
     }
     void setNumber(int input){
-        if(input<0){
+        if(input>0){
             wagonNumber=input;
         }else{
             cout <<"introduce a valid wagon number" <<endl;
@@ -138,35 +116,114 @@ class Wagon{
             count++;
         }
         if(found<0){
-            cout <<"That passenger didnt have a seat" <<endl;
+            cout <<"That passenger didn't have a seat" <<endl;
         }else{
             reservedSeats.erase(reservedSeats.begin()+found);
-            cout <<"passenger " <<ID <<" removed" <<endl;
+            cout <<"The passenger " <<ID <<" has been removed" <<endl;
         }
     }
 };
 
 class Trip{
     private:
-    Date trainDate;
-    int money,wagon;
+    Date tripDate;
+    int train, wagon, seat;
     public:
-    Trip(int w,,int m,int seat,Date day,string ID){
-        
+    Trip(){
+        train = wagon = seat = 0;
+        tripDate = Date(1,1,1);
+    }
+
+    Trip(Date dateoftrip, int numtrain, int numwagon, int numseat){
+        tripDate = dateoftrip;
+        train = numtrain;
+        wagon = numwagon;
+        seat = numseat;
+    }
+
+    Date getTripDate(){return tripDate;}
+    int getTrain(){return train;}
+    int getWagon(){return wagon;}
+    int getSeat(){return seat;}
+    
+    void setDate(Date dateoftrip){tripDate = dateoftrip;}
+    void setTrain(int num){train = num;}
+    void setWagon(int num){wagon = num;}
+    void setSeat(int num){seat = num;}    
 };
 
 class Train{
 private:
-    Trip viaje;
-    //vector <Wagon> part;
+    vector <Wagon> wagonsvect;
+    string origin, destination;
+    float distance;
+    Date dateoftrip;
+public:
+    Train(){
+        origin = destination = "";
+    }
+    Train(string orgn, string dest, float dist, Date tripdate){
+        origin = orgn;
+        dest = dest;
+        distance = dist;
+        dateoftrip = tripdate;
+    }
+    void setOrigin(string originst){origin = originst;}
+    void setDest(string destst){destination = destst;}
+    void setDist(float mydist){distance = mydist;}
+    string getOrigin(){return origin;}
+    string getDestination(){return destination;}
+    float getDistance(){return distance;}
 };
 
 class Passenger{
 private:
     string ID,name,adress;
-    int age,baggage;
+    int age;
+    float baggage;
     char gender;
     vector <Trip> travels;
+public:
+    Passenger(){
+        ID = name = adress = "";
+        age = baggage = 0;
+        gender = ' ';
+    }
+    Passenger(string pass_ID, string pass_name, string pass_addres, int pass_age, float pass_baggage, char pass_gender){
+        ID = pass_ID;
+        name = pass_name;
+        adress = pass_addres;
+        age = pass_age;
+        baggage = pass_baggage;
+        gender = pass_gender;
+    }
+    string getID(){return ID;}
+    string getname(){return name;}
+    string getaddress(){return adress;}
+    int getage(){return age;}
+    float getbaggage(){return baggage;}
+    char getgender(){return gender;}
+    
+    void setID(string myid){ID = myid;}
+    void setName(string myname){name = myname;}
+    void setAddress(string myaddress){adress = myaddress;}
+    void setAge(int num){age = num;}
+    void setBaggage(float num){
+        while (num<0 || num>=25){
+            cout << "The weight of the baggage isnt valid!";
+            cout << "Introduce a quantity between (0-25): ";
+            cin >> num;
+        }
+        baggage = num;
+    }
+    void setGender(char mygender){
+        while (mygender != 'F' && mygender != 'M'){
+            cout << "The gender you introduced isnt valid!";
+            cout << "The valid options are either F or M: ";
+            cin >> mygender;
+        }
+        gender = mygender;
+    }
 };
 
 int mainMenu(){
