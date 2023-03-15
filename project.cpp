@@ -8,9 +8,6 @@
 #include <map>
 using namespace std;
 
-static vector <Wagon> Wagons;
-//me arrepiento de vector<pair <pair <int,pair <string,string>>,vector <pair <int,string>>>> y reflexionare sobre ello
-
 //cortesía de pruebas.cpp
 class Date{
     private:
@@ -49,53 +46,51 @@ class Date{
 
 class Wagon{
     private:
-    int distance,capacity;
-    string departureStation,arrivalStation;
+    int capacity;
     vector <pair <int,string>> reservedSeats;   //seat-ID
-    bool assigned;
+    bool wagonNumber;
     public:
     Wagon(){
         capacity=5;
-        distance=0;
-        departureStation="";
-        arrivalStation="";
     }
-    Wagon(int seats,string station1,string station2,int d){
+    Wagon(int seats){
         //seats
         if(seats>=5){
             capacity=seats;
         }else{
-            cout <<"the minimum number of seats is 5";
+            cout <<"the minimum number of seats is 5" <<endl;
             capacity=5;
         }
-        //stations
-        departureStation=station1;
-        arrivalStation=station2;
-        //distances
-        distance=d;
-        //añadir comprobador de distancia para que un mismo trayecto no tenga 2 distancias
-    }
-    string getDepartureStation(){
-        return departureStation;
-    }
-    string getArrivalStation(){
-        return arrivalStation;
     }
     int getCapacity(){
         return capacity;
     }
-    bool assigned(){
-        return assigned;
+    int getNumber(){
+        return wagonNumber;
+    }
+    //da el ID a partir del sitio. si no está da -1
+    string getPassenger(int input){
+        string output="-1";
+        for(auto i:reservedSeats){
+            if(input==i.first){
+                output=i.second;
+                break;
+            }
+        }
+        return output;
+    }
+    //el contrario. si no está da -1
+    int getSeat(string input){
+        int output=-1;
+        for(auto i:reservedSeats){
+            if(input==i.second){
+                output=i.first;
+                break;
+            }
+        }
+        return output;
     }
     
-    //añadir algo para el vector de pasajeros
-
-    void setDepartureStation(string input){
-        departureStation=input;
-    }
-    void setArrivalStation(string input){
-        arrivalStation=input;
-    }
     void setCapacity(int input){
         if(reservedSeats.size()>input){
             cout <<"There are already passengers there" <<endl;
@@ -103,8 +98,12 @@ class Wagon{
             capacity=input;
         }
     }
-    void changeAssignation(bool input){
-        assigned=input;
+    void setNumber(int input){
+        if(input<0){
+            wagonNumber=input;
+        }else{
+            cout <<"introduce a valid wagon number" <<endl;
+        }
     }
     void addPassenger(pair <int,string> input){
         if(capacity>reservedSeats.size()){
@@ -129,9 +128,21 @@ class Wagon{
             cout <<"The wagon is already full" <<endl;
         }
     }
-    void removePassenger(pair <int,string> input){
-        bool found=0;
-        
+    void removePassenger(string ID){
+        int found=-1,count=0;
+        for(auto i:reservedSeats){
+            if(ID==i.second){
+                found=count;
+                break;
+            }
+            count++;
+        }
+        if(found<0){
+            cout <<"That passenger didnt have a seat" <<endl;
+        }else{
+            reservedSeats.erase(reservedSeats.begin()+found);
+            cout <<"passenger " <<ID <<" removed" <<endl;
+        }
     }
 };
 
@@ -167,18 +178,6 @@ int mainMenu(){
     return (output=="1"? 1:output=="2"? 2:output=="3"? 3:output=="4"? 4:output=="5"? 5:output=="6"? 6:output=="7"? 7:0);
 }
 
-//TEMPORAL (no es una funcion permitida pero viene bien)
-//sin control de errores
-void addWagon(){
-    pair <pair <int,pair <string,string>>,vector <pair <int,string>>> newWagon;
-    cout <<"asientos? ";
-    cin >>newWagon.first.first;
-    cout <<"salida? ";
-    cin >>newWagon.first.second.first;
-    cout <<"llegada? ";
-    cin >>newWagon.first.second.second;
-    Wagons.push_back(newWagon);
-}
 
 int main(){
     int selection;
@@ -193,7 +192,6 @@ int main(){
             break;
         }
     }*/
-    addWagon();
     Date dia;
     Trip prueba1(1,"leganes","madrid",10,20,2,dia,"DNI1");
     Trip prueba2(1,"leganes","madrid",10,20,5,dia,"DNI2");
