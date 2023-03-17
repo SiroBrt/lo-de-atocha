@@ -25,6 +25,13 @@ class Date{
     int getDay(){return day;}
     int getMonth(){return month;}
     int getYear(){return year;}
+    bool operator ==(Date input){
+        if(input.day==day && input.month==month && input.year==year){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
 };
 
 class Wagon{
@@ -101,6 +108,7 @@ class Wagon{
                 cout <<"That seat is already reserved" <<endl;
             }else{
                 reservedSeats.push_back(input);
+                cout <<"Passenger added" <<endl;
             }
         }else{
             cout <<"The wagon is already full" <<endl;
@@ -122,6 +130,7 @@ class Wagon{
             cout <<"The passenger " <<ID <<" has been removed" <<endl;
         }
     }
+    vector <pair <int,string>> getSeatVector(){return reservedSeats;}
 };
 
 class Trip{
@@ -161,19 +170,31 @@ private:
 public:
     Train(){
         origin = destination = "";
+        //mínimo de dos vagones
+        Wagon vacio;
+        wagonsvect.push_back(vacio);
+        vacio.setNumber(2);
+        wagonsvect.push_back(vacio);
     }
     Train(string orgn, string dest, float dist, Date tripdate){
         origin = orgn;
-        dest = dest;
+        destination = dest;
         distance = dist;
         dateoftrip = tripdate;
+        Wagon vacio;
+        wagonsvect.push_back(vacio);
+        vacio.setNumber(2);
+        wagonsvect.push_back(vacio);
     }
     void setOrigin(string originst){origin = originst;}
     void setDest(string destst){destination = destst;}
     void setDist(float mydist){distance = mydist;}
+    void setDate(Date input){dateoftrip=input;}
     string getOrigin(){return origin;}
     string getDestination(){return destination;}
     float getDistance(){return distance;}
+    Date getDate(){return dateoftrip;}
+    vector <Wagon> getWagons(){return wagonsvect;}
 };
 
 class Passenger{
@@ -209,22 +230,28 @@ public:
     void setAddress(string myaddress){adress = myaddress;}
     void setAge(int num){age = num;}
     void setBaggage(float num){
-        while (num<0 || num>=25){
+        if (num<0 || num>=25){
             cout << "The weight of the baggage isnt valid!";
-            cout << "Introduce a quantity between (0-25): ";
-            cin >> num;
+        }else{
+            baggage = num;
         }
-        baggage = num;
     }
     void setGender(char mygender){
-        while (mygender != 'F' && mygender != 'M'){
+        if (mygender != 'F' && mygender != 'M'){
             cout << "The gender you introduced isnt valid!";
-            cout << "The valid options are either F or M: ";
-            cin >> mygender;
+        }else{
+            gender = mygender;
         }
-        gender = mygender;
+    }
+    void addTrip(Date dia,int t,int w,int s){
+        Trip newTrip(dia,t,w,s);
+        travels.push_back(newTrip);
     }
 };
+
+//para poder buscar objetos dado un "atributo"
+static vector <Train> trenes;
+static vector <Passenger> gentezuela;
 
 int mainMenu(){
     //usamos string para aceptar cualquier input
@@ -235,10 +262,84 @@ int mainMenu(){
     return (output=="1"? 1:output=="2"? 2:output=="3"? 3:output=="4"? 4:output=="5"? 5:output=="6"? 6:output=="7"? 7:0);
 }
 
+void addNewPassengerTrip(Date dia,string station1,string station2,string id){
+    //comprobar si el pasajero existe
+    int position=-1;
+    for(int i=0;i<gentezuela.size();i++){
+        if(gentezuela[i].getID()==id){
+            position=i;
+            break;
+        }
+    }
+    if(position==-1){
+        Passenger unregistered;
+        unregistered.setID(id);
+        gentezuela.push_back(unregistered);
+        position=gentezuela.size()-1;
+    }
+    
+    //comprobar trenes que coindcidan en fecha e itinerario
+    bool found=0;
+    for(int t=0;t<trenes.size();t++){
+        if(trenes[t].getDate()==dia && trenes[t].getOrigin()==station1 && trenes[t].getDestination()==station2){
+            //este tren coincide
+            for(int w=0;w<trenes[t].getWagons().size();w++){
+                //vamos vagón por vagón
+                for(int s=0;s<trenes[t].getWagons()[w].getSeatVector().size();s++){
+                    if(trenes[t].getWagons()[w].getSeatVector()[s].second==id){
+                        found=1;
+                        cout <<"Passenger already registered in train " <<t <<", wagon " <<w <<", seat " <<s <<endl;
+                        break;
+                    }
+                }
+                if(found==1){break;}
+            }
+            if(found==1){break;}
+        }
+        if(found==1){break;}
+    }
+    //si no está lo añadimos
+    if(found==0){
+        bool added=0;
+        //mismo sistema para trenes y vagones
+        for(int t=0;t<trenes.size();t++){
+            if(trenes[t].getDate()==dia && trenes[t].getOrigin()==station1 && trenes[t].getDestination()==station2){
+                //este tren coincide
+                for(int w=0;w<trenes[t].getWagons().size();w++){
+                    //vamos vagón por vagón
+                    if(trenes[t].getWagons()[w].getCapacity()>trenes[t].getWagons()[w].getSeatVector().size()){
+                        //añadimos el pasajero al vagón correspondiente
+                        pair <int,string> info;
+                        info.first=trenes[t].getWagons()[w].getSeatVector().size()+1;
+                        info.second=id;
+                        trenes[t].getWagons()[w].addPassenger(info);
+                        cout <<"Passenger added to train " <<t <<", wagon " <<w <<", seat " <<info.first <<endl;
+                        
+
+                        //
+                        cout <<"sentado en " <<trenes[t].getWagons()[w].getSeat(id) <<endl;
+                        auto aux1=trenes[t].getWagons()[w].getSeatVector();
+                        cout <<trenes[t].getWagons().size() <<" vagones, " <<aux1.size() <<" pasajeros de " <<trenes[t].getWagons()[w].getCapacity() <<endl;
+                        //
+
+
+                        //También hay que añadirle el viaje al pasajero
+                        gentezuela[position].addTrip(dia,t,w,info.first);
+                        added=1;
+                        break;
+                    }
+                    if(added==1){break;}
+                }
+                if(added==1){break;}
+            }
+            if(added==1){break;}
+        }
+    }
+}
 
 int main(){
-    int selection;
-    /*while(selection!=7){
+    /*int selection;
+    while(selection!=7){
         selection=mainMenu();
         switch (selection){
             case 0:
@@ -250,7 +351,12 @@ int main(){
         }
     }*/
     Date dia;
-    Trip prueba1(1,"leganes","madrid",10,20,2,dia,"DNI1");
-    Trip prueba2(1,"leganes","madrid",10,20,5,dia,"DNI2");
-
+    string estacion1="leganes",estacion2="madrid",ID="AAA";
+    Train barco(estacion1,estacion2,5,dia);
+    trenes.push_back(barco);
+    auto aux1=trenes[0].getWagons()[0].getSeatVector();
+    auto aux2=trenes[0].getWagons()[1].getSeatVector();
+    cout <<trenes[0].getWagons().size() <<" vagones, " <<aux1.size()+aux2.size() <<" pasajeros" <<endl;
+    //añadimos pasajero
+    addNewPassengerTrip(dia,estacion1,estacion2,ID);
 }
