@@ -108,7 +108,6 @@ class Wagon{
                 cout <<"That seat is already reserved" <<endl;
             }else{
                 reservedSeats.push_back(input);
-                cout <<"Passenger added" <<endl;
             }
         }else{
             cout <<"The wagon is already full" <<endl;
@@ -316,11 +315,13 @@ void addNewPassengerTrip(Date dia,string station1,string station2,string id){
                         cout <<"Passenger added to train " <<t <<", wagon " <<w <<", seat " <<info.first <<endl;
                         
 
-                        //
+
+                        //debug
                         cout <<"sentado en " <<trenes[t].getWagons()[w].getSeat(id) <<endl;
                         auto aux1=trenes[t].getWagons()[w].getSeatVector();
                         cout <<trenes[t].getWagons().size() <<" vagones, " <<aux1.size() <<" pasajeros de " <<trenes[t].getWagons()[w].getCapacity() <<endl;
                         //
+
 
 
                         //También hay que añadirle el viaje al pasajero
@@ -354,9 +355,5 @@ int main(){
     string estacion1="leganes",estacion2="madrid",ID="AAA";
     Train barco(estacion1,estacion2,5,dia);
     trenes.push_back(barco);
-    auto aux1=trenes[0].getWagons()[0].getSeatVector();
-    auto aux2=trenes[0].getWagons()[1].getSeatVector();
-    cout <<trenes[0].getWagons().size() <<" vagones, " <<aux1.size()+aux2.size() <<" pasajeros" <<endl;
-    //añadimos pasajero
     addNewPassengerTrip(dia,estacion1,estacion2,ID);
 }
