@@ -352,5 +352,5 @@ int main(){
     addNewPassengerTrip(dia,estacion1,estacion2,ID3);       //recién añadido
     addNewPassengerTrip(dia,estacion1,estacion2,ID4);
     addNewPassengerTrip(dia,estacion1,estacion2,ID5);
-    addNewPassengerTrip(dia,estacion1,estacion2,ID6);
+    cout <<"vagon 0 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros, vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
 }
