@@ -186,8 +186,7 @@ public:
             if(wagonsvect[w].getCapacity()>wagonsvect[w].getSeatVector().size()){
                 //aquí hay sitio
                 wagonsvect[w].addPassengerW(myid);
-            }else{
-                cout <<"vagon " <<w <<" lleno" <<endl;
+                break;
             }
         }
     }
@@ -288,7 +287,6 @@ void addNewPassengerTrip(Date dia,string station1,string station2,string id){
         gentezuela.push_back(unregistered);
         position=gentezuela.size()-1;
     }
-    
     //comprobar trenes que coindcidan en fecha e itinerario
     bool found=0;
     pair <int,int> aux;
@@ -313,13 +311,17 @@ void addNewPassengerTrip(Date dia,string station1,string station2,string id){
                 //este tren coincide
                 trenes[t].addPassengerT(id);
                 auto w=trenes[t].findPassenger(id);
-                cout <<"Passenger added to train " <<t <<", wagon " <<w.first <<", seat " <<w.second <<endl;
-                //También hay que añadirle el viaje al pasajero
-                gentezuela[position].addTrip(dia,t,w.first,w.second);
-                added=1;
-                break;
+                if(w.first!=-1 && w.second!=-1){
+                    cout <<"Passenger added to train " <<t <<", wagon " <<w.first <<", seat " <<w.second <<endl;
+                    //También hay que añadirle el viaje al pasajero
+                    gentezuela[position].addTrip(dia,t,w.first,w.second);
+                    added=1;
+                    break;
+                }
             }
-            if(added==1){break;}
+        }
+        if(added==0){
+            cout <<"All trains " <<station1 <<"-" <<station2 <<" are full" <<endl;
         }
     }
 }
@@ -338,19 +340,11 @@ int main(){
         }
     }*/
     Date dia;
-    string estacion1="leganes",estacion2="madrid",ID1="AAA",ID2="BBB",ID3="CCC",ID4="DDD",ID5="EEE",ID6="Nuevo vagón";
-    Passenger yo,tu;
-    yo.setID(ID1);
-    tu.setID(ID2);
-    gentezuela.push_back(yo);
-    gentezuela.push_back(tu);
+    string estacion1="leganes",estacion2="madrid";
+    string ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
     Train barco(estacion1,estacion2,5,dia);
     trenes.push_back(barco);
-    trenes[0].addPassengerT(ID1);
-    addNewPassengerTrip(dia,estacion1,estacion2,ID1);       //ya estaba añadido
-    addNewPassengerTrip(dia,estacion1,estacion2,ID2);       //no estaba añadido
-    addNewPassengerTrip(dia,estacion1,estacion2,ID3);       //recién añadido
-    addNewPassengerTrip(dia,estacion1,estacion2,ID4);
-    addNewPassengerTrip(dia,estacion1,estacion2,ID5);
-    cout <<"vagon 0 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros, vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
+    for(int i=0;i<11;i++){
+        addNewPassengerTrip(dia,estacion1,estacion2,ID[i]);
+    }
 }
