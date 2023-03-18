@@ -340,11 +340,17 @@ int main(){
         }
     }*/
     Date dia;
-    string estacion1="leganes",estacion2="madrid";
-    string ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
-    Train barco(estacion1,estacion2,5,dia);
-    trenes.push_back(barco);
+    string estacion1="leganes",estacion2="madrid",ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
+    Train trenPrueba(estacion1,estacion2,5,dia);
+    trenes.push_back(trenPrueba);
+    //tren extra
+    trenes.push_back(trenPrueba);
     for(int i=0;i<11;i++){
         addNewPassengerTrip(dia,estacion1,estacion2,ID[i]);
     }
+    cout <<endl <<"----- Tren 0 -----" <<endl;
+    cout <<" ·vagon 0 tiene " <<trenes[0].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" ·vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
+    cout <<"----- Tren 1 -----" <<endl;
+    cout <<" ·vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" ·vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
+    
 }
