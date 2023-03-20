@@ -91,16 +91,12 @@ class Wagon{
         }
     }
     void addPassengerW(string id){
-        if(capacity>reservedSeats.size()){
-            pair <int,string> info;
-            info.first=reservedSeats.size()+1;
-            info.second=id;
-            reservedSeats.push_back(info);
-        }else{
-            cout <<"The wagon is already full" <<endl;
-        }
+        pair <int,string> info;
+        info.first=reservedSeats.size()+1;
+        info.second=id;
+        reservedSeats.push_back(info);
     }
-    void removePassenger(string myid){
+    void removePassengerW(string myid){
         int found=-1,count=0;
         for(auto i:reservedSeats){
             if(myid==i.second){
@@ -109,11 +105,8 @@ class Wagon{
             }
             count++;
         }
-        if(found<0){
-            cout <<"That passenger didn't have a seat" <<endl;
-        }else{
+        if(found>=0){
             reservedSeats.erase(reservedSeats.begin()+found);
-            cout <<"The passenger " <<myid <<" has been removed" <<endl;
         }
     }
     //solo para consultar, si editas el vetor devuelto el original no cambia
@@ -190,6 +183,19 @@ public:
             }
         }
     }
+    void removePassengerT(string myid){
+        bool found=0;
+        for(int w=0;w<wagonsvect.size();w++){
+            if(wagonsvect[w].getSeat(myid)!=-1){
+                wagonsvect[w].removePassengerW(myid);
+                found=1;
+                break;
+            }
+        }
+        if(found==0){
+            cout <<"passenger not found" <<endl;
+        }
+    }
     pair <int,int> findPassenger(string myid){
         pair <int,int> found;   //wagon-seat
         found.first=-1;
@@ -203,6 +209,7 @@ public:
         }
         return found;
     }
+    
     //solo consulta (igual que el de Wagon)
     vector <Wagon> getWagons(){return wagonsvect;}
 };
@@ -257,6 +264,13 @@ public:
         Trip newTrip(dia,t,w,s);
         travels.push_back(newTrip);
     }
+    void removeTrip(Date dia,int t,int w,int s){
+        for(int i=0;i<travels.size();i++){
+            if(travels[i].getTripDate()==dia && travels[i].getTrain()==t && travels[i].getWagon()==w && travels[i].getSeat()==s){
+                travels.erase(travels.begin()+i);
+            } 
+        }
+    }
 };
 
 //para poder buscar objetos dado un "atributo"
@@ -272,31 +286,29 @@ int mainMenu(){
     return (output=="1"? 1:output=="2"? 2:output=="3"? 3:output=="4"? 4:output=="5"? 5:output=="6"? 6:output=="7"? 7:0);
 }
 
-void addNewPassengerTrip(Date dia,string station1,string station2,string id){
+void addNewPassengerTrip(Date dia,string station1,string station2,string myid){
     //comprobar si el pasajero existe
     int position=-1;
     for(int i=0;i<gentezuela.size();i++){
-        if(gentezuela[i].getID()==id){
+        if(gentezuela[i].getID()==myid){
             position=i;
             break;
         }
     }
     if(position==-1){
         Passenger unregistered;
-        unregistered.setID(id);
+        unregistered.setID(myid);
         gentezuela.push_back(unregistered);
         position=gentezuela.size()-1;
     }
     //comprobar trenes que coindcidan en fecha e itinerario
     bool found=0;
-    pair <int,int> aux;
     for(int t=0;t<trenes.size();t++){
         if(trenes[t].getDate()==dia && trenes[t].getOrigin()==station1 && trenes[t].getDestination()==station2){
             //este tren coincide
-            aux=trenes[t].findPassenger(id);
-            if (aux.first!=-1 && aux.second!=-1){
+            if (trenes[t].findPassenger(myid).first!=-1 && trenes[t].findPassenger(myid).second!=-1){
                 found=1;
-                cout <<"Passenger already registered in train " <<t <<", wagon " <<aux.first <<", seat " <<aux.second <<endl;
+                cout <<"Passenger " <<myid <<" already registered in train " <<t <<", wagon " <<trenes[t].findPassenger(myid).first <<", seat " <<trenes[t].findPassenger(myid).second <<endl;
                 break;
             }
         }
@@ -309,10 +321,10 @@ void addNewPassengerTrip(Date dia,string station1,string station2,string id){
         for(int t=0;t<trenes.size();t++){
             if(trenes[t].getDate()==dia && trenes[t].getOrigin()==station1 && trenes[t].getDestination()==station2){
                 //este tren coincide
-                trenes[t].addPassengerT(id);
-                auto w=trenes[t].findPassenger(id);
+                trenes[t].addPassengerT(myid);
+                auto w=trenes[t].findPassenger(myid);
                 if(w.first!=-1 && w.second!=-1){
-                    cout <<"Passenger added to train " <<t <<", wagon " <<w.first <<", seat " <<w.second <<endl;
+                    cout <<"Passenger " <<myid <<" added to train " <<t <<", wagon " <<w.first <<", seat " <<w.second <<endl;
                     //También hay que añadirle el viaje al pasajero
                     gentezuela[position].addTrip(dia,t,w.first,w.second);
                     added=1;
@@ -323,6 +335,36 @@ void addNewPassengerTrip(Date dia,string station1,string station2,string id){
         if(added==0){
             cout <<"All trains " <<station1 <<"-" <<station2 <<" are full" <<endl;
         }
+    }
+}
+
+void removePassengerTrip(Date dia,string station1,string station2,string myid){
+    //comprobar si el pasajero existe
+    int position=-1;
+    bool found=0;
+    for(int i=0;i<gentezuela.size();i++){
+        if(gentezuela[i].getID()==myid){
+            position=i;
+            break;
+        }
+    }
+    if(position!=-1){
+        for(int t=0;t<trenes.size();t++){
+            if(trenes[t].getDate()==dia && trenes[t].getOrigin()==station1 && trenes[t].getDestination()==station2){
+                //tren coincide con la ruta
+                if(trenes[t].findPassenger(myid).first!=-1 && trenes[t].findPassenger(myid).second!=-1){
+                    cout <<"Passenger " <<myid <<" removed from train " <<t <<", wagon " <<trenes[t].findPassenger(myid).first <<", seat " <<trenes[t].findPassenger(myid).second <<endl;
+                    trenes[t].removePassengerT(myid);
+                    gentezuela[position].removeTrip(dia,t,trenes[t].findPassenger(myid).first,trenes[t].findPassenger(myid).second);
+                    found=1;
+                    break;
+                }
+            }
+        }
+    }
+    
+    if(found==0 || position==-1){
+        cout <<"Not found" <<endl;
     }
 }
 
@@ -339,6 +381,10 @@ int main(){
             break;
         }
     }*/
+
+
+    //TESTEO
+
     Date dia;
     string estacion1="leganes",estacion2="madrid",ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
     Train trenPrueba(estacion1,estacion2,5,dia);
@@ -348,9 +394,11 @@ int main(){
     for(int i=0;i<11;i++){
         addNewPassengerTrip(dia,estacion1,estacion2,ID[i]);
     }
+    removePassengerTrip(dia,estacion1,estacion2,"III");
+    removePassengerTrip(dia,"king's cross",estacion2,"AAA");
+    
     cout <<endl <<"----- Tren 0 -----" <<endl;
     cout <<" ·vagon 0 tiene " <<trenes[0].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" ·vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
     cout <<"----- Tren 1 -----" <<endl;
     cout <<" ·vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" ·vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
-    
 }

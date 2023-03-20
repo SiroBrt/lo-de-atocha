@@ -1,4 +1,3 @@
-crear constructors de clases
 añadir funciones
-arreglar Trip
-arreglar addPassenger de Wagon
+pensar el formato de los archivos de lectura y escritura (a ser posible igual para los dos)
+ya si eso haremos depuración
