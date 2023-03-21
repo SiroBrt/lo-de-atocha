@@ -241,6 +241,7 @@ public:
     int getage(){return age;}
     float getbaggage(){return baggage;}
     char getgender(){return gender;}
+    vector <Trip> getTripVector(){return travels;}
     
     void setID(string myid){ID = myid;}
     void setName(string myname){name = myname;}
@@ -365,6 +366,23 @@ void removePassengerTrip(Date dia,string station1,string station2,string myid){
     
     if(found==0 || position==-1){
         cout <<"Not found" <<endl;
+    }
+}
+
+void showTripsOfPassenger(string myid){
+    bool found=0;
+    for(auto p:gentezuela){
+        if(p.getID()==myid){
+            found=1;
+            auto aux=p.getTripVector();
+            cout <<"The passenger has " <<aux.size() <<" trips:" <<endl;
+            for(int i=0; i<aux.size();i++){
+                cout <<aux[i].getTripDate().getDay() <<"/" <<aux[i].getTripDate().getMonth() <<"/" <<aux[i].getTripDate().getYear() <<"  " <<trenes[aux[i].getTrain()].getOrigin() <<"-" <<trenes[aux[i].getTrain()].getDestination() <<endl;
+            }
+        }
+    }
+    if(found==0){
+        cout <<"Passenger not found" <<endl;
     }
 }
 
