@@ -412,25 +412,63 @@ void showTripsOfPassenger(){
     }
 }
 
-
 int main(){
-    /*int selection;
+    int selection;
+    string origin,destination,myid;
+    Date d;
+    int num;            
     while(selection!=7){
         selection=mainMenu();
         switch (selection){
             case 0:
-            cout <<"Please, choose a valid option" <<endl;
-            break;
+                cout <<"Please, choose a valid option" <<endl;
+                break;
             case 7:
-            cout <<"Goodbye";
-            break;
+                cout <<"Goodbye";
+                break;
+            case 1:
+                cout <<"Introduce your ID: ";
+                cin >>myid;
+                cout <<"Introduce the origin: ";
+                cin >>origin;
+                cout <<"Introduce the destination: ";
+                cin >>destination;
+                cout <<"Introduce the day: ";
+                cin >>num;
+                d.setDay(num);
+                cout <<"Introduce the month: ";
+                cin >>num;
+                d.setMonth(num);
+                cout <<"Introduce the year: ";
+                cin >>num;
+                d.setYear(num);
+                addNewPassengerTrip(d,origin,destination,myid);
+                break;
+            case 2:
+                cout <<"Introduce your ID: ";
+                cin >>myid;
+                cout <<"Introduce the origin: ";
+                cin >>origin;
+                cout <<"Introduce the destination: ";
+                cin >>destination;
+                cout <<"Introduce the day: ";
+                cin >>num;
+                d.setDay(num);
+                cout <<"Introduce the month: ";
+                cin >>num;
+                d.setMonth(num);
+                cout <<"Introduce the year: ";
+                cin >>num;
+                d.setYear(num);
+                removePassengerTrip(d,origin,destination,myid);
+                break;
         }
-    }*/
+    }
 
 
     //TESTEO
 
-    Date dia;
+    /*Date dia;
     string estacion1 = "Leganes", estacion2 = "Madrid", ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
     Train trenPrueba(estacion1, estacion2 , 5 , dia);
     trenes.push_back(trenPrueba);
@@ -441,9 +479,9 @@ int main(){
     }
     removePassengerTrip(dia,estacion1,estacion2,"III");
     
-    /*cout << endl <<"----- Tren 0 -----" << endl;
+    cout << endl <<"----- Tren 0 -----" << endl;
     cout <<" Vagon 0 tiene " <<trenes[0].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
     cout <<"----- Tren 1 -----" <<endl;
-    cout <<" Vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;*/
-    showTripsOfPassenger();
+    cout <<" Vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
+    */
 }
