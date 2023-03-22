@@ -405,7 +405,7 @@ void showTripsOfPassenger(){
                 cout << "Train: " << tr.getTrain() << " Wagon: " << tr.getWagon()  << " Seat: " << tr.getSeat() << endl;
             }
         }else{
-            cout <<"passenger " <<idPass <<" has no trips" <<endl;
+            cout <<"The passenger " <<idPass <<" has no trips" <<endl;
         }
     }else{
         cout << "The passenger you introduced was not found!" << endl;
