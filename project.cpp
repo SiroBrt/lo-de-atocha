@@ -412,8 +412,25 @@ void showTripsOfPassenger(){
     }
 }
 
+void showListOfPassengers(int t){
+    if(trenes.size()<t){
+        cout <<"Train doesnt exist" <<endl;
+    }else{
+        for(int i=0;i<trenes[t].getWagons().size();i++){
+            cout <<"  ~~~ Vagón " <<i <<" ~~~" <<endl;
+            if(trenes[t].getWagons()[i].getSeatVector().size()==0){
+                cout <<"vacío" <<endl;
+            }else{
+                for(int j=0;j<trenes[t].getWagons()[i].getSeatVector().size();j++){
+                    cout <<trenes[t].getWagons()[i].getSeatVector()[j].second <<endl;
+                }
+            }
+        }
+    }
+}
+
 int main(){
-    int selection;
+    /*int selection;
     string origin,destination,myid;
     Date d;
     int num;            
@@ -464,11 +481,11 @@ int main(){
                 break;
         }
     }
-
+*/
 
     //TESTEO
 
-    /*Date dia;
+    Date dia;
     string estacion1 = "Leganes", estacion2 = "Madrid", ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
     Train trenPrueba(estacion1, estacion2 , 5 , dia);
     trenes.push_back(trenPrueba);
@@ -481,7 +498,8 @@ int main(){
     
     cout << endl <<"----- Tren 0 -----" << endl;
     cout <<" Vagon 0 tiene " <<trenes[0].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
+    showListOfPassengers(0);
     cout <<"----- Tren 1 -----" <<endl;
     cout <<" Vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
-    */
+    showListOfPassengers(1);
 }
