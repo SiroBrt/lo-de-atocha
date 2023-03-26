@@ -429,6 +429,40 @@ void showListOfPassengers(int t){
     }
 }
 
+//Porque necesitamos algo parecido a Trip pero incluyendo origen-destino
+struct pseudotrip{
+    Date tripDate;
+    int wagon,seat;
+    //cambiamos el numero de tren por las estaciones
+    string origin,destination;
+};
+
+list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
+    //nombre-vector(dia,origen,destino,vagon,sitio)
+    list <pair <string,vector <pseudotrip>>> output;
+    pair <string,vector <pseudotrip>> bigAux;
+    pseudotrip smolAux;
+    for(auto p:gentezuela){
+        //nombre
+        bigAux.first=p.getname();
+        for(auto t:p.getTrips()){
+            //el resto (menos origen y destino destino)
+            smolAux.tripDate=t.getTripDate();
+            smolAux.wagon=t.getWagon();
+            smolAux.seat=t.getSeat();
+            //origen y destino
+            smolAux.origin=trenes[t.getTrain()].getOrigin();
+            smolAux.destination=trenes[t.getTrain()].getDestination();
+            bigAux.second.push_back(smolAux);
+        }
+        output.push_back(bigAux);
+    }
+
+    //ordenar e imprimir
+
+    return output;
+}
+
 int main(){
     /*int selection;
     string origin,destination,myid;
