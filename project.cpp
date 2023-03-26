@@ -283,7 +283,7 @@ public:
 static vector <Train> trenes;
 static vector <Passenger> gentezuela;
 
-void readInitialDate(list<Train>initialLstOfTrains, map<int,Passenger>initialMapIDPass){
+void readInitialData(list<Train>initialLstOfTrains, map<int,Passenger>initialMapIDPass){
     
 
 }
