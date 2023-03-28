@@ -33,6 +33,22 @@ class Date{
             return 0;
         }
     }
+    bool operator <(Date input){
+        long long int a,b;
+        //y0000+m00+d=y/mm/dd
+        a=day+month*100+year*10000;
+        b=input.day+input.month*100+input.year*10000;
+        if(a<b){return 1;}
+        else{return 0;}
+    }
+    bool operator >(Date input){
+        long long int a,b;
+        a=day+month*100+year*10000;
+        b=input.day+input.month*100+input.year*10000;
+        if(a>b){return 1;}
+        else{return 0;}
+    }
+    
     void printDate(){
         cout << day << "/" << month << "/" << year << endl;
     }
