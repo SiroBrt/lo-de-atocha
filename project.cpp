@@ -7,8 +7,26 @@
 #include <vector>
 #include <map>
 #include <list>
+#include <cmath>
 using namespace std;
 
+bool validDate(int num1,int num2,int num3){
+    bool leapYear;
+        if(num1>0 && num2>0 && num2<=12 && num3>0){
+            leapYear=(num3%400==0?1:num3%100==0?0:num3%4==0?1:0);
+            if(num2==2 && ((leapYear==1 && num1>29) || (leapYear==0 && num1>28))){
+                return 0;
+            }else if((num2==1 || num2==3 || num2==5 || num2==7 || num2==8 || num2==10 || num2==12) && num1>31){
+                return 0;
+            }else if((num2==4 || num2==6 || num2==9 || num2==11) && num1>30){
+                return 0;
+            }else{
+                return 1;
+            }
+        }else{
+            return 0;
+        }
+}
 //cortesía de pruebas.cpp
 class Date{
     private:
@@ -16,13 +34,27 @@ class Date{
     public:
     Date(){day=month=year=1;}
     Date(int num1,int num2,int num3){
-        day=num1;
-        month=num2;
-        year=num3;
+        if(validDate(num1,num2,num3)==1){
+            day=num1;
+            month=num2;
+            year=num3;
+        }else{
+            cout <<"invalid date" <<endl;
+            day=month=year=1;
+        }
     }
-    void setDay(int num){day=num;}
-    void setMonth(int num){month=num;}
-    void setYear(int num){year=num;}
+    void setDay(int num){
+        if(validDate(num,month,year)){day=num;}
+        else{cout <<"invalid date" <<endl;}
+    }
+    void setMonth(int num){
+        if(validDate(day,num,year)){month=num;}
+        else{cout <<"invalid date" <<endl;}
+    }
+    void setYear(int num){
+        if(validDate(day,month,num)){year=num;}
+        else{cout <<"invalid date" <<endl;}
+    }
     int getDay(){return day;}
     int getMonth(){return month;}
     int getYear(){return year;}
@@ -50,7 +82,9 @@ class Date{
     }
     
     void printDate(){
-        cout << day << "/" << month << "/" << year << endl;
+        cout <<(day<10?"0":"") << day << ":" <<(month<10?"0":"") << month << ":";
+        for(int i=1;i<4-floor(log10(year));i++){cout <<"0";}    //añadimos ceros al año
+        cout << year << endl;
     }
 };
 
@@ -484,7 +518,7 @@ list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
         cout <<p.first <<":" <<endl;
         for(auto viajes:p.second){
             printedSomething=1;
-            cout <<"    " <<viajes.origin <<"-" <<viajes.destination <<" Date:";
+            cout <<"    " <<viajes.origin <<"-" <<viajes.destination <<" Date ";
             viajes.tripDate.printDate();
             cout <<"    Wagon " <<viajes.wagon <<" sitio " <<viajes.seat <<endl <<endl;
         }
@@ -551,7 +585,7 @@ int main(){
 
     //TESTEO
 
-    Date dia;
+    Date dia(1,1,10);
     string estacion1 = "Leganes", estacion2 = "Madrid", ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
     Train trenPrueba(estacion1, estacion2 , 5 , dia);
     trenes.push_back(trenPrueba);
