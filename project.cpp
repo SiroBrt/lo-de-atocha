@@ -429,6 +429,7 @@ void showListOfPassengers(int t){
     }
 }
 
+//TEMPORAL
 //Porque necesitamos algo parecido a Trip pero incluyendo origen-destino
 struct pseudotrip{
     Date tripDate;
