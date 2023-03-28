@@ -111,12 +111,38 @@ class Persona{
 int Persona::poblacion=0;
 
 int main(){
-    Persona yo,tu;
+    /*Persona yo,tu;
     Juego amongUs;
     //pruebas fechas
-    /*cout <<"yo=" <<yo.getID() <<" tu=" <<tu.getID() <<endl;
-    yo.printBirthday();*/
+    cout <<"yo=" <<yo.getID() <<" tu=" <<tu.getID() <<endl;
+    yo.printBirthday();
     yo.addGame(amongUs,"something");
     tu.addGame(amongUs,"another thing");
-    tu.showPassword(amongUs);
+    tu.showPassword(amongUs);*/
+    
+    //PREGUNTA: se puede ordenar una lista de pares con sort?
+    list <pair<int,string>> numeros;
+    pair <int,string> aux;
+    aux.first=1;
+    aux.second="unoB";
+    numeros.push_back(aux);
+    aux.first=2;
+    aux.second="dos";
+    numeros.push_back(aux);
+    aux.first=3;
+    aux.second="tres";
+    numeros.push_back(aux);
+    aux.first=1;
+    aux.second="unoA";
+    numeros.push_back(aux);
+    cout <<"pre-sort" <<endl;
+    for(auto i:numeros){
+        cout <<i.first <<" = " <<i.second <<endl;
+    }
+    numeros.sort();
+    cout <<"post-sort" <<endl;
+    for(auto i:numeros){
+        cout <<i.first <<" = " <<i.second <<endl;
+    }
+    //RESPUESTA: se ordena por el primer elemento del par, si son iguales pasa al segundo
 }

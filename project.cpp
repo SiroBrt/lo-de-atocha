@@ -456,10 +456,25 @@ list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
             bigAux.second.push_back(smolAux);
         }
         output.push_back(bigAux);
+        //limpiamos bigAux
+        bigAux.first="";
+        bigAux.second.clear();
     }
-
-    //ordenar e imprimir
-
+    //ordenar
+    bool printedSomething;
+    for(auto p:output){
+        printedSomething=0;
+        cout <<p.first <<":" <<endl;
+        for(auto viajes:p.second){
+            printedSomething=1;
+            cout <<"    " <<viajes.origin <<"-" <<viajes.destination <<" Date:";
+            viajes.tripDate.printDate();
+            cout <<"    Wagon " <<viajes.wagon <<" sitio " <<viajes.seat <<endl <<endl;
+        }
+        if(printedSomething==0){
+            cout <<"    no trips" <<endl;
+        }
+    }
     return output;
 }
 
@@ -527,6 +542,7 @@ int main(){
     trenes.push_back(trenPrueba);
     for(int i=0;i<11;i++){
         addNewPassengerTrip(dia,estacion1,estacion2,ID[i]);
+        gentezuela[i].setName(ID[i]);
     }
     removePassengerTrip(dia,estacion1,estacion2,"III");
     
@@ -536,4 +552,5 @@ int main(){
     cout <<"----- Tren 1 -----" <<endl;
     cout <<" Vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
     showListOfPassengers(1);
+    showOrderedListOfPassengers();
 }

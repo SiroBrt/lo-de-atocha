@@ -1,3 +1,4 @@
 añadir funciones
 pensar el formato de los archivos de lectura y escritura (a ser posible igual para los dos)
-ya si eso haremos depuración
+quitar pseudotrip
+arreglar formato de showOrderedListOfPassengers
