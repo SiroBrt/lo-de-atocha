@@ -120,29 +120,24 @@ int main(){
     tu.addGame(amongUs,"another thing");
     tu.showPassword(amongUs);*/
     
-    //PREGUNTA: se puede ordenar una lista de pares con sort?
-    list <pair<int,string>> numeros;
-    pair <int,string> aux;
-    aux.first=1;
-    aux.second="unoB";
-    numeros.push_back(aux);
-    aux.first=2;
-    aux.second="dos";
-    numeros.push_back(aux);
-    aux.first=3;
-    aux.second="tres";
-    numeros.push_back(aux);
-    aux.first=1;
-    aux.second="unoA";
-    numeros.push_back(aux);
-    cout <<"pre-sort" <<endl;
-    for(auto i:numeros){
-        cout <<i.first <<" = " <<i.second <<endl;
-    }
-    numeros.sort();
-    cout <<"post-sort" <<endl;
-    for(auto i:numeros){
-        cout <<i.first <<" = " <<i.second <<endl;
-    }
-    //RESPUESTA: se ordena por el primer elemento del par, si son iguales pasa al segundo
+    
+
+    //PRUEBAS DE COLOR
+
+    //todos los numeros que sirven
+    for(int i=1;i<50;i++){cout <<"\033[0;" <<to_string(i) <<"m" <<i <<" ";}
+    //reset
+    cout <<"\033[0m";
+    //mezclas
+    cout <<"\033[1;31m" <<"prueba" <<"\033[0m" <<endl;
+
+    /*NOTAS
+    -los colores no se mezclan
+    -el ultimo color sobreescribe el resto pero los formatos se suman (menos 4 y 21)
+    -los fondos cuentan como colores pero están encima en la jerarquía
+    -2 oscurece los colores
+    -8 es invisible en cualquier color y formato
+    -1K y 2K borran la linea anterior
+    -no usar \033[dm
+    */
 }
