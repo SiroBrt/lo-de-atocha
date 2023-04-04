@@ -10,6 +10,7 @@
 #include <cmath>
 using namespace std;
 
+//NO LEER
 bool validDate(int num1,int num2,int num3){
     bool leapYear;
         if(num1>0 && num2>0 && num2<=12 && num3>0){
@@ -70,15 +71,13 @@ class Date{
         //y0000+m00+d=y/mm/dd
         a=day+month*100+year*10000;
         b=input.day+input.month*100+input.year*10000;
-        if(a<b){return 1;}
-        else{return 0;}
+        return a<b;
     }
     bool operator >(Date input){
         long long int a,b;
         a=day+month*100+year*10000;
         b=input.day+input.month*100+input.year*10000;
-        if(a>b){return 1;}
-        else{return 0;}
+        return a>b;
     }
     
     void printDate(){
@@ -506,12 +505,22 @@ list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
             smolAux.destination=trenes[t.getTrain()].getDestination();
             bigAux.second.push_back(smolAux);
         }
-        output.push_back(bigAux);
+        auto it=output.begin();
+        int preInsertionSize=output.size();
+        while(it!=output.end()){
+            if((*it).first>bigAux.first){
+                output.insert(it,bigAux);
+                break;
+            }else{it++;}
+        }
+        //no se ha insertado porque el iterador no llega al final asi que se mete al final ´\(º_º)/`
+        if(preInsertionSize==output.size()){
+            output.push_back(bigAux);
+        }
         //limpiamos bigAux
         bigAux.first="";
         bigAux.second.clear();
     }
-    //ordenar
     bool printedSomething;
     for(auto p:output){
         printedSomething=0;
@@ -586,7 +595,7 @@ int main(){
     //TESTEO
 
     Date dia(1,1,10);
-    string estacion1 = "Leganes", estacion2 = "Madrid", ID[11]={"AAA","BBB","CCC","DDD","EEE","FFF","GGG","HHH","III","JJJ","KKK"};
+    string estacion1 = "Leganes", estacion2 = "Madrid", ID[11]={"FFF","GGG","HHH","III","AAA","BBB","CCC","DDD","EEE","JJJ","KKK"};
     Train trenPrueba(estacion1, estacion2 , 5 , dia);
     trenes.push_back(trenPrueba);
     //tren extra
