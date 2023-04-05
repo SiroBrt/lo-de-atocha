@@ -8,6 +8,7 @@
 #include <map>
 #include <list>
 #include <cmath>
+#include <fstream>
 using namespace std;
 
 //NO LEER
@@ -332,8 +333,20 @@ public:
 static vector <Train> trenes;
 static vector <Passenger> gentezuela;
 
-void readInitialData(list<Train>initialLstOfTrains, map<int,Passenger>initialMapIDPass){
-    
+void readInitialData(list<Train>&initialLstOfTrains, map<int,Passenger>&initialMapIDPass){
+    //haber si sale bien
+    ifstream trainfi;
+    trainfi.open("trenes.txt");
+    if (!trainfi){
+        cout << "\nFile not found!" << endl;
+        exit(1);
+    }
+    trainfi.ignore();
+    string str;
+    while (getline(trainfi, str)){
+        cout << str << endl;
+    }
+
 
 }
 
@@ -539,7 +552,12 @@ list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
 }
 
 int main(){
-    /*int selection;
+    cout << "Mis pruebecillas:" << endl;
+    list <Train> mytrains;
+    map <int, Passenger> mypasses;
+    readInitialData(mytrains, mypasses);
+    int selection;
+    cout << endl << "FIN VIR\n\n\n";
     string origin,destination,myid;
     Date d;
     int num;            
@@ -590,7 +608,7 @@ int main(){
                 break;
         }
     }
-*/
+
 
     //TESTEO
 
