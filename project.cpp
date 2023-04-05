@@ -333,7 +333,7 @@ public:
 static vector <Train> trenes;
 static vector <Passenger> gentezuela;
 
-void readInitialData(list<Train>&initialLstOfTrains, map<int,Passenger>&initialMapIDPass){
+void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &initialMapIDPass){
     //haber si sale bien
     ifstream trainfi;
     trainfi.open("trenes.txt");
@@ -341,10 +341,49 @@ void readInitialData(list<Train>&initialLstOfTrains, map<int,Passenger>&initialM
         cout << "\nFile not found!" << endl;
         exit(1);
     }
-    trainfi.ignore();
-    string str;
-    while (getline(trainfi, str)){
-        cout << str << endl;
+    string title;
+    getline(trainfi, title);
+    string input;
+    while (getline(trainfi, input)){
+        int pos = input.find(" | ");
+        int trainNumber = stoi(input.substr(0, pos));
+
+    // Extract the date
+    input = input.substr(pos + 3);
+    pos = input.find("-");
+    int year = stoi(input.substr(0, pos));
+    input = input.substr(pos + 1);
+    pos = input.find("-");
+    int month = stoi(input.substr(0, pos));
+    input = input.substr(pos + 1);
+    pos = input.find(" | ");
+    int day = stoi(input.substr(0, pos));
+
+    // Extract the origin and destination stations
+    input = input.substr(pos + 3);
+    pos = input.find(" | ");
+    string originStation = input.substr(0, pos);
+    input = input.substr(pos + 3);
+    pos = input.find(" | ");
+    string destStation = input.substr(0, pos);
+
+    // Extract the distance in kilometers and the number of wagons in the train
+    input = input.substr(pos + 3);
+    pos = input.find(" | ");
+    int distanceInKm = stoi(input.substr(0, pos));
+    input = input.substr(pos + 3);
+    pos = input.find(" | ");
+    int numWagons = stoi(input.substr(0, pos));
+
+    // Extract the number of seats per wagon
+    input = input.substr(pos + 3);
+    pos = input.find(" | ");
+    int numSeatsPerWagon = stoi(input.substr(0, pos));
+
+    cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<"km.\n";
+    cout << "The date of the trip is " << day << ":" << month << ":" << year;
+    cout << "\nThis train has " << numWagons << "wagons.\n";
+
     }
 
 
