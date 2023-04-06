@@ -9,6 +9,7 @@
 #include <list>
 #include <cmath>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 
 //NO LEER
@@ -348,42 +349,77 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
         int pos = input.find(" | ");
         int trainNumber = stoi(input.substr(0, pos));
 
-    // Extract the date
-    input = input.substr(pos + 3);
-    pos = input.find("-");
-    int year = stoi(input.substr(0, pos));
-    input = input.substr(pos + 1);
-    pos = input.find("-");
-    int month = stoi(input.substr(0, pos));
-    input = input.substr(pos + 1);
-    pos = input.find(" | ");
-    int day = stoi(input.substr(0, pos));
+        // Extract the date
+        input = input.substr(pos + 3);
+        pos = input.find("-");
+        int year = stoi(input.substr(0, pos));
+        input = input.substr(pos + 1);
+        pos = input.find("-");
+        int month = stoi(input.substr(0, pos));
+        input = input.substr(pos + 1);
+        pos = input.find(" | ");
+        int day = stoi(input.substr(0, pos));
 
-    // Extract the origin and destination stations
-    input = input.substr(pos + 3);
-    pos = input.find(" | ");
-    string originStation = input.substr(0, pos);
-    input = input.substr(pos + 3);
-    pos = input.find(" | ");
-    string destStation = input.substr(0, pos);
+        // Extract the origin and destination stations
+        input = input.substr(pos + 3);
+        pos = input.find(" | ");
+        string originStation = input.substr(0, pos);
+        input = input.substr(pos + 3);
+        pos = input.find(" | ");
+        string destStation = input.substr(0, pos);
 
-    // Extract the distance in kilometers and the number of wagons in the train
-    input = input.substr(pos + 3);
-    pos = input.find(" | ");
-    int distanceInKm = stoi(input.substr(0, pos));
-    input = input.substr(pos + 3);
-    pos = input.find(" | ");
-    int numWagons = stoi(input.substr(0, pos));
+        // Extract the distance in kilometers and the number of wagons in the train
+        input = input.substr(pos + 3);
+        pos = input.find(" | ");
+        int distanceInKm = stoi(input.substr(0, pos));
+        input = input.substr(pos + 3);
+        pos = input.find(" | ");
+        int numWagons = stoi(input.substr(0, pos));
 
-    // Extract the number of seats per wagon
-    input = input.substr(pos + 3);
-    pos = input.find(" | ");
-    int numSeatsPerWagon = stoi(input.substr(0, pos));
+        // Extract the number of seats per wagon
+        vector <int> seatsperwagon;
+        input = input.substr(pos + 3);
+        cout << "My input: " << input;
+        cout << "\nNumber of seats per wagon: \n";
+        for (int i=1; i<numWagons; i++){
+            int pos2 = input.find(", ");
+            int seatsinwagon = stoi(input.substr(0, pos2));
+            seatsperwagon.push_back(seatsinwagon);
+            input = input.substr(pos2 + 2);            
+        }
+        pos = input.find(" | ");
+        int seatsinlastwagon = stoi(input.substr(0, pos));
+        seatsperwagon.push_back(seatsinlastwagon);
+        input = input.substr(pos + 3);
 
-    cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<"km.\n";
-    cout << "The date of the trip is " << day << ":" << month << ":" << year;
-    cout << "\nThis train has " << numWagons << "wagons.\n";
+        // Extract the IDs of the passengers in each wagon
+        vector <vector <int>> idsintrain;
+        for (int k=1; k<numWagons; k++){
+            vector <int> idsinwagon;
+            pos = input.find(" - ");
+            string id_substr = input.substr(0, pos);
+            cout << "\nIds in the wagon: " << id_substr;
+            int occupiedseats = count(id_substr.begin(), id_substr.end(), ",")+1;
+            for (int j=1; j<occupiedseats; j++){
+                int pos2 = id_substr.find(", ");
+                int id = stoi(id_substr.substr(0, pos2));
+                cout << "ID: " << id << endl;
+                idsinwagon.push_back(id);
+                id_substr = id_substr.substr(pos2+2);            
+            }
+            int lastid = stoi(id_substr.substr(0, pos));
+            idsintrain.push_back(idsinwagon);
+            input = input.substr(pos+3);
+        }
 
+        cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
+        cout << "The date of the trip is " << day << ":" << month << ":" << year;
+        cout << "\nThis train has " << numWagons << " wagons.\n";
+        int count = 1;
+        for (auto p:seatsperwagon){
+            cout << "Wagon " << count << " has " << p << " wagons\n";
+            count++;
+        }
     }
 
 
