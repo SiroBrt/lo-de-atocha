@@ -389,8 +389,6 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
         // Extract the number of seats per wagon
         vector <int> seatsperwagon;
         input = input.substr(pos + 3);
-        cout << "My input: " << input;
-        cout << "\nNumber of seats per wagon: \n";
         for (int i=1; i<numWagons; i++){
             int pos2 = input.find(", ");
             int seatsinwagon = stoi(input.substr(0, pos2));
@@ -408,12 +406,10 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
             vector <int> idsinwagon;
             pos = input.find(" - ");
             string id_substr = input.substr(0, pos);
-            cout << "\nIds in the wagon: " << id_substr;
             int occupiedseats = counter(id_substr, ',')+1;
             for (int j=1; j<occupiedseats; j++){
                 int pos2 = id_substr.find(", ");
                 int id = stoi(id_substr.substr(0, pos2));
-                cout << "ID: " << id << endl;
                 idsinwagon.push_back(id);
                 id_substr = id_substr.substr(pos2+2);            
             }
@@ -430,6 +426,15 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
             cout << "Wagon " << count << " has " << p << " wagons\n";
             count++;
         }
+        int c1 = 1, c2 = 1;
+        cout << "These are the IDs of the people in each train per wagon: \n";
+        for(auto wag:idsintrain){
+            cout << "Wagon " << c1 << ":\n";
+            for (int i = 0; i<=wag.size(); i++){
+                cout << wag[i] << endl;
+            }
+            c1++;
+        } 
     }
 
 
