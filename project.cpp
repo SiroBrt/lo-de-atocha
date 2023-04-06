@@ -9,9 +9,19 @@
 #include <list>
 #include <cmath>
 #include <fstream>
-#include <algorithm>
+
 using namespace std;
 
+
+int counter(string s, char x){
+    int count = 0;
+    for (int i=0; i<s.length(); i++){
+        if (s.at(i) == x){
+            count = count + 1;
+        }
+    }
+    return count;
+}
 //NO LEER
 bool validDate(int num1,int num2,int num3){
     bool leapYear;
@@ -399,7 +409,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
             pos = input.find(" - ");
             string id_substr = input.substr(0, pos);
             cout << "\nIds in the wagon: " << id_substr;
-            int occupiedseats = count(id_substr.begin(), id_substr.end(), ",")+1;
+            int occupiedseats = counter(id_substr, ',')+1;
             for (int j=1; j<occupiedseats; j++){
                 int pos2 = id_substr.find(", ");
                 int id = stoi(id_substr.substr(0, pos2));
