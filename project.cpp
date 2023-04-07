@@ -422,13 +422,13 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
             idsintrain.push_back(idsinwagon);
             input = input.substr(pos+3);
         }
-
+        // Prints the info so we know its working correctly
         cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
         cout << "The date of the trip is " << day << ":" << month << ":" << year;
         cout << "\nThis train has " << numWagons << " wagons.\n";
         int count = 1;
         for (auto p:seatsperwagon){
-            cout << "Wagon " << count << " has " << p << " wagons\n";
+            cout << "Wagon " << count << " has " << p << " seats\n";
             count++;
         }
         int c1 = 1, c2 = 1;
@@ -451,7 +451,7 @@ int mainMenu(){
     cout <<"---------- Choose an option ----------\n1. Add new passenger's trip to a train\n2. Remove a passenger's trip from a train\n3. Show trips of a passenger \n4. Show list of passengers in a specific train\n5. Show an alphabetically ordered list of passengers in all the trains\n6. Show passengers of cities\n7. End program \n";
     cin >>output;
     //pasar string a int sin stoi (solo queremos del 1 al 7) y si no se puede devuelve 0
-    return (output=="1"? 1:output=="2"? 2:output=="3"? 3:output=="4"? 4:output=="5"? 5:output=="6"? 6:output=="7"? 7:0);
+    return (output=="1"? 1 : output=="2"? 2 : output=="3"? 3 : output=="4"? 4 : output=="5"? 5 : output=="6" ? 6 :output=="7"? 7 : 0);
 }
 
 void addNewPassengerTrip(Date dia,string station1,string station2,string myid){
