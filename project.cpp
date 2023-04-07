@@ -402,18 +402,23 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
 
         // Extract the IDs of the passengers in each wagon
         vector <vector <int>> idsintrain;
-        for (int k=1; k<numWagons; k++){
+        idsintrain.clear();
+        int numofwagonswithpeople;
+        numofwagonswithpeople = counter(input, '-')+1;
+        for (int k=1; k<=numofwagonswithpeople; k++){
             vector <int> idsinwagon;
+            idsinwagon.clear();
             pos = input.find(" - ");
             string id_substr = input.substr(0, pos);
-            int occupiedseats = counter(id_substr, ',')+1;
-            for (int j=1; j<occupiedseats; j++){
+            int occupiedseats = counter(id_substr, ',');
+            for (int j=1; j<=occupiedseats; j++){
                 int pos2 = id_substr.find(", ");
                 int id = stoi(id_substr.substr(0, pos2));
                 idsinwagon.push_back(id);
                 id_substr = id_substr.substr(pos2+2);            
             }
-            int lastid = stoi(id_substr.substr(0, pos));
+            int lastid = stoi(id_substr);
+            idsinwagon.push_back(lastid);
             idsintrain.push_back(idsinwagon);
             input = input.substr(pos+3);
         }
@@ -430,7 +435,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <int,Passenger> &init
         cout << "These are the IDs of the people in each train per wagon: \n";
         for(auto wag:idsintrain){
             cout << "Wagon " << c1 << ":\n";
-            for (int i = 0; i<=wag.size(); i++){
+            for (int i = 0; i<wag.size(); i++){
                 cout << wag[i] << endl;
             }
             c1++;
