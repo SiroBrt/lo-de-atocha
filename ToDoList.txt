@@ -1,4 +1,5 @@
-añadir funciones
-pensar el formato de los archivos de lectura y escritura (a ser posible igual para los dos)
-quitar pseudotrip
-arreglar formato de showOrderedListOfPassengers
+arreglar funciones que iban con los vectores (1,2 y 3)
+añadir opciones 5 y 6
+hacer algo para nombres con espacios y "cin"
+hacer algo para id repetido y showTripsOfPassenger
+hacer que los pasajeros puedan tener varios viajes

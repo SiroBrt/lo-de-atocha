@@ -185,33 +185,33 @@ class Wagon{
 class Trip{
     private:
     Date tripDate;
-    int train, wagon, seat, prize, distance;
+    int train, wagon, seat, price, distance;
     public:
     Trip(){
         train = wagon = seat = 0;
         tripDate = Date(1,1,1);
-        prize = 0;
+        price = 0;
     }
 
-    Trip(Date dateoftrip, int numtrain, int numwagon, int numseat, int tripprize){
+    Trip(Date dateoftrip, int numtrain, int numwagon, int numseat, int tripprice){
         tripDate = dateoftrip;
         train = numtrain;
         wagon = numwagon;
         seat = numseat;
-        prize = tripprize;
+        price = tripprice;
     }
 
     Date getTripDate(){return tripDate;}
     int getTrain(){return train;}
     int getWagon(){return wagon;}
     int getSeat(){return seat;}
-    int getPrize(){return prize;}
+    int getprice(){return price;}
     
     void setDate(Date dateoftrip){tripDate = dateoftrip;}
     void setTrain(int num){train = num;}
     void setWagon(int num){wagon = num;}
     void setSeat(int num){seat = num;}
-    void setPrize(int myprize){prize = myprize;}
+    void setprice(int myprice){price = myprice;}
     void setDistance(int tripdistanceinkm){distance = tripdistanceinkm;}    
 };
 
@@ -295,6 +295,10 @@ Train getTrainfromNum(list <Train> mytrenecitos, int n){
             return t;
         }
     }
+    //si ha hecho return no llega hasta aqui, solo para evitar posibles errores
+    Train problemas;
+    cout <<"train not found" <<endl;
+    return problemas;
 }
 
 class Passenger{
@@ -361,7 +365,7 @@ public:
 
 
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
-    //haber si sale bien
+    //a ver si sale bien
     ifstream trainfi;
     trainfi.open("trenes.txt");
     if (!trainfi){
@@ -494,7 +498,7 @@ int mainMenu(){
 void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     string origin,destination,myid;
     Date dia;
-    int num, prizeofthetrip;
+    int num, priceofthetrip;
     cout <<"Introduce your ID: ";
     cin >> myid;
     cout <<"Introduce the origin: ";
@@ -510,8 +514,8 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     cout <<"Introduce the year: ";
     cin >>num;
     dia.setYear(num);
-    cout<<"Introduce the prize of the trip: ";
-    cin >> prizeofthetrip;
+    cout<<"Introduce the price of the trip: ";
+    cin >> priceofthetrip;
 
     //comprobar si el pasajero existe
     string foundID = "0";
@@ -555,7 +559,7 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
                 if(w.first != -1 && w.second != -1){
                     cout <<"Passenger " << myid <<" added to train " << (*train_it).getTrainNum() <<", wagon " << w.first <<", seat " << w.second << endl;
                     //También hay que añadirle el viaje al pasajero
-                    passes[myid].addTrip(dia,(*train_it).getTrainNum(),w.first,w.second, prizeofthetrip);
+                    passes[myid].addTrip(dia,(*train_it).getTrainNum(),w.first,w.second, priceofthetrip);
                     added=1;
                     break;
                 }
@@ -627,6 +631,7 @@ void showTripsOfPassenger(map <string, Passenger> &passes){
     bool foundID = 0;
     for (auto it = passes.begin(); it != passes.end(); ++it){
         if((*it).first == idPass){
+            cout <<(*it).second.getname();
             travelsPass = (*it).second.getTrips();
             foundID = 1;
             break;
@@ -673,17 +678,8 @@ void showListOfPassengers(list <Train> &trenes, map <string, Passenger> &passes)
     }
 }
 
-//TEMPORAL
-//Porque necesitamos algo parecido a Trip pero incluyendo origen-destino
-struct pseudotrip{
-    Date tripDate;
-    int wagon,seat;
-    //cambiamos el numero de tren por las estaciones
-    string origin,destination;
-};
-
 //Esto hay que cambiarlo
-list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
+/*list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
     //nombre-vector(dia,origen,destino,vagon,sitio)
     list <pair <string,vector <pseudotrip>>> output;
     pair <string,vector <pseudotrip>> bigAux;
@@ -732,7 +728,7 @@ list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
         }
     }
     return output;
-}
+}*/
 
 int main(){
     cout << "Mis pruebecillas:" << endl;
