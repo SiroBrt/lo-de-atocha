@@ -363,12 +363,14 @@ public:
 };
 
 Train gettrainfromnum(int t, list <Train> &trenes){
+    Train mytrain{};
     for (auto tr:trenes){
         if (tr.getTrainNum()==t){
-            return tr;
+            mytrain = tr;
             break;
         }
     }
+    return mytrain;
 }
 
 
@@ -497,9 +499,8 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
     passengersfi.open("passengers.txt");
     if (!passengersfi){
         cout << "\nFile not found!" << endl;
-        exit(1);
     }
-    string title;
+    string title2;
     getline(passengersfi, title);
     string input2;
     while (getline(trainfi, input2)){
@@ -591,7 +592,7 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     //comprobar si el pasajero existe
     string foundID = "0";
     for (auto it = passes.begin(); it != passes.end(); ++it){
-        if((*it).second.getID()==myid){
+        if((*it).first==myid){
             foundID = (*it).first;
             break;
         }
