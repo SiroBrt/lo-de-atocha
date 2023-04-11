@@ -362,6 +362,14 @@ public:
     }
 };
 
+Train gettrainfromnum(int t, list <Train> &trenes){
+    for (auto tr:trenes){
+        if (tr.getTrainNum()==t){
+            return tr;
+            break;
+        }
+    }
+}
 
 
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
@@ -484,7 +492,70 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
         Train mytrain{traincounter, originStation, destStation, (float)distanceInKm, mydate, myWagons}; 
         initialLstOfTrains.push_back(mytrain);
     }
+    trainfi.close();
+    ifstream passengersfi;
+    passengersfi.open("passengers.txt");
+    if (!passengersfi){
+        cout << "\nFile not found!" << endl;
+        exit(1);
+    }
+    string title;
+    getline(passengersfi, title);
+    string input2;
+    while (getline(trainfi, input2)){
+        // Extract the ID of the passenger
+        int pos = input2.find(" | ");
+        string id = input2.substr(0, pos);
+        input2 = input2.substr(pos + 3);
+        // Extract the name of the passenger
+        pos = input2.find(" | ");
+        string pname = input2.substr(0, pos);
+        input2 = input2.substr(pos + 3);
+        // Extract the address of the passenger
+        pos = input2.find(" | ");
+        string paddress = input2.substr(0, pos);
+        input2 = input2.substr(pos + 3);
+        // Extract the age of the passenger
+        pos = input2.find(" | ");
+        int page = stoi(input2.substr(0, pos));
+        input2 = input2.substr(pos + 3);
+        // Extract the gender of the passenger
+        pos = input2.find(" | ");
+        char pgender = input2.substr(0, pos)[0];
+        input2 = input2.substr(pos + 3);
+        // Extract the baggage weight of the passenger
+        pos = input2.find(" | ");
+        float pbag = (float) stoi(input2.substr(0, pos));
+        input2 = input2.substr(pos + 3);
+        // Extract the number of the train in which the passenger is
+        pos = input2.find(" | ");
+        int trainnum = stoi(input2.substr(0, pos));
+        input2 = input2.substr(pos + 3);
+        // Extract the price of the trip
+        pos = input2.find(" | ");
+        int tripprice = stoi(input2.substr(0, pos));
+        
+        bool passfound = 0;
+        for (auto p:initialMapIDPass){
+            if (p.first==id){
+                passfound = 1;
+                break;
+            }
+        }
+        Passenger mypas{id, pname, paddress, page, pbag, pgender};
+        Train mytrain = getTrainfromNum(initialLstOfTrains, trainnum);
+        // We need two different options
+        if (!passfound){
+            mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+            initialMapIDPass[id] = mypas;
+        }else{
+            mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+        }
+
+    }
 }
+
+
 
 int mainMenu(){
     //usamos string para aceptar cualquier input
