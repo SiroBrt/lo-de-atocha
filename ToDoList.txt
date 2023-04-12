@@ -1,5 +1,2 @@
-arreglar funciones que iban con los vectores (1,2 y 3)
 añadir opciones 5 y 6
-hacer algo para nombres con espacios y "cin"
-hacer algo para id repetido y showTripsOfPassenger
-hacer que los pasajeros puedan tener varios viajes
+quitar redundancia en los archivos de lectura

@@ -11,7 +11,7 @@
 #include <fstream>
 
 using namespace std;
-
+string red="\033[1;31m";
 
 int counter(string s, char x){
     int count = 0;
@@ -240,6 +240,7 @@ public:
         dateoftrip = tripdate;
         wagonsvect = vectorofwagons;
     }
+    void setTrainNum(int input){trainnum=input;}
     void setOrigin(string originst){origin = originst;}
     void setDest(string destst){destination = destst;}
     void setDist(float mydist){distance = mydist;}
@@ -297,6 +298,7 @@ Train getTrainfromNum(list <Train> mytrenecitos, int n){
     }
     //si ha hecho return no llega hasta aqui, solo para evitar posibles errores
     Train problemas;
+    problemas.setTrainNum(-1);
     cout <<"train not found" <<endl;
     return problemas;
 }
@@ -372,7 +374,6 @@ Train gettrainfromnum(int t, list <Train> &trenes){
     }
     return mytrain;
 }
-
 
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
     //a ver si sale bien
@@ -463,7 +464,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
             cout << "Wagon " << count << " has " << p << " seats\n";
             count++;
         }
-        int c1 = 1, c2 = 1;
+        int c1 = 1;
         cout << "These are the IDs of the people in each train per wagon: \n";
         for(auto idsinwag:idsintrain){
             cout << "Wagon " << c1 << ":\n";
@@ -499,11 +500,12 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
     passengersfi.open("passengers.txt");
     if (!passengersfi){
         cout << "\nFile not found!" << endl;
+        exit(1);
     }
     string title2;
     getline(passengersfi, title);
     string input2;
-    while (getline(trainfi, input2)){
+    while (getline(passengersfi, input2)){
         // Extract the ID of the passenger
         int pos = input2.find(" | ");
         string id = input2.substr(0, pos);
@@ -543,16 +545,21 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                 break;
             }
         }
-        Passenger mypas{id, pname, paddress, page, pbag, pgender};
+        Passenger mypas(id, pname, paddress, page, pbag, pgender);
         Train mytrain = getTrainfromNum(initialLstOfTrains, trainnum);
-        // We need two different options
-        if (!passfound){
-            mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
-            initialMapIDPass[id] = mypas;
+        if(mytrain.getTrainNum()==-1){
+            cout <<"There has been an error with passenger " <<id <<endl;
         }else{
-            mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+            // We need two different options
+            if (!passfound){
+                cout <<"First trip of passenger " <<id <<endl;
+                mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+                initialMapIDPass[id] = mypas;
+            }else{
+                cout <<"added" <<endl;
+                initialMapIDPass[id].addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+            }
         }
-
     }
 }
 
@@ -601,7 +608,7 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
         Passenger unregistered;
         unregistered.setID(myid);
         passes[myid] = unregistered;
-        cout << "Passenger was not found in the data base";
+        cout <<"\033[1;31m" << "Passenger not found in the data base" <<"\033[0m" ;
     }
     //comprobar trenes que coincidan en fecha e itinerario
     bool personfound=0;
@@ -609,7 +616,6 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
         if((*train_it).getDate()==dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
             //este tren coincide
-            cout << "There is a train that fits this description";
             trainfound = 1;
             if ((*train_it).findPassenger(myid).first != -1 && (*train_it).findPassenger(myid).second != -1){
                 personfound = 1;
@@ -640,10 +646,10 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
         if(added==0){
             cout <<"The train from " << origin << "" << destination <<" is already full" <<endl;
         }else if (added==1){
-            cout << "Trip added succesfully!" << endl;
+            cout << "Trip added succesfully" << endl;
         }
     }else if(trainfound==0){
-        cout << "\nThere are no trains fitting this description";
+        cout <<"\033[1;31m" <<"Train not found" <<"\033[0m" <<endl;
     }
 }
 
@@ -689,8 +695,11 @@ void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
                 }
             }
         }
+        if(foundtrip==0){
+            cout <<"\033[1;31m" <<"Trip not found" <<"\033[0m" <<endl;
+        }
     }else{
-        cout <<"\nThe trip you are trying to remove could not be found!" <<endl;
+        cout <<"\033[1;31m" <<"Passenger not found" <<"\033[0m" <<endl;
     }
 }
 
@@ -718,21 +727,22 @@ void showTripsOfPassenger(map <string, Passenger> &passes){
                 cout << "Date: ";
                 tr.getTripDate().printDate();
                 cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << endl;
+                count++;
             }
         }else{
             cout <<"The passenger " <<idPass <<" has no trips" <<endl;
         }
     }else{
-        cout << "\nThe passenger you introduced was not found!" << endl;
+        cout <<"\033[1;31m" <<"Passenger not found" <<"\033[0m" << endl;
     }
 }
 
 void showListOfPassengers(list <Train> &trenes, map <string, Passenger> &passes){
     int t;
-    cout << "\nIntroduce the number of the train: ";
+    cout << "Introduce the number of the train: ";
     cin >> t;
     if(trenes.size()<t){
-        cout <<"\nThis train does not exist!" <<endl;
+        cout <<"\033[1;31m" <<"This train does not exist" <<"\033[0m" <<endl;
     }else{
         Train mytrain = getTrainfromNum(trenes, t);
         for(int i=0;i<mytrain.getWagons().size();i++){

@@ -124,12 +124,11 @@ int main(){
 
     //PRUEBAS DE COLOR
 
+    string reset="\033[0m";
     //todos los numeros que sirven
-    for(int i=1;i<50;i++){cout <<"\033[0;" <<to_string(i) <<"m" <<i <<" ";}
-    //reset
-    cout <<"\033[0m";
+    for(int i=1;i<1000;i++){cout <<"\x1B[0;" <<to_string(i) <<"m" <<i <<" ";}
     //mezclas
-    cout <<"\033[1;31m" <<"prueba" <<"\033[0m" <<endl;
+    cout <<"\033[1;31m" <<"prueba" <<reset <<endl;
 
     /*NOTAS
     -los colores no se mezclan
