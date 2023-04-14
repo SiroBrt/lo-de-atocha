@@ -1,3 +1,3 @@
-quitar redundancia en los archivos de lectura (hay un error con passenger 178 y trenes)
+quitar redundancia en los archivos de lectura (hay un error con passenger 178 y trenes, por ejemplo)
 en f6 añadir algo para no contar al mismo pasajero dos veces en la misma ciudad pero contando pasajeros distintos con mismo nombre
 en f4 cambiar la forma de comprobar si un tren existe (los numeros pueden ser no correlativos)
