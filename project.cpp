@@ -178,7 +178,7 @@ class Wagon{
             reservedSeats.erase(reservedSeats.begin()+found);
         }
     }
-    //solo para consultar, si editas el vetor devuelto el original no cambia
+    //solo para consultar, si editas el vector devuelto el original no cambia
     vector <pair <int,string>> getSeatVector(){return reservedSeats;}
 };
 
@@ -703,7 +703,7 @@ void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     }
 }
 
-void showTripsOfPassenger(map <string, Passenger> &passes){
+void showTripsOfPassenger(map <string, Passenger> passes){
     string idPass;
     cout << "Introduce the ID of the passenger: ";
     cin >> idPass;
@@ -737,12 +737,12 @@ void showTripsOfPassenger(map <string, Passenger> &passes){
     }
 }
 
-void showListOfPassengers(list <Train> &trenes, map <string, Passenger> &passes){
+void showListOfPassengers(list <Train> trenes, map <string, Passenger> passes){
     int t;
     cout << "Introduce the number of the train: ";
     cin >> t;
     if(trenes.size()<t){
-        cout <<"\033[1;31m" <<"This train does not exist" <<"\033[0m" <<endl;
+        cout <<red <<"This train does not exist" <<"\033[0m" <<endl;
     }else{
         Train mytrain = getTrainfromNum(trenes, t);
         for(int i=0;i<mytrain.getWagons().size();i++){
@@ -760,67 +760,60 @@ void showListOfPassengers(list <Train> &trenes, map <string, Passenger> &passes)
     }
 }
 
-//Esto hay que cambiarlo
-/*list <pair <string,vector <pseudotrip>>> showOrderedListOfPassengers(){
-    //nombre-vector(dia,origen,destino,vagon,sitio)
-    list <pair <string,vector <pseudotrip>>> output;
-    pair <string,vector <pseudotrip>> bigAux;
-    pseudotrip smolAux;
-    for(auto p:gentezuela){
-        //nombre
-        bigAux.first=p.getname();
-        for(auto t:p.getTrips()){
-            //el resto (menos origen y destino destino)
-            smolAux.tripDate=t.getTripDate();
-            smolAux.wagon=t.getWagon();
-            smolAux.seat=t.getSeat();
-            //origen y destino
-            smolAux.origin=trenes[t.getTrain()].getOrigin();
-            smolAux.destination=trenes[t.getTrain()].getDestination();
-            bigAux.second.push_back(smolAux);
-        }
+list <Passenger> showOrderedListOfPassengers(map <string,Passenger> input){
+    list <Passenger> output;
+    for(auto inserting:input){
         auto it=output.begin();
         int preInsertionSize=output.size();
+        //Un poquito de insertion sort en su estado mas lamentable
+        //se puede optimizar partiendo la lista a la mitad, comparando y repitiendo
         while(it!=output.end()){
-            if((*it).first>bigAux.first){
-                output.insert(it,bigAux);
+            if((*it).getname()>inserting.second.getname()){
+                output.insert(it,inserting.second);
                 break;
             }else{it++;}
         }
-        //no se ha insertado porque el iterador no llega al final asi que se mete al final ´\(º_º)/`
         if(preInsertionSize==output.size()){
-            output.push_back(bigAux);
+            output.push_back(inserting.second);
         }
-        //limpiamos bigAux
-        bigAux.first="";
-        bigAux.second.clear();
     }
-    bool printedSomething;
-    for(auto p:output){
-        printedSomething=0;
-        cout <<p.first <<":" <<endl;
-        for(auto viajes:p.second){
-            printedSomething=1;
-            cout <<"    " <<viajes.origin <<"-" <<viajes.destination <<" Date ";
-            viajes.tripDate.printDate();
-            cout <<"    Wagon " <<viajes.wagon <<" sitio " <<viajes.seat <<endl <<endl;
+    if(output.size()==0){
+        cout <<"No passenger registered" <<endl;
+    }else{
+        for(auto p:output){
+            cout <<p.getID() <<" " <<p.getname() <<endl;
         }
-        if(printedSomething==0){
-            cout <<"    no trips" <<endl;
+    }
+    cout <<endl;
+    return output;
+}
+
+map <string,list<string>> showPassengersCities(list <Train> trenes, map <string, Passenger> passes){
+    map <string,list<string>> output;
+    for(auto t:trenes){
+        for(auto w:t.getWagons()){
+            for(auto p:w.getSeatVector()){
+                //primero añadimos pasajeros a la ciudad de donde salen
+                output[t.getOrigin()].push_back(passes[p.second].getname());
+                //y ahora a la que llegan
+                output[t.getDestination()].push_back(passes[p.second].getname());
+            }
+        }
+    }
+    for(auto i:output){
+        cout <<"\033[1m" <<i.first <<"\033[0m" <<endl;
+        for(auto p:i.second){
+            cout <<p <<endl;
         }
     }
     return output;
-}*/
+}
 
 int main(){
-    cout << "Mis pruebecillas:" << endl;
     list <Train> mytrains;
     map <string, Passenger> mypasses;
     readInitialData(mytrains, mypasses);
-    cout << endl << "FIN VIR\n\n\n";
     int selection;
-    
-    int num;            
     while(selection!=7){
         selection=mainMenu();
         switch (selection){
@@ -829,7 +822,7 @@ int main(){
                 break;
             case 7:
                 cout <<"Goodbye";
-                break;
+                exit;
             case 1:
                 addNewPassengerTrip(mytrains, mypasses);
                 break;
@@ -842,20 +835,12 @@ int main(){
             case 4:
                 showListOfPassengers(mytrains, mypasses);
                 break;
+            case 5:
+                showOrderedListOfPassengers(mypasses);
+                break;
+            case 6:
+                showPassengersCities(mytrains,mypasses);
+                break;
         }
     }
-
-
-    //TESTEO
-
-    Date dia(2,5,2023);
-    string estacion1 = "Madrid", estacion2 = "Lisbon", ID[11]={"92","119","216","69","34","BBB","CCC","DDD","EEE","JJJ","KKK"};
-    
-    //cout << endl <<"----- Tren 0 -----" << endl;
-    //cout <<" Vagon 0 tiene " <<trenes[0].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[0].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
-    //showListOfPassengers(0);
-    //cout <<"----- Tren 1 -----" <<endl;
-    //cout <<" Vagon 0 tiene " <<trenes[1].getWagons()[0].getSeatVector().size() <<" pasajeros" <<endl <<" Vagon 1 tiene " <<trenes[1].getWagons()[1].getSeatVector().size() <<" pasajeros" <<endl;
-    //showListOfPassengers(1);
-    //showOrderedListOfPassengers();
 }
