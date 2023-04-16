@@ -566,15 +566,21 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
 int mainMenu(){
     //usamos string para aceptar cualquier input
     string output;
-    cout <<"---------- Choose an option ----------\n"
-    <<"1. Add new passenger's trip to a train\n"
-    <<"2. Remove a passenger's trip from a train\n"
-    <<"3. Show trips of a passenger \n"
-    <<"4. Show list of passengers in a specific train\n"
-    <<"5. Show an alphabetically ordered list of passengers in all the trains\n"
-    <<"6. Show passengers of cities\n"
-    <<"7. End program \n";
+    cout <<"\033[32m"
+    <<"+--------------------- Choose an option ---------------------+" <<endl
+    <<"|     1. Add new passenger's trip to a train                 |" <<endl
+    <<"|     2. Remove a passenger's trip from a train              |" <<endl
+    <<"|     3. Show trips of a passenger                           |" <<endl
+    <<"|     4. Show list of passengers in a specific train         |" <<endl
+    <<"|     5. Show an alphabetically ordered list of passengers   |" <<endl
+    <<"|        in all the trains                                   |" <<endl
+    <<"|     6. Show passengers of cities                           |" <<endl
+    <<"|     7. End program                                         |" <<endl
+    <<"|                              *                             |" <<endl
+    <<"+------------------------------------------------------------+\033[0m\033[A";
+    for(int i=0;i<31;i++){cout <<"\033[D";}
     cin >>output;
+    cout <<endl;
     //pasar string a int sin stoi (solo queremos del 1 al 7) y si no se puede devuelve 0
     return (output=="1"? 1 : output=="2"? 2 : output=="3"? 3 : output=="4"? 4 : output=="5"? 5 : output=="6" ? 6 :output=="7"? 7 : 0);
 }
@@ -840,11 +846,16 @@ int main(){
     map <string, Passenger> mypasses;
     readInitialData(mytrains, mypasses);
     int selection;
+    bool borrar=0;
     while(selection!=7){
         selection=mainMenu();
+        if(borrar){cout <<"\033[2K";borrar=0;}
         switch (selection){
             case 0: 
-                cout <<"Please, choose a valid option" <<endl;
+                cout <<"Please, choose a valid option";
+                for(int i=0;i<11;i++){cout <<"\033[A";}
+                for(int i=0;i<29;i++){cout <<"\033[D";}
+                borrar=1;
                 break;
             case 7:
                 cout <<"Goodbye";

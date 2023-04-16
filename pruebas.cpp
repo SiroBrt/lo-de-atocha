@@ -111,24 +111,35 @@ class Persona{
 int Persona::poblacion=0;
 
 int main(){
-    /*Persona yo,tu;
-    Juego amongUs;
-    //pruebas fechas
-    cout <<"yo=" <<yo.getID() <<" tu=" <<tu.getID() <<endl;
-    yo.printBirthday();
-    yo.addGame(amongUs,"something");
-    tu.addGame(amongUs,"another thing");
-    tu.showPassword(amongUs);*/
-    
-    
+    string output;
+    cout <<"\033[32m"
+    <<"+--------------------- Choose an option ---------------------+" <<endl
+    <<"|     1. Add new passenger's trip to a train                 |" <<endl
+    <<"|     2. Remove a passenger's trip from a train              |" <<endl
+    <<"|     3. Show trips of a passenger                           |" <<endl
+    <<"|     4. Show list of passengers in a specific train         |" <<endl
+    <<"|     5. Show an alphabetically ordered list of passengers   |" <<endl
+    <<"|        in all the trains                                   |" <<endl
+    <<"|     6. Show passengers of cities                           |" <<endl
+    <<"|     7. End program                                         |" <<endl
+    <<"|                              *                             |" <<endl
+    <<"+------------------------------------------------------------+\033[0m\033[A";
+    for(int i=0;i<31;i++){cout <<"\033[D";}
+    cin >>output;
+    cout <<endl;
+    cout <<"[2K";
+
+
+
 
     //PRUEBAS DE COLOR
 
-    string reset="\033[0m";
+    /*string reset="\033[0m";
     //todos los numeros que sirven
     for(int i=1;i<1000;i++){cout <<"\x1B[0;" <<to_string(i) <<"m" <<i <<" ";}
     //mezclas
     cout <<"\033[1;31m" <<"prueba" <<reset <<endl;
+    */
 
     /*NOTAS
     -los colores no se mezclan
