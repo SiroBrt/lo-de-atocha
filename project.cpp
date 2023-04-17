@@ -23,7 +23,7 @@ int counter(string s, char x){
     return count;
 }
 
-//NO LEER
+
 bool validDate(int num1,int num2,int num3){
     bool leapYear;
         if(num1>0 && num2>0 && num2<=12 && num3>0){
@@ -41,7 +41,7 @@ bool validDate(int num1,int num2,int num3){
             return 0;
         }
 }
-//cortesía de pruebas.cpp
+
 class Date{
     private:
     int day,month,year;
@@ -376,7 +376,6 @@ Train gettrainfromnum(int t, list <Train> &trenes){
 }
 
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
-    //a ver si sale bien
     ifstream trainfi;
     trainfi.open("trenes.txt");
     if (!trainfi){
@@ -833,9 +832,9 @@ map <string,list<string>> showPassengersCities(list <Train> trenes, map <string,
         }
     }
     for(auto i:output){
-        cout <<"\033[1m" <<i.first <<"\033[0m" <<endl;
+        cout <<"\n\033[1m ~~~~~~~~ " <<i.first <<" ~~~~~~~~ \033[0m" <<endl;
         for(auto p:i.second){
-            cout <<p <<endl;
+            cout <<"    " <<p <<endl;
         }
     }
     return output;
