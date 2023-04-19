@@ -23,6 +23,32 @@ int counter(string s, char x){
     return count;
 }
 
+bool isInteger(string in){
+    int i=0;
+    if( in[i]=='-') i++;
+    for (i;i<in.length();i++){
+        if(!isdigit(in[i])) return false;
+    }
+    return true;
+}
+
+int inputInt(int &input){
+    string aux; 
+    do {
+        try {
+            cin >> aux;
+            cin.clear(); cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');   //todavía no lo entendí
+            if (!isInteger(aux)){
+                cout <<"\033[31;1mInvalid input. Not an Integer\033[0m";
+            }else{
+                input = stoi(aux);
+            }
+        }
+        catch (...) {
+            cout <<"\033[31;1mInvalid input. Integer size is too large\033[0m";
+        }
+    } while (!isInteger(aux));
+}
 
 bool validDate(int num1,int num2,int num3){
     bool leapYear;
@@ -559,8 +585,6 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
         }
     }
 }
-
-
 
 int mainMenu(){
     //usamos string para aceptar cualquier input
