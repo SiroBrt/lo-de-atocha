@@ -11,7 +11,6 @@
 #include <fstream>
 
 using namespace std;
-string red="\033[1;31m";
 
 int counter(string s, char x){
     int count = 0;
@@ -23,31 +22,26 @@ int counter(string s, char x){
     return count;
 }
 
-bool isInteger(string in){
-    int i=0;
-    if( in[i]=='-') i++;
-    for (i;i<in.length();i++){
-        if(!isdigit(in[i])) return false;
-    }
-    return true;
-}
-
-int inputInt(int &input){
-    string aux; 
+//Original idea: Yan
+int inputInt(string question){
+    string aux;
+    int num;
+    bool done=0,error=0;
     do {
         try {
+            cout <<question;
             cin >> aux;
-            cin.clear(); cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');   //todavía no lo entendí
-            if (!isInteger(aux)){
-                cout <<"\033[31;1mInvalid input. Not an Integer\033[0m";
-            }else{
-                input = stoi(aux);
-            }
+            num=stoi(aux);
+            done=1;
         }
         catch (...) {
-            cout <<"\033[31;1mInvalid input. Integer size is too large\033[0m";
+            cout <<"\033[31;1m" <<"invalid input" <<"\033[0m\033[A\033[2K";
+            for (int i=0; i<13; i++){cout <<"\033[D";}      //13 porque "invalid input".size()=13
+            error=1;
         }
-    } while (!isInteger(aux));
+    }while(!done);
+    if(error==1){cout <<"\033[2K";}
+    return num;
 }
 
 bool validDate(int num1,int num2,int num3){
@@ -405,7 +399,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
     ifstream trainfi;
     trainfi.open("trenes.txt");
     if (!trainfi){
-        cout <<red << "File not found \033[0m" << endl;
+        cout <<"\033[1;31m" << "File not found \033[0m" << endl;
         exit(1);
     }
     string title;
@@ -524,7 +518,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
     ifstream passengersfi;
     passengersfi.open("passengers.txt");
     if (!passengersfi){
-        cout <<red << "File not found \033[0m" << endl;
+        cout <<"\033[1;31m" << "File not found \033[0m" << endl;
         exit(1);
     }
     string title2;
@@ -573,7 +567,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
         Passenger mypas(id, pname, paddress, page, pbag, pgender);
         Train mytrain = getTrainfromNum(initialLstOfTrains, trainnum);
         if(mytrain.getTrainNum()==-1){
-            cout <<red <<"There has been an error with passenger " <<id <<"\033[0m" <<endl;
+            cout <<"\033[1;31m" <<"There has been an error with passenger " <<id <<"\033[0m" <<endl;
         }else{
             // We need two different options
             if (!passfound){
@@ -609,145 +603,121 @@ int mainMenu(){
 }
 
 void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
-    string origin,destination,myid,aux;
+    string origin,destination,myid;
     Date dia;
     int num, priceofthetrip;
-    try{
-        cout <<"Introduce your ID: ";
-        cin >> myid;
-        cout <<"Introduce the origin: ";
-        cin >> origin;
-        cout <<"Introduce the destination: ";
-        cin >> destination;
-        cout <<"Introduce the day: ";
-        cin >> aux;
-        num=stoi(aux);
-        dia.setDay(num);
-        cout <<"Introduce the month: ";
-        cin >> aux;
-        num=stoi(aux);
-        dia.setMonth(num);
-        cout <<"Introduce the year: ";
-        cin >> aux;
-        num=stoi(aux);
-        dia.setYear(num);
-        cout<<"Introduce the price of the trip: ";
-        cin >> aux;
-        priceofthetrip=stoi(aux);
-
-        //comprobar si el pasajero existe
-        string foundID = "0";
-        for (auto it = passes.begin(); it != passes.end(); ++it){
-            if((*it).first==myid){
-                foundID = (*it).first;
+    cout <<"Introduce your ID: ";
+    cin >> myid;
+    cout <<"Introduce the origin: ";
+    cin >> origin;
+    cout <<"Introduce the destination: ";
+    cin >> destination;
+    num=inputInt("Introduce the day: ");
+    dia.setDay(num);
+    num=inputInt("Introduce the month: ");
+    dia.setMonth(num);
+    num=inputInt("Introduce the year: ");
+    dia.setYear(num);
+    priceofthetrip=inputInt("Introduce the price of the trip: ");
+    //comprobar si el pasajero existe
+    string foundID = "0";
+    for (auto it = passes.begin(); it != passes.end(); ++it){
+        if((*it).first==myid){
+            foundID = (*it).first;
+            break;
+        }
+    }
+    if(foundID=="0"){
+        Passenger unregistered;
+        unregistered.setID(myid);
+        passes[myid] = unregistered;
+    }
+    //comprobar trenes que coincidan en fecha e itinerario
+    bool personfound=0;
+    bool trainfound=0;
+    for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
+        if((*train_it).getDate()==dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
+            //este tren coincide
+            trainfound = 1;
+            if ((*train_it).findPassenger(myid).first != -1 && (*train_it).findPassenger(myid).second != -1){
+                personfound = 1;
+                cout <<"Passenger " << myid <<" already registered in train " << (*train_it).getTrainNum() <<", wagon " << (*train_it).findPassenger(myid).first <<", seat " <<(*train_it).findPassenger(myid).second <<endl;
                 break;
             }
         }
-        if(foundID=="0"){
-            Passenger unregistered;
-            unregistered.setID(myid);
-            passes[myid] = unregistered;
-        }
-        //comprobar trenes que coincidan en fecha e itinerario
-        bool personfound=0;
-        bool trainfound=0;
+        if(personfound==1){break;}
+    }
+    //si no está lo añadimos
+    if(personfound==0 && trainfound==1){
+        bool added=0;
+        //mismo sistema para trenes y vagones
         for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
             if((*train_it).getDate()==dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
                 //este tren coincide
-                trainfound = 1;
-                if ((*train_it).findPassenger(myid).first != -1 && (*train_it).findPassenger(myid).second != -1){
-                    personfound = 1;
-                    cout <<"Passenger " << myid <<" already registered in train " << (*train_it).getTrainNum() <<", wagon " << (*train_it).findPassenger(myid).first <<", seat " <<(*train_it).findPassenger(myid).second <<endl;
+                (*train_it).addPassengerT(myid);
+                auto w = (*train_it).findPassenger(myid);
+                if(w.first != -1 && w.second != -1){
+                    cout <<"Passenger " << myid <<" added to train " << (*train_it).getTrainNum() <<", wagon " << w.first <<", seat " << w.second << endl;
+                    //También hay que añadirle el viaje al pasajero
+                    passes[myid].addTrip(dia,(*train_it).getTrainNum(),w.first,w.second, priceofthetrip);
+                    added=1;
                     break;
                 }
             }
-            if(personfound==1){break;}
         }
-        //si no está lo añadimos
-        if(personfound==0 && trainfound==1){
-            bool added=0;
-            //mismo sistema para trenes y vagones
-            for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
-                if((*train_it).getDate()==dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
-                    //este tren coincide
-                    (*train_it).addPassengerT(myid);
-                    auto w = (*train_it).findPassenger(myid);
-                    if(w.first != -1 && w.second != -1){
-                        cout <<"Passenger " << myid <<" added to train " << (*train_it).getTrainNum() <<", wagon " << w.first <<", seat " << w.second << endl;
-                        //También hay que añadirle el viaje al pasajero
-                        passes[myid].addTrip(dia,(*train_it).getTrainNum(),w.first,w.second, priceofthetrip);
-                        added=1;
-                        break;
-                    }
-                }
-            }
-            if(added==0){
-                cout <<"The train from " << origin << "" << destination <<" is already full" <<endl;
-            }else if (added==1){
-                cout << "Trip added succesfully" << endl;
-            }
-        }else if(trainfound==0){
-            cout <<"\033[1;31m" <<"Train not found" <<"\033[0m" <<endl;
+        if(added==0){
+            cout <<"The train from " << origin << "" << destination <<" is already full" <<endl;
+        }else if (added==1){
+            cout << "Trip added succesfully" << endl;
         }
-    }catch(...){
-        cout <<red <<"input error \033[0m" <<endl;
+    }else if(trainfound==0){
+        cout <<"\033[1;31m" <<"Train not found" <<"\033[0m" <<endl;
     }
 }
 
 void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     int num;
-    string myid, origin, destination,aux;
-    Date d;
-    try{
-        cout <<"Introduce your ID: ";
-        cin >> myid;
-        cout <<"Introduce the origin: ";
-        cin >> origin;
-        cout <<"Introduce the destination: ";
-        cin >> destination;
-        cout <<"Introduce the day: ";
-        cin >> aux;
-        num=stoi(aux);
-        d.setDay(num);
-        cout <<"Introduce the month: ";
-        cin >> aux;
-        num=stoi(aux);
-        d.setMonth(num);
-        cout <<"Introduce the year: ";
-        cin >> aux;
-        num=stoi(aux);
-        d.setYear(num);
-
-        //comprobar si el pasajero existe
-        string foundID = "0";
-        for (auto it = passes.begin(); it != passes.end(); ++it){
-            if((*it).second.getID()==myid){
-                foundID = (*it).first;
-                break;
-            }
+    string myid, origin, destination;
+    Date dia;
+    cout <<"Introduce your ID: ";
+    cin >> myid;
+    cout <<"Introduce the origin: ";
+    cin >> origin;
+    cout <<"Introduce the destination: ";
+    cin >> destination;
+    num=inputInt("Introduce the day: ");
+    dia.setDay(num);
+    num=inputInt("Introduce the month: ");
+    dia.setMonth(num);
+    num=inputInt("Introduce the year: ");
+    dia.setYear(num);
+    //comprobar si el pasajero existe
+    string foundID = "0";
+    for (auto it = passes.begin(); it != passes.end(); ++it){
+        if((*it).second.getID()==myid){
+            foundID = (*it).first;
+            break;
         }
-        bool foundtrip=0;
-        if(foundID != "0"){
-            for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
-                if((*train_it).getDate()== d && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
-                    //tren coincide con la ruta
-                    if((*train_it).findPassenger(myid).first !=-1 && (*train_it).findPassenger(myid).second!=-1){
-                        cout <<"\nPassenger " << myid <<" has been removed from train " << (*train_it).getTrainNum() << ", wagon " << (*train_it).findPassenger(myid).first << ", seat " << (*train_it).findPassenger(myid).second <<endl;
-                        passes[myid].removeTrip(d,(*train_it).getTrainNum(), (*train_it).findPassenger(myid).first, (*train_it).findPassenger(myid).second);
-                        (*train_it).removePassengerT(myid);
-                        foundtrip=1;
-                        break;
-                    }
+    }
+    bool foundtrip=0;
+    if(foundID != "0"){
+        for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
+            if((*train_it).getDate()== dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
+                //tren coincide con la ruta
+                if((*train_it).findPassenger(myid).first !=-1 && (*train_it).findPassenger(myid).second!=-1){
+                    cout <<"\nPassenger " << myid <<" has been removed from train " << (*train_it).getTrainNum() << ", wagon " << (*train_it).findPassenger(myid).first << ", seat " << (*train_it).findPassenger(myid).second <<endl;
+                    passes[myid].removeTrip(dia,(*train_it).getTrainNum(), (*train_it).findPassenger(myid).first, (*train_it).findPassenger(myid).second);
+                    (*train_it).removePassengerT(myid);
+                    foundtrip=1;
+                    break;
                 }
             }
-            if(foundtrip==0){
-                cout <<"\033[1;31m" <<"Trip not found" <<"\033[0m" <<endl;
-            }
-        }else{
-            cout <<"\033[1;31m" <<"Passenger not found" <<"\033[0m" <<endl;
         }
-    }catch(...){
-        cout <<red <<"input error \033[0m" <<endl;
+        if(foundtrip==0){
+            cout <<"\033[1;31m" <<"Trip not found" <<"\033[0m" <<endl;
+        }
+    }else{
+        cout <<"\033[1;31m" <<"Passenger not found" <<"\033[0m" <<endl;
     }
 }
 
@@ -788,8 +758,7 @@ void showTripsOfPassenger(map <string, Passenger> passes){
 void showListOfPassengers(list <Train> trenes, map <string, Passenger> passes){
     int t;
     bool found=0;
-    cout << "Introduce the number of the train: ";
-    cin >> t;
+    t=inputInt("Introduce the number of the train: ");
     for(auto i:trenes){
         if(i.getTrainNum()==t){
             found=1;
@@ -797,7 +766,7 @@ void showListOfPassengers(list <Train> trenes, map <string, Passenger> passes){
         }
     }
     if(found==0){
-        cout <<red <<"This train does not exist" <<"\033[0m" <<endl;
+        cout <<"\033[1;31m" <<"This train does not exist" <<"\033[0m" <<endl;
     }else{
         Train mytrain = getTrainfromNum(trenes, t);
         for(int i=0;i<mytrain.getWagons().size();i++){
