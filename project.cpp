@@ -305,6 +305,29 @@ public:
         }
         return found;
     }
+    bool checkTrain(){
+        //go through the train comparing all ids so nobody is twice
+        string currentId;
+        int counter;
+        for(auto w1:wagonsvect){
+            for(auto p1:w1.getSeatVector()){
+                counter=0;
+                //now go through all wagons comparing
+                for(auto w2:wagonsvect){
+                    for(auto p2:w2.getSeatVector()){
+                        if(p1.second==p2.second){
+                            counter++;
+                        }
+
+                    }
+                }
+                if(counter>1){
+                    return 0;
+                }
+            }
+        }
+        return 1;
+    }
     
     //solo consulta (igual que el de Wagon)
     vector <Wagon> getWagons(){return wagonsvect;}
@@ -396,187 +419,201 @@ Train gettrainfromnum(int t, list <Train> &trenes){
 }
 
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
-    ifstream trainfi;
-    trainfi.open("trenes.txt");
-    if (!trainfi){
-        cout <<"\033[1;31m" << "File not found \033[0m" << endl;
-        exit(1);
-    }
-    string title;
-    getline(trainfi, title);
-    string input;
-    int traincounter = 0;
-    while (getline(trainfi, input)){
-        traincounter = traincounter+1;
-        int pos = input.find(" | ");
-        int trainNumber = stoi(input.substr(0, pos));
-
-        // Extract the date
-        input = input.substr(pos + 3);
-        pos = input.find("-");
-        int year = stoi(input.substr(0, pos));
-        input = input.substr(pos + 1);
-        pos = input.find("-");
-        int month = stoi(input.substr(0, pos));
-        input = input.substr(pos + 1);
-        pos = input.find(" | ");
-        int day = stoi(input.substr(0, pos));
-
-        // Extract the origin and destination stations
-        input = input.substr(pos + 3);
-        pos = input.find(" | ");
-        string originStation = input.substr(0, pos);
-        input = input.substr(pos + 3);
-        pos = input.find(" | ");
-        string destStation = input.substr(0, pos);
-
-        // Extract the distance in kilometers and the number of wagons in the train
-        input = input.substr(pos + 3);
-        pos = input.find(" | ");
-        int distanceInKm = stoi(input.substr(0, pos));
-        input = input.substr(pos + 3);
-        pos = input.find(" | ");
-        int numWagons = stoi(input.substr(0, pos));
-
-        // Extract the number of seats per wagon
-        vector <int> seatsperwagon;
-        input = input.substr(pos + 3);
-        for (int i=1; i<numWagons; i++){
-            int pos2 = input.find(", ");
-            int seatsinwagon = stoi(input.substr(0, pos2));
-            seatsperwagon.push_back(seatsinwagon);
-            input = input.substr(pos2 + 2);            
+    try{
+        ifstream trainfi;
+        trainfi.open("trenes.txt");
+        if (!trainfi){
+            cout <<"\033[1;31m" << "File not found \033[0m" << endl;
+            exit(1);
         }
-        pos = input.find(" | ");
-        int seatsinlastwagon = stoi(input.substr(0, pos));
-        seatsperwagon.push_back(seatsinlastwagon);
-        input = input.substr(pos + 3);
+        string title,aux;
+        getline(trainfi, title);
+        string input;
+        int traincounter = 0;
+        while (getline(trainfi, input)){
+            traincounter = traincounter+1;
+            int pos = input.find(" | ");
+            int trainNumber = stoi(input.substr(0, pos));
 
-        // Extract the IDs of the passengers in each wagon
-        vector <vector <int>> idsintrain;
-        idsintrain.clear();
-        int numofwagonswithpeople;
-        numofwagonswithpeople = counter(input, '-')+1;
-        for (int k=1; k<=numofwagonswithpeople; k++){
-            vector <int> idsinwagon;
-            idsinwagon.clear();
-            pos = input.find(" - ");
-            string id_substr = input.substr(0, pos);
-            int occupiedseats = counter(id_substr, ',');
-            for (int j=1; j<=occupiedseats; j++){
-                int pos2 = id_substr.find(", ");
-                int id = stoi(id_substr.substr(0, pos2));
-                idsinwagon.push_back(id);
-                id_substr = id_substr.substr(pos2+2);            
+            // Extract the date
+            input = input.substr(pos + 3);
+            pos = input.find("-");
+            int year = stoi(input.substr(0, pos));
+            input = input.substr(pos + 1);
+            pos = input.find("-");
+            int month = stoi(input.substr(0, pos));
+            input = input.substr(pos + 1);
+            pos = input.find(" | ");
+            int day = stoi(input.substr(0, pos));
+
+            // Extract the origin and destination stations
+            input = input.substr(pos + 3);
+            pos = input.find(" | ");
+            string originStation = input.substr(0, pos);
+            input = input.substr(pos + 3);
+            pos = input.find(" | ");
+            string destStation = input.substr(0, pos);
+
+            // Extract the distance in kilometers and the number of wagons in the train
+            input = input.substr(pos + 3);
+            pos = input.find(" | ");
+            int distanceInKm = stoi(input.substr(0, pos));
+            input = input.substr(pos + 3);
+
+            // Extract the number of seats per wagon
+            vector <int> seatsperwagon;
+            pos = input.find(" | ");
+            aux=input.substr(0,pos);
+            int numWagons;
+            numWagons=counter(aux,',')+1;
+            for (int i=1; i<numWagons; i++){
+                int pos2 = input.find(", ");
+                int seatsinwagon = stoi(input.substr(0, pos2));
+                seatsperwagon.push_back(seatsinwagon);
+                input = input.substr(pos2 + 2);            
             }
-            int lastid = stoi(id_substr);
-            idsinwagon.push_back(lastid);
-            idsintrain.push_back(idsinwagon);
-            input = input.substr(pos+3);
-        }
-        // Prints the info so we know its working correctly
-        /*cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
-        cout << "The date of the trip is " << day << ":" << month << ":" << year;
-        cout << "\nThis train has " << numWagons << " wagons.\n";
-        int count = 1;
-        for (auto p:seatsperwagon){
-            cout << "Wagon " << count << " has " << p << " seats\n";
-            count++;
-        }
-        int c1 = 1;
-        cout << "These are the IDs of the people in each train per wagon: \n";
-        for(auto idsinwag:idsintrain){
-            cout << "Wagon " << c1 << ":\n";
-            for (int i = 0; i<idsinwag.size(); i++){
-                cout << idsinwag[i] << endl;
-            }
-            c1++;
-        }*/
+            pos = input.find(" | ");
+            int seatsinlastwagon = stoi(input.substr(0, pos));
+            seatsperwagon.push_back(seatsinlastwagon);
+            input = input.substr(pos + 3);
 
-        Date mydate{day, month, year};
-        vector <Wagon> myWagons;
-        myWagons.clear();
-        for (int q=0; q < idsintrain.size(); q++){
-            int numofWagon = q+1;
-            vector <int> mywagids = idsintrain[q];
-            vector <pair <int,string>> myreservedSeats;
-            for (int s=0; s<mywagids.size(); s++){
-                pair <int, string> myseat;
-                myseat.first = s+1;
-                int id = mywagids[s];
-                myseat.second = to_string(id);
-                myreservedSeats.push_back(myseat);
+            // Extract the IDs of the passengers in each wagon
+            vector <vector <int>> idsintrain;
+            idsintrain.clear();
+            int numofwagonswithpeople;
+            numofwagonswithpeople = counter(input, '-')+1;
+            for (int k=1; k<=numofwagonswithpeople; k++){
+                vector <int> idsinwagon;
+                idsinwagon.clear();
+                pos = input.find(" - ");
+                string id_substr = input.substr(0, pos);
+                int occupiedseats = counter(id_substr, ',')+1;
+                if(occupiedseats>seatsperwagon[k-1]){
+                    cout <<"\033[1;31m" <<"limit of passengers exceeded" <<"\033[0m" <<endl;
+                    exit(1);
+                }
+                for (int j=1; j<occupiedseats; j++){
+                    int pos2 = id_substr.find(", ");
+                    int id = stoi(id_substr.substr(0, pos2));
+                    idsinwagon.push_back(id);
+                    id_substr = id_substr.substr(pos2+2);            
+                }
+                int lastid = stoi(id_substr);
+                idsinwagon.push_back(lastid);
+                idsintrain.push_back(idsinwagon);
+                input = input.substr(pos+3);
             }
-            int capaci = seatsperwagon[q];
-            Wagon wag{capaci, numofWagon, myreservedSeats};
-            myWagons.push_back(wag);
-        }
-        Train mytrain{traincounter, originStation, destStation, (float)distanceInKm, mydate, myWagons}; 
-        initialLstOfTrains.push_back(mytrain);
-    }
-    trainfi.close();
-    ifstream passengersfi;
-    passengersfi.open("passengers.txt");
-    if (!passengersfi){
-        cout <<"\033[1;31m" << "File not found \033[0m" << endl;
-        exit(1);
-    }
-    string title2;
-    getline(passengersfi, title);
-    string input2;
-    while (getline(passengersfi, input2)){
-        // Extract the ID of the passenger
-        int pos = input2.find(" | ");
-        string id = input2.substr(0, pos);
-        input2 = input2.substr(pos + 3);
-        // Extract the name of the passenger
-        pos = input2.find(" | ");
-        string pname = input2.substr(0, pos);
-        input2 = input2.substr(pos + 3);
-        // Extract the address of the passenger
-        pos = input2.find(" | ");
-        string paddress = input2.substr(0, pos);
-        input2 = input2.substr(pos + 3);
-        // Extract the age of the passenger
-        pos = input2.find(" | ");
-        int page = stoi(input2.substr(0, pos));
-        input2 = input2.substr(pos + 3);
-        // Extract the gender of the passenger
-        pos = input2.find(" | ");
-        char pgender = input2.substr(0, pos)[0];
-        input2 = input2.substr(pos + 3);
-        // Extract the baggage weight of the passenger
-        pos = input2.find(" | ");
-        float pbag = (float) stoi(input2.substr(0, pos));
-        input2 = input2.substr(pos + 3);
-        // Extract the number of the train in which the passenger is
-        pos = input2.find(" | ");
-        int trainnum = stoi(input2.substr(0, pos));
-        input2 = input2.substr(pos + 3);
-        // Extract the price of the trip
-        pos = input2.find(" | ");
-        int tripprice = stoi(input2.substr(0, pos));
-        
-        bool passfound = 0;
-        for (auto p:initialMapIDPass){
-            if (p.first==id){
-                passfound = 1;
-                break;
+            // Prints the info so we know its working correctly
+            /*cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
+            cout << "The date of the trip is " << day << ":" << month << ":" << year;
+            cout << "\nThis train has " << numWagons << " wagons.\n";
+            int count = 1;
+            for (auto p:seatsperwagon){
+                cout << "Wagon " << count << " has " << p << " seats\n";
+                count++;
             }
+            int c1 = 1;
+            cout << "These are the IDs of the people in each train per wagon: \n";
+            for(auto idsinwag:idsintrain){
+                cout << "Wagon " << c1 << ":\n";
+                for (int i = 0; i<idsinwag.size(); i++){
+                    cout << idsinwag[i] << endl;
+                }
+                c1++;
+            }*/
+
+            Date mydate{day, month, year};
+            vector <Wagon> myWagons;
+            myWagons.clear();
+            for (int q=0; q < idsintrain.size(); q++){
+                int numofWagon = q+1;
+                vector <int> mywagids = idsintrain[q];
+                vector <pair <int,string>> myreservedSeats;
+                for (int s=0; s<mywagids.size(); s++){
+                    pair <int, string> myseat;
+                    myseat.first = s+1;
+                    int id = mywagids[s];
+                    myseat.second = to_string(id);
+                    myreservedSeats.push_back(myseat);
+                }
+                int capaci = seatsperwagon[q];
+                Wagon wag{capaci, numofWagon, myreservedSeats};
+                myWagons.push_back(wag);
+            }
+            Train mytrain{traincounter, originStation, destStation, (float)distanceInKm, mydate, myWagons}; 
+            if(!mytrain.checkTrain()){
+                cout <<"\033[1;31m" <<"Train " <<traincounter <<" has repeated passengers" <<"\033[0m" <<endl;
+                exit(1);
+            }
+            initialLstOfTrains.push_back(mytrain);
         }
-        Passenger mypas(id, pname, paddress, page, pbag, pgender);
-        Train mytrain = getTrainfromNum(initialLstOfTrains, trainnum);
-        if(mytrain.getTrainNum()==-1){
-            cout <<"\033[1;31m" <<"There has been an error with passenger " <<id <<"\033[0m" <<endl;
-        }else{
-            // We need two different options
-            if (!passfound){
-                mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
-                initialMapIDPass[id] = mypas;
+        trainfi.close();
+        ifstream passengersfi;
+        passengersfi.open("passengers.txt");
+        if (!passengersfi){
+            cout <<"\033[1;31m" << "File not found \033[0m" << endl;
+            exit(1);
+        }
+        string title2;
+        getline(passengersfi, title);
+        string input2;
+        while (getline(passengersfi, input2)){
+            // Extract the ID of the passenger
+            int pos = input2.find(" | ");
+            string id = input2.substr(0, pos);
+            input2 = input2.substr(pos + 3);
+            // Extract the name of the passenger
+            pos = input2.find(" | ");
+            string pname = input2.substr(0, pos);
+            input2 = input2.substr(pos + 3);
+            // Extract the address of the passenger
+            pos = input2.find(" | ");
+            string paddress = input2.substr(0, pos);
+            input2 = input2.substr(pos + 3);
+            // Extract the age of the passenger
+            pos = input2.find(" | ");
+            int page = stoi(input2.substr(0, pos));
+            input2 = input2.substr(pos + 3);
+            // Extract the gender of the passenger
+            pos = input2.find(" | ");
+            char pgender = input2.substr(0, pos)[0];
+            input2 = input2.substr(pos + 3);
+            // Extract the baggage weight of the passenger
+            pos = input2.find(" | ");
+            float pbag = (float) stoi(input2.substr(0, pos));
+            input2 = input2.substr(pos + 3);
+            // Extract the number of the train in which the passenger is
+            pos = input2.find(" | ");
+            int trainnum = stoi(input2.substr(0, pos));
+            input2 = input2.substr(pos + 3);
+            // Extract the price of the trip
+            pos = input2.find(" | ");
+            int tripprice = stoi(input2.substr(0, pos));
+
+            bool passfound = 0;
+            for (auto p:initialMapIDPass){
+                if (p.first==id){
+                    passfound = 1;
+                    break;
+                }
+            }
+            Passenger mypas(id, pname, paddress, page, pbag, pgender);
+            Train mytrain = getTrainfromNum(initialLstOfTrains, trainnum);
+            if(mytrain.getTrainNum()==-1){
+                cout <<"\033[1;31m" <<"There has been an error with passenger " <<id <<"\033[0m" <<endl;
             }else{
-                initialMapIDPass[id].addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+                // We need two different options
+                if (!passfound){
+                    mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+                    initialMapIDPass[id] = mypas;
+                }else{
+                    initialMapIDPass[id].addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
+                }
             }
         }
+    }catch(...){
+        cout <<"\033[1;31m" <<"error reading files" <<"\033[0m" <<endl;
+        exit(1);
     }
 }
 
