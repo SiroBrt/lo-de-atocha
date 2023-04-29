@@ -205,7 +205,8 @@ class Wagon{
 class Trip{
     private:
     Date tripDate;
-    int train, wagon, seat, price, distance;
+    int train, wagon, seat, price;
+    float distance;
     public:
     Trip(){
         train = wagon = seat = 0;
@@ -226,13 +227,15 @@ class Trip{
     int getWagon(){return wagon;}
     int getSeat(){return seat;}
     int getprice(){return price;}
+    float getDistance(){return distance;}
+
     
     void setDate(Date dateoftrip){tripDate = dateoftrip;}
     void setTrain(int num){train = num;}
     void setWagon(int num){wagon = num;}
     void setSeat(int num){seat = num;}
     void setprice(int myprice){price = myprice;}
-    void setDistance(int tripdistanceinkm){distance = tripdistanceinkm;}    
+    void setDistance(float tripdistanceinkm){distance = tripdistanceinkm;}    
 };
 
 class Train{
@@ -260,7 +263,7 @@ public:
         dateoftrip = tripdate;
         wagonsvect = vectorofwagons;
     }
-    void setTrainNum(int input){trainnum=input;}
+    void setTrainNum(int input){trainnum = input;}
     void setOrigin(string originst){origin = originst;}
     void setDest(string destst){destination = destst;}
     void setDist(float mydist){distance = mydist;}
@@ -870,12 +873,49 @@ map <string,list<string>> showPassengersCities(list <Train> trenes, map <string,
     return output;
 }
 
+void endProgram(list <Train> trenes, map <string, Passenger> passes){
+    ofstream outfi;
+    outfi.open("output.txt");
+    outfi << "\n~~~~~~~~ "<< "INFORMATION ABOUT TRAINS" <<" ~~~~~~~~" << endl;
+    for (Train t : trenes){
+        outfi << "\n~~~~~~~~ "<< "TRAIN "<< t.getTrainNum() <<" ~~~~~~~~" << endl << endl;
+        for(int i=0;i<t.getWagons().size();i++){
+            outfi <<"  ~~~ Wagon " << i+1 <<" ~~~" <<endl;
+            if(t.getWagons()[i].getSeatVector().size()==0){
+                outfi <<"This wagon is empty" <<endl;
+            }else{
+                for(int j=0;j<t.getWagons()[i].getSeatVector().size();j++){
+                    string idofpass = t.getWagons()[i].getSeatVector()[j].second;
+                    string name = passes[idofpass].getname();
+                    outfi << "Seat " << j+1 << " - " << name << " with ID: " << idofpass << endl;
+                }
+            }
+        }
+    }
+    outfi << "\n~~~~~~~~ "<< "INFORMATION ABOUT PASSENGERS" <<" ~~~~~~~~" << endl;
+    for (auto p:passes){
+        outfi << "\nPassenger with ID " << p.second.getID() << " :\nName: "<<p.second.getname() << " :\nAge: "<<p.second.getage() << " :\nAddress: "<<p.second.getaddress() << " :\nGender: "<<p.second.getgender();
+        if(p.second.getTrips().size()>0){
+            cout << "List of trips: " << endl;
+            int count = 1;
+            for (Trip tr:p.second.getTrips()){
+                cout << "\n----------Information Trip " << count << "----------" << endl;
+                cout << "Date: ";
+                tr.getTripDate().printDate();
+                cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << gettrainfromnum(tr.getTrain(), trenes).getDistance() << endl;
+                count++;
+            }
+        }else{
+            cout <<"The passenger "<< p.first <<" has no trips" <<endl;
+        }
+    }
+}
 int main(){
     list <Train> mytrains;
     map <string, Passenger> mypasses;
     readInitialData(mytrains, mypasses);
     int selection;
-    bool borrar=0;
+    bool borrar=0;;
     while(selection!=7){
         selection=mainMenu();
         if(borrar){cout <<"\033[2K";borrar=0;}
@@ -888,7 +928,7 @@ int main(){
                 break;
             case 7:
                 cout <<"Goodbye";
-                //funcion de imprimir
+                endProgram(mytrains, mypasses);
                 break;
             case 1:
                 addNewPassengerTrip(mytrains, mypasses);
