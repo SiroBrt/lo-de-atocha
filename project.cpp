@@ -553,15 +553,17 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                     int id = stoi(idString);
                     int money = stoi(id_substr.substr(posSpace+1, posComa));
                     cout <<id <<"-" <<money <<" ";
-                    initialMapIDPass[idString].addTrip(mydate,trainNumber,k,j,money);
                     idsinwagon.push_back(id);
+                    initialMapIDPass[idString].addTrip(mydate,trainNumber,k,idsinwagon.size(),money);
                     id_substr = id_substr.substr(posComa+2);            
                 }
                 int posSpace = id_substr.find(" ");
-                int lastid = stoi(id_substr.substr(0,posSpace));
+                string idString=id_substr.substr(0,posSpace);
+                int lastid = stoi(idString);
                 int lastmoney = stoi(id_substr.substr(posSpace+1));
                 cout <<lastid <<"-" <<lastmoney <<endl;
                 idsinwagon.push_back(lastid);
+                initialMapIDPass[idString].addTrip(mydate,trainNumber,k,idsinwagon.size(),lastmoney);
                 idsintrain.push_back(idsinwagon);
                 input = input.substr(pos+3);
             }
