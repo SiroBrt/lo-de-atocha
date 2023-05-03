@@ -1,177 +1,131 @@
-Passenger ID | Name | Address | Age | Gender | Baggage Weight (Kg) | Train Number | Trip price
-1 | Michael Johnson | 666 Oak St, Anytown USA | 50 | M | 16 | 1 | 30
-1 | Michael Johnson | 666 Oak St, Anytown USA | 50 | M | 16 | 4 | 30
-2 | Li Bai | Beijing, China | 33 | M | 15 | 1 | 30
-2 | Li Bai | Beijing, China | 33 | M | 15 | 3 | 30
-3 | William Davis | 444 Spruce St, Anytown USA | 21 | M | 20 | 1 | 30
-3 | William Davis | 444 Spruce St, Anytown USA | 21 | M | 20 | 5 | 30
-4 | Ethan Davis | 456 Maximilianstraße, Munich, Germany | 18 | M | 23 | 4 | 30
-5 | Samantha Rodriguez | Passeig de Gràcia, Barcelona, Spain | 26 | F | 25 | 2 | 30
-6 | Benjamin Wilson | La Rambla, Barcelona, Spain | 29 | M | 25 | 2 | 30
-6 | Benjamin Wilson | La Rambla, Barcelona, Spain | 29 | M | 25 | 3 | 30
-7 | Emily Wilson | 111 Elm St, Anytown USA | 29 | F | 25 | 1 | 30
-7 | Emily Wilson | 111 Elm St, Anytown USA | 29 | F | 25 | 2 | 30
-8 | Wu Jie | Chongqing, China | 39 | M | 15 | 3 | 30
-10 | Li Liu | Xi'an, China | 36 | F | 10 | 3 | 30
-11 | Sarah Wilson | 555 Friedrichstraße, Berlin, Germany | 19 | F | 12 | 4 | 30
-11 | Sarah Wilson | 555 Friedrichstraße, Berlin, Germany | 19 | F | 12 | 5 | 30
-12 | Mark Johnson | 123 Rue du Faubourg Saint-Honoré, Paris, France | 47 | M | 18 | 3 | 30
-12 | Mark Johnson | 123 Rue du Faubourg Saint-Honoré, Paris, France | 47 | M | 18 | 4 | 30
-13 | Lily Wang | 123 Berliner Straße, Frankfurt, Germany | 37 | F | 14 | 4 | 30
-13 | Lily Wang | 123 Berliner Straße, Frankfurt, Germany | 37 | F | 14 | 5 | 30
-14 | Christopher Martinez | 888 Pine St, Anytown USA | 28 | M | 10 | 1 | 30
-17 | Sandra Gomez | 432 Flower Av, Anytown USA | 12 | F | 13 | 1 | 30
-18 | Chen Lei | Shenzhen, China | 31 | M | 25 | 1 | 30
-18 | Chen Lei | Shenzhen, China | 31 | M | 25 | 3 | 30
-22 | Samantha Rodriguez | 444 Elm St, Anytown USA | 35 | F | 20 | 1 | 30
-23 | Zhao Liu | Shenzhen, China | 40 | M | 5 | 3 | 30
-24 | Kevin Davis | 111 Cherry St, Anytown USA | 39 | M | 20 | 1 | 30
-25 | Amanda Hernandez | 999 Maple St, Anytown USA | 24 | F | 20 | 1 | 30
-25 | Amanda Hernandez | 999 Maple St, Anytown USA | 24 | F | 20 | 3 | 30
-26 | Emma Hernandez | Rua de Santa Catarina, Porto, Portugal | 21 | F | 10 | 2 | 30
-33 | Xu Mei | Nanjing, China | 27 | F | 20 | 3 | 30
-35 | Benjamin Martinez | 999 Elm St, Anytown USA | 44 | M | 20 | 1 | 30
-35 | Benjamin Martinez | 999 Elm St, Anytown USA | 44 | M | 20 | 4 | 30
-37 | Sarah Wilson | 222 Pine St, Anytown USA | 27 | F | 20 | 1 | 30
-38 | David Wilson | 654 Maple St, Anytown USA | 55 | M | 4 | 1 | 30
-39 | Benjamin Wilson | 333 Birch St, Anytown USA | 29 | M | 25 | 1 | 30
-41 | Christopher Brown | Rua das Flores, Porto, Portugal | 31 | M | 20 | 2 | 30
-42 | William Johnson | 456 Maximilianstraße, Munich, Germany | 47 | M | 16 | 4 | 30
-43 | Ryan Rodriguez | Avenida de la Constitución, Seville, Spain | 33 | M | 15 | 2 | 30
-46 | James Charles | 43 Queens Avenue, Sydney, Australia | 19 | M | 18 | 5 | 30
-49 | Ethan Brown | 789 Kaiserstraße, Frankfurt, Germany | 19 | M | 24 | 3 | 30
-49 | Ethan Brown | 789 Kaiserstraße, Frankfurt, Germany | 19 | M | 24 | 4 | 30
-50 | Zhou Ting | Xi'an, China | 33 | F | 10 | 3 | 30
-53 | Victoria Hernandez | Plaza Mayor, Madrid, Spain | 40 | M | 25 | 1 | 30
-53 | Victoria Hernandez | Plaza Mayor, Madrid, Spain | 40 | M | 25 | 2 | 30
-53 | Victoria Hernandez | Plaza Mayor, Madrid, Spain | 40 | M | 25 | 3 | 30
-54 | Milly Brown | 6 King Street, Sydney, Australia | 58 | F | 9 | 5 | 30
-55 | Ashley Wilson | Calle de Atocha, Madrid, Spain | 24 | F | 15 | 2 | 30
-56 | Jacob Wilson | 789 Zeil, Frankfurt, Germany | 48 | M | 14 | 3 | 30
-56 | Jacob Wilson | 789 Zeil, Frankfurt, Germany | 48 | M | 14 | 4 | 30
-58 | Emily Davis | 789 Kurfürstendamm, Berlin, Germany | 23 | F | 18 | 4 | 30
-58 | Emily Davis | 789 Kurfürstendamm, Berlin, Germany | 23 | F | 18 | 5 | 30
-60 | Zhang Sheng | Harbin, China | 25 | M | 5 | 3 | 30
-60 | Zhang Sheng | Harbin, China | 25 | M | 5 | 5 | 30
-61 | Alexander Brown | 888 Pine St, Anytown USA | 28 | M | 25 | 1 | 30
-61 | Alexander Brown | 888 Pine St, Anytown USA | 28 | M | 25 | 4 | 30
-61 | Alexander Brown | 888 Pine St, Anytown USA | 28 | M | 25 | 5 | 30
-62 | Ashley Wilson | 666 Sycamore St, Anytown USA | 23 | F | 15 | 1 | 30
-64 | Richard Lee | 111 Cherry St, Anytown USA | 41 | M | 19 | 1 | 30
-67 | Benjamin Hernandez | 789 Kurfürstendamm, Berlin, Germany | 39 | M | 18 | 4 | 30
-69 | Michael Lee | Praça do Rossio, Lisbon, Portugal | 29 | M | 25 | 2 | 30
-69 | Michael Lee | Praça do Rossio, Lisbon, Portugal | 29 | M | 25 | 4 | 30
-71 | Michael Brown | 123 Berliner Straße, Frankfurt, Germany | 54 | M | 10 | 4 | 30
-72 | Steven Davis | 111 Main St, Anytown USA | 40 | M | 20 | 1 | 30
-75 | Ava Johnson | 789 Goethestraße, Frankfurt, Germany | 31 | F | 22 | 4 | 30
-77 | Zhang San | Shanghai, China | 26 | M | 15 | 1 | 30
-77 | Zhang San | Shanghai, China | 26 | M | 15 | 3 | 30
-78 | Samantha Johnson | 555 Oak St, Anytown USA | 29 | F | 20 | 1 | 30
-79 | Eric Garcia | Rua da Boavista, Porto, Portugal | 35 | M | 15 | 2 | 30
-81 | Matthew Hernandez | 666 Oak St, Anytown USA | 26 | M | 10 | 1 | 40
-82 | Olivia Martinez | Rua da Prata, Lisbon, Portugal | 39 | F | 20 | 2  | 40
-82 | Olivia Martinez | Rua da Prata, Lisbon, Portugal | 39 | F | 20 | 3 | 40
-83 | Alexander Grey | 888 Pine St, Sydney, Australia | 28 | M | 25 | 5 | 40
-84 | Liu Bei | Harbin, China | 25 | M | 5 | 3 | 40
-84 | Liu Bei | Harbin, China | 25 | M | 5 | 5 | 40
-88 | Jonathan Miller | 123 Oak St, Anytown USA | 43 | M | 5 | 1 | 40
-88 | Jonathan Miller | 123 Oak St, Anytown USA | 43 | M | 5 | 3 | 40
-89 | Ryan Wilson | 444 Maple St, Anytown USA | 27 | M | 20 | 1 | 40
-89 | Ryan Wilson | 444 Maple St, Anytown USA | 27 | M | 20 | 5 | 40
-92 | Matthew Thompson | 555 Birch St, Anytown USA | 24 | M | 10 | 1 | 40
-93 | Noah Wilson | Praça do Rossio, Lisbon, Portugal | 31 | M | 25 | 2 | 40
-95 | Grace Brown | 123 Rue du Faubourg Saint-Antoine, Paris, France | 33 | F | 15 | 3 | 40
-95 | Grace Brown | 123 Rue du Faubourg Saint-Antoine, Paris, France | 33 | F | 15 | 4 | 40
-98 | Sun Quan | Chongqing, China | 39 | M | 20 | 3 | 40
-99 | Zhang Fei | Tianjin, China | 23 | M | 10 | 3 | 40
-100 | Rachel Chen | 456 Friedrichstraße, Berlin, Germany | 32 | F | 20 | 4 | 40
-103 | John Smith | 123 Main St, Anytown USA | 42 | M | 21 | 1 | 40
-104 | Elizabeth Thompson | La Rambla, Barcelona, Spain | 26 | F | 25 | 2 | 40
-109 | Isabella Rodriguez | Plaza de España, Seville, Spain | 31 | F | 20 | 2 | 40
-111 | David Rodriguez | 888 Pine St, Anytown USA | 32 | M | 25 | 1 | 40
-114 | James Lee | 123 Avenue Montaigne, Paris, France | 56 | M | 25 | 4 | 40
-116 | Sarah Rodriguez | 777 Oak St, Anytown USA | 30 | F | 15 | 1 | 50
-117 | Jennifer Wilson | 777 Elm St, Anytown USA | 30 | F | 20 | 1 | 35
-117 | Jennifer Wilson | 777 Elm St, Anytown USA | 30 | F | 20 | 3 | 40
-118 | Robert Taylor | 222 Cedar St, Anytown USA | 45 | M | 5 | 1 | 45
+Passenger ID | Name | Address | Age | Gender | Baggage Weight (Kg)
+1 | Michael Johnson | 666 Oak St, Anytown USA | 50 | M | 16
+2 | Li Bai | Beijing, China | 33 | M | 15
+3 | William Davis | 444 Spruce St, Anytown USA | 21 | M | 20
+4 | Ethan Davis | 456 Maximilianstraße, Munich, Germany | 18 | M | 23
+5 | Samantha Rodriguez | Passeig de Gràcia, Barcelona, Spain | 26 | F | 25
+6 | Benjamin Wilson | La Rambla, Barcelona, Spain | 29 | M | 25
+7 | Emily Wilson | 111 Elm St, Anytown USA | 29 | F | 25
+8 | Wu Jie | Chongqing, China | 39 | M | 15
+10 | Li Liu | Xi'an, China | 36 | F | 10
+11 | Sarah Wilson | 555 Friedrichstraße, Berlin, Germany | 19 | F | 12
+12 | Mark Johnson | 123 Rue du Faubourg Saint-Honoré, Paris, France | 47 | M | 18
+13 | Lily Wang | 123 Berliner Straße, Frankfurt, Germany | 37 | F | 14
+14 | Christopher Martinez | 888 Pine St, Anytown USA | 28 | M | 10
+17 | Sandra Gomez | 432 Flower Av, Anytown USA | 12 | F | 13
+18 | Chen Lei | Shenzhen, China | 31 | M | 25
+22 | Samantha Rodriguez | 444 Elm St, Anytown USA | 35 | F | 20
+23 | Zhao Liu | Shenzhen, China | 40 | M | 5
+24 | Kevin Davis | 111 Cherry St, Anytown USA | 39 | M | 20
+25 | Amanda Hernandez | 999 Maple St, Anytown USA | 24 | F | 20
+26 | Emma Hernandez | Rua de Santa Catarina, Porto, Portugal | 21 | F | 10
+33 | Xu Mei | Nanjing, China | 27 | F | 20
+35 | Benjamin Martinez | 999 Elm St, Anytown USA | 44 | M | 20
+37 | Sarah Wilson | 222 Pine St, Anytown USA | 27 | F | 20
+38 | David Wilson | 654 Maple St, Anytown USA | 55 | M | 4
+39 | Benjamin Wilson | 333 Birch St, Anytown USA | 29 | M | 25
+41 | Christopher Brown | Rua das Flores, Porto, Portugal | 31 | M | 20
+42 | William Johnson | 456 Maximilianstraße, Munich, Germany | 47 | M | 16
+43 | Ryan Rodriguez | Avenida de la Constitución, Seville, Spain | 33 | M | 15
+46 | James Charles | 43 Queens Avenue, Sydney, Australia | 19 | M | 18
+49 | Ethan Brown | 789 Kaiserstraße, Frankfurt, Germany | 19 | M | 24
+50 | Zhou Ting | Xi'an, China | 33 | F | 10
+53 | Victoria Hernandez | Plaza Mayor, Madrid, Spain | 40 | M | 25
+54 | Milly Brown | 6 King Street, Sydney, Australia | 58 | F | 9
+55 | Ashley Wilson | Calle de Atocha, Madrid, Spain | 24 | F | 15
+56 | Jacob Wilson | 789 Zeil, Frankfurt, Germany | 48 | M | 14
+58 | Emily Davis | 789 Kurfürstendamm, Berlin, Germany | 23 | F | 18
+60 | Zhang Sheng | Harbin, China | 25 | M | 5
+61 | Alexander Brown | 888 Pine St, Anytown USA | 28 | M | 25
+62 | Ashley Wilson | 666 Sycamore St, Anytown USA | 23 | F | 15
+64 | Richard Lee | 111 Cherry St, Anytown USA | 41 | M | 19
+67 | Benjamin Hernandez | 789 Kurfürstendamm, Berlin, Germany | 39 | M | 18
+69 | Michael Lee | Praça do Rossio, Lisbon, Portugal | 29 | M | 25
+71 | Michael Brown | 123 Berliner Straße, Frankfurt, Germany | 54 | M | 10
+72 | Steven Davis | 111 Main St, Anytown USA | 40 | M | 20
+75 | Ava Johnson | 789 Goethestraße, Frankfurt, Germany | 31 | F | 22
+77 | Zhang San | Shanghai, China | 26 | M | 15
+78 | Samantha Johnson | 555 Oak St, Anytown USA | 29 | F | 20
+79 | Eric Garcia | Rua da Boavista, Porto, Portugal | 35 | M | 15
+81 | Matthew Hernandez | 666 Oak St, Anytown USA | 26 | M | 10
+82 | Olivia Martinez | Rua da Prata, Lisbon, Portugal | 39 | F | 20
+83 | Alexander Grey | 888 Pine St, Sydney, Australia | 28 | M | 25
+84 | Liu Bei | Harbin, China | 25 | M | 5
+88 | Jonathan Miller | 123 Oak St, Anytown USA | 43 | M | 5
+89 | Ryan Wilson | 444 Maple St, Anytown USA | 27 | M | 20
+92 | Matthew Thompson | 555 Birch St, Anytown USA | 24 | M | 10
+93 | Noah Wilson | Praça do Rossio, Lisbon, Portugal | 31 | M | 25
+95 | Grace Brown | 123 Rue du Faubourg Saint-Antoine, Paris, France | 33 | F | 15
+98 | Sun Quan | Chongqing, China | 39 | M | 20
+99 | Zhang Fei | Tianjin, China | 23 | M | 10
+100 | Rachel Chen | 456 Friedrichstraße, Berlin, Germany | 32 | F | 20
+103 | John Smith | 123 Main St, Anytown USA | 42 | M | 21
+104 | Elizabeth Thompson | La Rambla, Barcelona, Spain | 26 | F | 25
+109 | Isabella Rodriguez | Plaza de España, Seville, Spain | 31 | F | 20
+111 | David Rodriguez | 888 Pine St, Anytown USA | 32 | M | 25
+114 | James Lee | 123 Avenue Montaigne, Paris, France | 56 | M | 25
+116 | Sarah Rodriguez | 777 Oak St, Anytown USA | 30 | F | 15
+117 | Jennifer Wilson | 777 Elm St, Anytown USA | 30 | F | 20
+118 | Robert Taylor | 222 Cedar St, Anytown USA | 45 | M | 5
 119 | Ryan Davis | 777 Pine St, Anytown USA | 26 | M | 15 | 1 | 25
-120 | Christopher Brown | 777 Maple St, Anytown USA | 28 | M | 15 | 1 | 70
-121 | Sarah Brown | 111 Cherry St, Anytown USA | 30 | F | 10 | 1 | 40
-122 | Juan Hernandez | 456 Maximilianstraße, Munich, Germany | 25 | M | 22 | 4 | 30
-124 | David Hernandez | Rua da Prata, Lisbon, Portugal | 43 | M | 25 | 2 | 45
-124 | David Hernandez | Rua da Prata, Lisbon, Portugal | 43 | M | 25 | 4 | 30
-126 | Alex Kim | 789 Boulevard Haussmann, Paris, France | 44 | M | 19 | 4 | 34
-128 | Li Ming | Guangzhou, China | 42 | M | 10 | 3 | 64
-137 | Maddie Smith | Lime Avenue, Sydney, Australia | 89 | F | 20 | 5 | 35
-138 | Sofia Martinez | Rua Augusta, Lisbon, Portugal | 24 | F | 15 | 2 | 40
-139 | Ashley Davis | 555 Sycamore St, Anytown USA | 29 | F | 15 | 1| 35
-141 | Jacob Johnson | Calle Mayor, Madrid, Spain | 28 | M | 15 | 2 | 20
-143 | Sophia Kim | 123 Rue Saint-Honoré, Paris, France | 29 | F | 21 | 4 | 35
-144 | Wang Yan | Beijing, China | 28 | F | 15 | 3 | 35
-146 | Ashley Davis | 34 Sycamore St, Sydney, Australia | 29 | F | 15 | 5 | 35
-148 | Ethan Davis | Calle Mayor, Madrid, Spain | 42 | M | 25 | 2 | 35
-152 | Wii U | Shenyang, China | 38 | M | 10 | 3 | 45
-153 | Daniel Lee | 123 Avenue des Ternes, Paris, France | 36 | M | 13 | 1 | 35
-153 | Daniel Lee | 123 Avenue des Ternes, Paris, France | 36 | M | 13 | 4 | 25
-154 | Zachary Davis | 222 Cedar St, Anytown USA | 35 | M | 15 | 1 | 25
-157 | Justin Davis | 555 Pine St, Anytown USA | 39 | M | 23 | 1 | 35
-160 | Yang Kang | Chengdu, China | 31 | M | 25 | 2 | 35
-160 | Yang Kang | Chengdu, China | 31 | M | 25 | 3 | 55
-160 | Yang Kang | Chengdu, China | 31 | M | 25 | 5 | 50
-162 | Jessica Thompson | 222 Cedar St, Anytown USA | 36 | F | 4 | 1 | 50
-163 | Wang Bo | Guangzhou, China | 27 | F | 20 | 3 | 35
-166 | Gabriel Ledesma | Calle de Alcalá, Madrid, Spain | 45 | M | 25 | 2 | 35
-170 | Elizabeth Wilson | 777 Elm St, Anytown USA | 31 | F | 15 | 1 | 35
-170 | Elizabeth Wilson | 777 Elm St, Anytown USA | 31 | F | 15 | 2 | 45
-171 | Kayla Thompson | 222 Cedar St, Anytown USA | 27 | F | 10 | 1 | 30
-174 | Lu Bu | Chengdu, China | 31 | M | 10 | 2 | 35
-174 | Lu Bu | Chengdu, China | 31 | M | 10 | 3 | 45
-177 | Jacob Wilson | 456 Karl-Marx-Straße, Berlin, Germany | 48 | M | 14 | 4 | 35
-177 | Jacob Wilson | 456 Karl-Marx-Straße, Berlin, Germany | 48 | M | 14 | 5 | 50
-178 | Zhao Yun | Shenyang, China | 41 | M | 15 | 3 | 35
-179 | Jane Doe | 456 Oak St, Anytown USA | 35 | F | 20 | 1 | 25
-179 | Jane Doe | 456 Oak St, Anytown USA | 35 | F | 20 | 4 | 45
-183 | Laura Martinez | Avinguda Diagonal, Barcelona, Spain | 33 | F | 20 | 2 | 35
-186 | Xiao Long | Harbin, China | 25 | M | 15 | 3 | 50
-187 | Emily Davis | 321 Pine St, Anytown USA | 19 | F | 15 | 1 | 45
-187 | Emily Davis | 321 Pine St, Anytown USA | 19 | F | 15 | 3 | 35
-189 | Benjamin Hernandez | 123 Kurfürstendamm, Berlin, Germany | 41 | M | 20 | 4 | 35
-192 | Guo Jing | Tianjin, China | 23 | F | 10 | 3 | 35
-193 | Madison Wilson | Calle de Serrano, Madrid, Spain | 29 | F | 20 | 2 | 45
-194 | Samantha Martinez | 888 Cedar St, Anytown USA | 31 | F | 15 | 1 | 35
-195 | Maria Rodriguez | 789 Königsallee, Düsseldorf, Germany | 31 | F | 17 | 4 | 25
-195 | Maria Rodriguez | 789 Königsallee, Düsseldorf, Germany | 31 | F | 17 | 5 | 35
-197 | Olivia Smith | Carrer de Valencia, Valencia, Spain | 27 | F | 20 | 2 | 45
-198 | Huang Rong | Xi'an, China | 34 | F | 5 | 3 | 25
-199 | Nicholas Davis | 777 Sycamore St, Anytown USA | 13 | M | 3 | 1 | 35
-200 | Liu Yi | Hangzhou, China | 29 | F | 15 | 3 | 35
-200 | Liu Yi | Hangzhou, China | 29 | F | 15 | 4 | 28
-201 | Rachel Wilson | 999 Elm St, Anytown USA | 56 | F | 24 | 1 | 38
-202 | Eric Wilson | 111 Sycamore St, Anytown USA | 31 | M | 20 | 1 | 40
-205 | Katherine Thompson | 111 Main St, Anytown USA | 26 | F | 25 | 1 | 35
-206 | James Davis | Calle de Alcalá, Madrid, Spain | 50 | M | 15 | 2 | 25
-206 | James Davis | Calle de Alcalá, Madrid, Spain | 50 | M | 15 | 5 | 30
-212 | Guo Xiang | Nanjing, China | 28 | M | 10 | 3 | 35
-216 | Christopher Lee | 333 Maple St, Anytown USA | 38 | M | 3 | 1 | 35
-216 | Christopher Lee | 333 Maple St, Anytown USA | 38 | M | 3 | 5 | 25
-219 | Rachel Thompson | Calle de Serrano, Madrid, Spain | 24 | F | 15 | 2 | 35
-219 | Rachel Thompson | Calle de Serrano, Madrid, Spain | 24 | F | 15 | 3 | 20
-220 | Michael Johnson | 789 Elm St, Anytown USA | 28 | M | 25 | 1 | 45
-221 | Xu Zhu | Shenzhen, China | 27 | F | 20 | 3 | 35
-221 | Xu Zhu | Shenzhen, China | 27 | F | 20 | 5 | 15
-225 | Amy Johnson | 333 Birch St, Anytown USA | 29 | F | 10 | 1 | 35
-225 | Amy Johnson | 333 Birch St, Anytown USA | 29 | F | 10 | 2 | 50
-225 | Amy Johnson | 333 Birch St, Anytown USA | 29 | F | 10 | 4 | 42
-226 | Ava Smith | Avinguda Diagonal, Barcelona, Spain | 23 | F | 10 | 2 | 35
-228 | Li Si | Beijing, China | 33 | F | 20 | 3 | 35
-232 | Jasmine Patel | Calle de Fuencarral, Madrid, Spain | 22 | F | 20 | 2 | 32
-233 | Mia Lee | 123 Champs-Élysées, Paris, France | 30 | F | 13 | 4 | 35
-234 | Charlotte Lee | Carrer de Balmes, Barcelona, Spain | 32 | F | 25 | 2 | 15
-236 | Yang Guo | Shenyang, China | 41 | M | 20 | 3 | 25
-237 | Maria Hernandez | 999 Cedar St, Anytown USA | 26 | F | 10 | 1 | 35
-239 | Amy Thompson | 999 Maple St, Anytown USA | 24 | F | 25 | 1 | 28
-239 | Amy Thompson | 999 Maple St, Anytown USA | 24 | F | 25 | 4 | 38
-244 | Luke Johnson | Rua das Flores, Porto, Portugal | 30 | M | 20 | 2 | 40
-248 | Grace Brown | 789 Boulevard des Capucines, Paris, France | 33 | F | 17 | 3 | 60
-248 | Grace Brown | 789 Boulevard des Capucines, Paris, France | 33 | F | 17 | 4 | 35
-249 | Matthew Kim | 123 Avenue des Ternes, Paris, France | 40 | M | 15 | 4 | 25
+120 | Christopher Brown | 777 Maple St, Anytown USA | 28 | M | 15
+121 | Sarah Brown | 111 Cherry St, Anytown USA | 30 | F | 10
+122 | Juan Hernandez | 456 Maximilianstraße, Munich, Germany | 25 | M | 22
+124 | David Hernandez | Rua da Prata, Lisbon, Portugal | 43 | M | 25
+126 | Alex Kim | 789 Boulevard Haussmann, Paris, France | 44 | M | 19
+128 | Li Ming | Guangzhou, China | 42 | M | 10
+137 | Maddie Smith | Lime Avenue, Sydney, Australia | 89 | F | 20
+138 | Sofia Martinez | Rua Augusta, Lisbon, Portugal | 24 | F | 15
+139 | Ashley Davis | 555 Sycamore St, Anytown USA | 29 | F | 15
+141 | Jacob Johnson | Calle Mayor, Madrid, Spain | 28 | M | 15
+143 | Sophia Kim | 123 Rue Saint-Honoré, Paris, France | 29 | F | 21
+144 | Wang Yan | Beijing, China | 28 | F | 15
+146 | Ashley Davis | 34 Sycamore St, Sydney, Australia | 29 | F | 15
+148 | Ethan Davis | Calle Mayor, Madrid, Spain | 42 | M | 25
+152 | Wii U | Shenyang, China | 38 | M | 10
+153 | Daniel Lee | 123 Avenue des Ternes, Paris, France | 36 | M | 13
+154 | Zachary Davis | 222 Cedar St, Anytown USA | 35 | M | 15
+157 | Justin Davis | 555 Pine St, Anytown USA | 39 | M | 23
+160 | Yang Kang | Chengdu, China | 31 | M | 25
+162 | Jessica Thompson | 222 Cedar St, Anytown USA | 36 | F | 4
+163 | Wang Bo | Guangzhou, China | 27 | F | 20
+166 | Gabriel Ledesma | Calle de Alcalá, Madrid, Spain | 45 | M | 25
+170 | Elizabeth Wilson | 777 Elm St, Anytown USA | 31 | F | 15
+171 | Kayla Thompson | 222 Cedar St, Anytown USA | 27 | F | 10
+174 | Lu Bu | Chengdu, China | 31 | M | 10
+177 | Jacob Wilson | 456 Karl-Marx-Straße, Berlin, Germany | 48 | M | 14
+178 | Zhao Yun | Shenyang, China | 41 | M | 15
+179 | Jane Doe | 456 Oak St, Anytown USA | 35 | F | 20
+183 | Laura Martinez | Avinguda Diagonal, Barcelona, Spain | 33 | F | 20
+186 | Xiao Long | Harbin, China | 25 | M | 15
+187 | Emily Davis | 321 Pine St, Anytown USA | 19 | F | 15
+189 | Benjamin Hernandez | 123 Kurfürstendamm, Berlin, Germany | 41 | M | 20
+192 | Guo Jing | Tianjin, China | 23 | F | 10
+193 | Madison Wilson | Calle de Serrano, Madrid, Spain | 29 | F | 20
+194 | Samantha Martinez | 888 Cedar St, Anytown USA | 31 | F | 15
+195 | Maria Rodriguez | 789 Königsallee, Düsseldorf, Germany | 31 | F | 17
+197 | Olivia Smith | Carrer de Valencia, Valencia, Spain | 27 | F | 20
+198 | Huang Rong | Xi'an, China | 34 | F | 5
+199 | Nicholas Davis | 777 Sycamore St, Anytown USA | 13 | M | 3
+200 | Liu Yi | Hangzhou, China | 29 | F | 15
+201 | Rachel Wilson | 999 Elm St, Anytown USA | 56 | F | 24
+202 | Eric Wilson | 111 Sycamore St, Anytown USA | 31 | M | 20
+205 | Katherine Thompson | 111 Main St, Anytown USA | 26 | F | 25
+206 | James Davis | Calle de Alcalá, Madrid, Spain | 50 | M | 15
+212 | Guo Xiang | Nanjing, China | 28 | M | 10
+216 | Christopher Lee | 333 Maple St, Anytown USA | 38 | M | 3
+219 | Rachel Thompson | Calle de Serrano, Madrid, Spain | 24 | F | 15
+220 | Michael Johnson | 789 Elm St, Anytown USA | 28 | M | 25
+221 | Xu Zhu | Shenzhen, China | 27 | F | 20
+225 | Amy Johnson | 333 Birch St, Anytown USA | 29 | F | 10
+226 | Ava Smith | Avinguda Diagonal, Barcelona, Spain | 23 | F | 10
+228 | Li Si | Beijing, China | 33 | F | 20
+232 | Jasmine Patel | Calle de Fuencarral, Madrid, Spain | 22 | F | 20
+233 | Mia Lee | 123 Champs-Élysées, Paris, France | 30 | F | 13
+234 | Charlotte Lee | Carrer de Balmes, Barcelona, Spain | 32 | F | 25
+236 | Yang Guo | Shenyang, China | 41 | M | 20
+237 | Maria Hernandez | 999 Cedar St, Anytown USA | 26 | F | 10
+239 | Amy Thompson | 999 Maple St, Anytown USA | 24 | F | 25
+244 | Luke Johnson | Rua das Flores, Porto, Portugal | 30 | M | 20
+248 | Grace Brown | 789 Boulevard des Capucines, Paris, France | 33 | F | 17
+249 | Matthew Kim | 123 Avenue des Ternes, Paris, France | 40 | M | 15

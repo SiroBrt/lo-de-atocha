@@ -1,6 +1,6 @@
 //Siro Brotón 
 //Virginia Herce
-//TRAIN MANAGEMENT*/
+//TRAIN MANAGEMENT
 
 #include <iostream>
 #include <string>
@@ -396,6 +396,13 @@ public:
             gender = mygender;
         }
     }
+    void clear(){
+        ID,name,adress="";
+        age=baggage=0;
+        gender=' ';
+        travels.clear();
+    };
+
     void addTrip(Date dia,int t,int w,int s, int p){
         Trip newTrip(dia,t,w,s,p);
         travels.push_back(newTrip);
@@ -423,7 +430,55 @@ Train gettrainfromnum(int t, list <Train> &trenes){
 
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
     try{
-        ifstream trainfi;
+        ifstream passengersfi;
+        passengersfi.open("passengers.txt");
+        if (!passengersfi){
+            cout <<"\033[1;31m" << "File not found \033[0m" << endl;
+            exit(1);
+        }
+        string title;
+        getline(passengersfi, title);
+        string input2;
+        Passenger persona;
+        while (getline(passengersfi, input2)){
+            persona.clear();
+            // Extract the ID of the passenger
+            int pos = input2.find(" | ");
+            string id = input2.substr(0, pos);
+            persona.setID(id);
+            cout <<id <<" ";
+            input2 = input2.substr(pos + 3);
+            // Extract the name of the passenger
+            pos = input2.find(" | ");
+            string pname = input2.substr(0, pos);
+            persona.setName(pname);
+            cout <<pname <<" ";
+            input2 = input2.substr(pos + 3);
+            // Extract the address of the passenger
+            pos = input2.find(" | ");
+            string paddress = input2.substr(0, pos);
+            persona.setAddress(paddress);
+            cout <<paddress <<" ";
+            input2 = input2.substr(pos + 3);
+            // Extract the age of the passenger
+            pos = input2.find(" | ");
+            int page = stoi(input2.substr(0, pos));
+            cout <<page <<" ";
+            persona.setAge(page);
+            input2 = input2.substr(pos + 3);
+            // Extract the gender of the passenger
+            pos = input2.find(" | ");
+            char pgender = input2.substr(0, pos)[0];
+            cout <<pgender <<" ";
+            persona.setGender(pgender);
+            input2 = input2.substr(pos + 3);
+            float pbag = (float) stoi(input2);
+            cout <<pbag <<endl;
+            persona.setBaggage(pbag);
+            initialMapIDPass[id]=persona;
+        }
+        passengersfi.close();
+        /*ifstream trainfi;
         trainfi.open("trenes.txt");
         if (!trainfi){
             cout <<"\033[1;31m" << "File not found \033[0m" << endl;
@@ -507,7 +562,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                 input = input.substr(pos+3);
             }
             // Prints the info so we know its working correctly
-            /*cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
+            cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
             cout << "The date of the trip is " << day << ":" << month << ":" << year;
             cout << "\nThis train has " << numWagons << " wagons.\n";
             int count = 1;
@@ -523,7 +578,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                     cout << idsinwag[i] << endl;
                 }
                 c1++;
-            }*/
+            }
 
             Date mydate{day, month, year};
             vector <Wagon> myWagons;
@@ -551,69 +606,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
             initialLstOfTrains.push_back(mytrain);
         }
         trainfi.close();
-        ifstream passengersfi;
-        passengersfi.open("passengers.txt");
-        if (!passengersfi){
-            cout <<"\033[1;31m" << "File not found \033[0m" << endl;
-            exit(1);
-        }
-        string title2;
-        getline(passengersfi, title);
-        string input2;
-        while (getline(passengersfi, input2)){
-            // Extract the ID of the passenger
-            int pos = input2.find(" | ");
-            string id = input2.substr(0, pos);
-            input2 = input2.substr(pos + 3);
-            // Extract the name of the passenger
-            pos = input2.find(" | ");
-            string pname = input2.substr(0, pos);
-            input2 = input2.substr(pos + 3);
-            // Extract the address of the passenger
-            pos = input2.find(" | ");
-            string paddress = input2.substr(0, pos);
-            input2 = input2.substr(pos + 3);
-            // Extract the age of the passenger
-            pos = input2.find(" | ");
-            int page = stoi(input2.substr(0, pos));
-            input2 = input2.substr(pos + 3);
-            // Extract the gender of the passenger
-            pos = input2.find(" | ");
-            char pgender = input2.substr(0, pos)[0];
-            input2 = input2.substr(pos + 3);
-            // Extract the baggage weight of the passenger
-            pos = input2.find(" | ");
-            float pbag = (float) stoi(input2.substr(0, pos));
-            input2 = input2.substr(pos + 3);
-            // Extract the number of the train in which the passenger is
-            pos = input2.find(" | ");
-            int trainnum = stoi(input2.substr(0, pos));
-            input2 = input2.substr(pos + 3);
-            // Extract the price of the trip
-            pos = input2.find(" | ");
-            int tripprice = stoi(input2.substr(0, pos));
-
-            bool passfound = 0;
-            for (auto p:initialMapIDPass){
-                if (p.first==id){
-                    passfound = 1;
-                    break;
-                }
-            }
-            Passenger mypas(id, pname, paddress, page, pbag, pgender);
-            Train mytrain = getTrainfromNum(initialLstOfTrains, trainnum);
-            if(mytrain.getTrainNum()==-1){
-                cout <<"\033[1;31m" <<"There has been an error with passenger " <<id <<"\033[0m" <<endl;
-            }else{
-                // We need two different options
-                if (!passfound){
-                    mypas.addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
-                    initialMapIDPass[id] = mypas;
-                }else{
-                    initialMapIDPass[id].addTrip(mytrain.getDate(), trainnum, mytrain.findPassenger(id).first, mytrain.findPassenger(id).second, tripprice);
-                }
-            }
-        }
+        */
     }catch(...){
         cout <<"\033[1;31m" <<"error reading files" <<"\033[0m" <<endl;
         exit(1);
@@ -910,6 +903,7 @@ void endProgram(list <Train> trenes, map <string, Passenger> passes){
         }
     }
 }
+
 int main(){
     list <Train> mytrains;
     map <string, Passenger> mypasses;
