@@ -417,17 +417,6 @@ public:
     }
 };
 
-Train gettrainfromnum(int t, list <Train> &trenes){
-    Train mytrain{};
-    for (auto tr:trenes){
-        if (tr.getTrainNum()==t){
-            mytrain = tr;
-            break;
-        }
-    }
-    return mytrain;
-}
-
 void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &initialMapIDPass){
     try{
         ifstream passengersfi;
@@ -552,7 +541,6 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                     string idString=id_substr.substr(0, posSpace);
                     int id = stoi(idString);
                     int money = stoi(id_substr.substr(posSpace+1, posComa));
-                    cout <<id <<"-" <<money <<" ";
                     idsinwagon.push_back(id);
                     initialMapIDPass[idString].addTrip(mydate,trainNumber,k,idsinwagon.size(),money);
                     id_substr = id_substr.substr(posComa+2);            
@@ -561,7 +549,6 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                 string idString=id_substr.substr(0,posSpace);
                 int lastid = stoi(idString);
                 int lastmoney = stoi(id_substr.substr(posSpace+1));
-                cout <<lastid <<"-" <<lastmoney <<endl;
                 idsinwagon.push_back(lastid);
                 initialMapIDPass[idString].addTrip(mydate,trainNumber,k,idsinwagon.size(),lastmoney);
                 idsintrain.push_back(idsinwagon);
@@ -899,7 +886,7 @@ void endProgram(list <Train> trenes, map <string, Passenger> passes){
                 cout << "\n----------Information Trip " << count << "----------" << endl;
                 cout << "Date: ";
                 tr.getTripDate().printDate();
-                cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << gettrainfromnum(tr.getTrain(), trenes).getDistance() << endl;
+                cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << getTrainfromNum(trenes, tr.getTrain()).getDistance() << endl;
                 count++;
             }
         }else{
