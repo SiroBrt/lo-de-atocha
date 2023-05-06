@@ -1,0 +1,2567 @@
+
+~~~~~~~~ INFORMATION ABOUT TRAINS ~~~~~~~~
+
+~~~~~~~~ TRAIN 1 ~~~~~~~~
+
+  ~~~ Wagon 1 ~~~
+Seat 1 - Samantha Johnson with ID: 78
+Seat 2 - Ryan Davis with ID: 119
+Seat 3 - Daniel Lee with ID: 153
+Seat 4 - Jonathan Miller with ID: 88
+Seat 5 - Sarah Wilson with ID: 37
+Seat 6 - Christopher Lee with ID: 216
+Seat 7 - Samantha Martinez with ID: 194
+  ~~~ Wagon 2 ~~~
+Seat 1 - Matthew Thompson with ID: 92
+Seat 2 - Emily Wilson with ID: 7
+Seat 3 - Nicholas Davis with ID: 199
+Seat 4 - Michael Johnson with ID: 1
+Seat 5 - Victoria Hernandez with ID: 53
+Seat 6 - Steven Davis with ID: 72
+Seat 7 - Kayla Thompson with ID: 171
+Seat 8 - Benjamin Wilson with ID: 39
+Seat 9 - Samantha Rodriguez with ID: 22
+Seat 10 - Christopher Brown with ID: 120
+Seat 11 - Maria Hernandez with ID: 237
+Seat 12 - Eric Wilson with ID: 202
+  ~~~ Wagon 3 ~~~
+Seat 1 - Justin Davis with ID: 157
+Seat 2 - Ashley Wilson with ID: 62
+Seat 3 - Benjamin Martinez with ID: 35
+Seat 4 - Katherine Thompson with ID: 205
+  ~~~ Wagon 4 ~~~
+Seat 1 - Zachary Davis with ID: 154
+Seat 2 - Amy Johnson with ID: 225
+Seat 3 - Ryan Wilson with ID: 89
+Seat 4 - Sarah Rodriguez with ID: 116
+Seat 5 - Alexander Brown with ID: 61
+Seat 6 - Rachel Wilson with ID: 201
+Seat 7 - Sandra Gomez with ID: 17
+  ~~~ Wagon 5 ~~~
+Seat 1 - John Smith with ID: 103
+Seat 2 - Michael Johnson with ID: 220
+Seat 3 - Emily Davis with ID: 187
+Seat 4 - David Wilson with ID: 38
+  ~~~ Wagon 6 ~~~
+Seat 1 - Sarah Brown with ID: 121
+Seat 2 - Robert Taylor with ID: 118
+Seat 3 - Zhang San with ID: 77
+Seat 4 - William Davis with ID: 3
+Seat 5 - Li Bai with ID: 2
+Seat 6 - Elizabeth Wilson with ID: 170
+Seat 7 - Christopher Martinez with ID: 14
+Seat 8 - Amanda Hernandez with ID: 25
+Seat 9 - Richard Lee with ID: 64
+Seat 10 - Jessica Thompson with ID: 162
+Seat 11 - Jane Doe with ID: 179
+  ~~~ Wagon 7 ~~~
+Seat 1 - Chen Lei with ID: 18
+Seat 2 - Ashley Davis with ID: 139
+Seat 3 - Matthew Hernandez with ID: 81
+Seat 4 - Jennifer Wilson with ID: 117
+Seat 5 - David Rodriguez with ID: 111
+Seat 6 - Amy Thompson with ID: 239
+Seat 7 - Kevin Davis with ID: 24
+
+~~~~~~~~ TRAIN 2 ~~~~~~~~
+
+  ~~~ Wagon 1 ~~~
+Seat 1 - Jasmine Patel with ID: 232
+Seat 2 - Eric Garcia with ID: 79
+Seat 3 - Yang Kang with ID: 160
+Seat 4 - David Hernandez with ID: 124
+Seat 5 - Olivia Smith with ID: 197
+  ~~~ Wagon 2 ~~~
+Seat 1 - Noah Wilson with ID: 93
+Seat 2 - Amy Johnson with ID: 225
+Seat 3 - Rachel Thompson with ID: 219
+Seat 4 - Michael Lee with ID: 69
+Seat 5 - Laura Martinez with ID: 183
+  ~~~ Wagon 3 ~~~
+Seat 1 - James Davis with ID: 206
+Seat 2 - Emma Hernandez with ID: 26
+Seat 3 - Victoria Hernandez with ID: 53
+Seat 4 - Lu Bu with ID: 174
+Seat 5 - Benjamin Wilson with ID: 6
+Seat 6 - Emily Wilson with ID: 7
+Seat 7 - Jacob Johnson with ID: 141
+Seat 8 - Samantha Rodriguez with ID: 5
+Seat 9 - Christopher Brown with ID: 41
+Seat 10 - Ashley Wilson with ID: 55
+  ~~~ Wagon 4 ~~~
+Seat 1 - Isabella Rodriguez with ID: 109
+Seat 2 - Sofia Martinez with ID: 138
+Seat 3 - Elizabeth Wilson with ID: 170
+Seat 4 - Katherine Thompson with ID: 205
+Seat 5 - Gabriel Ledesma with ID: 166
+  ~~~ Wagon 5 ~~~
+Seat 1 - Ava Smith with ID: 226
+Seat 2 - Luke Johnson with ID: 244
+Seat 3 - Madison Wilson with ID: 193
+Seat 4 - Elizabeth Thompson with ID: 104
+Seat 5 - Ryan Rodriguez with ID: 43
+Seat 6 - Olivia Martinez with ID: 82
+Seat 7 - Ethan Davis with ID: 148
+Seat 8 - Charlotte Lee with ID: 234
+
+~~~~~~~~ TRAIN 3 ~~~~~~~~
+
+  ~~~ Wagon 1 ~~~
+Seat 1 - Olivia Martinez with ID: 82
+Seat 2 - Wang Yan with ID: 144
+Seat 3 - Li Ming with ID: 128
+Seat 4 - Chen Lei with ID: 18
+Seat 5 - Amanda Hernandez with ID: 25
+  ~~~ Wagon 2 ~~~
+Seat 1 - Wu Jie with ID: 8
+Seat 2 - Xu Mei with ID: 33
+Seat 3 - Zhou Ting with ID: 50
+Seat 4 - Grace Brown with ID: 248
+  ~~~ Wagon 3 ~~~
+Seat 1 - Zhang San with ID: 77
+Seat 2 - Li Si with ID: 228
+Seat 3 - Xu Zhu with ID: 221
+Seat 4 - Zhao Liu with ID: 23
+Seat 5 - Emily Davis with ID: 187
+Seat 6 - Wii U with ID: 152
+  ~~~ Wagon 4 ~~~
+Seat 1 - Jacob Wilson with ID: 56
+Seat 2 - Benjamin Wilson with ID: 6
+Seat 3 - Li Liu with ID: 10
+Seat 4 - Victoria Hernandez with ID: 53
+Seat 5 - Zhang Sheng with ID: 60
+Seat 6 - Guo Jing with ID: 192
+  ~~~ Wagon 5 ~~~
+Seat 1 - Yang Kang with ID: 160
+Seat 2 - Mark Johnson with ID: 12
+Seat 3 - Guo Xiang with ID: 212
+Seat 4 - Huang Rong with ID: 198
+Seat 5 - Yang Guo with ID: 236
+Seat 6 - Xiao Long with ID: 186
+Seat 7 - Grace Brown with ID: 95
+Seat 8 - Jennifer Wilson with ID: 117
+Seat 9 - Li Bai with ID: 2
+Seat 10 - Wang Bo with ID: 163
+Seat 11 - Rachel Thompson with ID: 219
+  ~~~ Wagon 6 ~~~
+Seat 1 - Liu Yi with ID: 200
+Seat 2 - Lu Bu with ID: 174
+Seat 3 - Sun Quan with ID: 98
+Seat 4 - Jonathan Miller with ID: 88
+Seat 5 - Ethan Brown with ID: 49
+Seat 6 - Zhao Yun with ID: 178
+Seat 7 - Liu Bei with ID: 84
+Seat 8 - Zhang Fei with ID: 99
+
+~~~~~~~~ TRAIN 4 ~~~~~~~~
+
+  ~~~ Wagon 1 ~~~
+Seat 1 - Maria Rodriguez with ID: 195
+Seat 2 - Juan Hernandez with ID: 122
+Seat 3 - Lily Wang with ID: 13
+Seat 4 - Alex Kim with ID: 126
+Seat 5 - Rachel Chen with ID: 100
+Seat 6 - James Lee with ID: 114
+Seat 7 - Emily Davis with ID: 58
+  ~~~ Wagon 2 ~~~
+Seat 1 - William Johnson with ID: 42
+Seat 2 - Sophia Kim with ID: 143
+Seat 3 - Ethan Brown with ID: 49
+Seat 4 - Michael Lee with ID: 69
+Seat 5 - Daniel Lee with ID: 153
+Seat 6 - Ava Johnson with ID: 75
+Seat 7 - Liu Yi with ID: 200
+  ~~~ Wagon 3 ~~~
+Seat 1 - Benjamin Hernandez with ID: 189
+Seat 2 - Amy Thompson with ID: 239
+Seat 3 - Benjamin Martinez with ID: 35
+Seat 4 - Grace Brown with ID: 95
+Seat 5 - Jacob Wilson with ID: 56
+Seat 6 - Sarah Wilson with ID: 11
+  ~~~ Wagon 4 ~~~
+Seat 1 - Alexander Brown with ID: 61
+Seat 2 - Matthew Kim with ID: 249
+Seat 3 - David Hernandez with ID: 124
+Seat 4 - Ethan Davis with ID: 4
+Seat 5 - Benjamin Hernandez with ID: 67
+Seat 6 - Jane Doe with ID: 179
+  ~~~ Wagon 5 ~~~
+Seat 1 - Michael Johnson with ID: 1
+Seat 2 - Grace Brown with ID: 248
+Seat 3 - Jacob Wilson with ID: 177
+Seat 4 - Mia Lee with ID: 233
+Seat 5 - Amy Johnson with ID: 225
+Seat 6 - Mark Johnson with ID: 12
+Seat 7 - Michael Brown with ID: 71
+
+~~~~~~~~ TRAIN 5 ~~~~~~~~
+
+  ~~~ Wagon 1 ~~~
+Seat 1 - Lily Wang with ID: 13
+Seat 2 - Yang Kang with ID: 160
+Seat 3 - Milly Brown with ID: 54
+Seat 4 - Zhang Sheng with ID: 60
+Seat 5 - Noah Wilson with ID: 93
+  ~~~ Wagon 2 ~~~
+Seat 1 - Olivia Martinez with ID: 82
+Seat 2 - William Davis with ID: 3
+Seat 3 - Alexander Brown with ID: 61
+Seat 4 - Ashley Davis with ID: 146
+Seat 5 - Emily Davis with ID: 58
+  ~~~ Wagon 3 ~~~
+Seat 1 - Ryan Wilson with ID: 89
+Seat 2 - Sarah Wilson with ID: 11
+Seat 3 - James Davis with ID: 206
+Seat 4 - Christopher Lee with ID: 216
+Seat 5 - Jacob Wilson with ID: 177
+  ~~~ Wagon 4 ~~~
+Seat 1 - Liu Bei with ID: 84
+Seat 2 - Maddie Smith with ID: 137
+Seat 3 - James Charles with ID: 46
+Seat 4 - Xu Zhu with ID: 221
+Seat 5 - Alexander Grey with ID: 83
+Seat 6 - Maria Rodriguez with ID: 195
+
+~~~~~~~~ INFORMATION ABOUT PASSENGERS ~~~~~~~~
+
+Passenger with ID: 1
+Name: Michael Johnson
+Age: 50
+Address: 666 Oak St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 1 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 10
+Name: Li Liu
+Age: 36
+Address: Xi'an, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 4 
+Seat: 3 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 100
+Name: Rachel Chen
+Age: 32
+Address: 456 Friedrichstraße, Berlin, Germany
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 5 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 103
+Name: John Smith
+Age: 42
+Address: 123 Main St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 5 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 104
+Name: Elizabeth Thompson
+Age: 26
+Address: La Rambla, Barcelona, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 4 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 109
+Name: Isabella Rodriguez
+Age: 31
+Address: Plaza de España, Seville, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 4 
+Seat: 1 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 11
+Name: Sarah Wilson
+Age: 19
+Address: 555 Friedrichstraße, Berlin, Germany
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 3 
+Seat: 6 
+Price: 30 
+Distance: 1050
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 3 
+Seat: 2 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 111
+Name: David Rodriguez
+Age: 32
+Address: 888 Pine St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 5 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 114
+Name: James Lee
+Age: 56
+Address: 123 Avenue Montaigne, Paris, France
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 6 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 116
+Name: Sarah Rodriguez
+Age: 30
+Address: 777 Oak St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 117
+Name: Jennifer Wilson
+Age: 30
+Address: 777 Elm St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 8 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 118
+Name: Robert Taylor
+Age: 45
+Address: 222 Cedar St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 119
+Name: Ryan Davis
+Age: 26
+Address: 777 Pine St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 12
+Name: Mark Johnson
+Age: 47
+Address: 123 Rue du Faubourg Saint-Honoré, Paris, France
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 2 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 6 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 120
+Name: Christopher Brown
+Age: 28
+Address: 777 Maple St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 10 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 121
+Name: Sarah Brown
+Age: 30
+Address: 111 Cherry St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 122
+Name: Juan Hernandez
+Age: 25
+Address: 456 Maximilianstraße, Munich, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 2 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 124
+Name: David Hernandez
+Age: 43
+Address: Rua da Prata, Lisbon, Portugal
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 1 
+Seat: 4 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 4 
+Seat: 3 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 126
+Name: Alex Kim
+Age: 44
+Address: 789 Boulevard Haussmann, Paris, France
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 4 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 128
+Name: Li Ming
+Age: 42
+Address: Guangzhou, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 1 
+Seat: 3 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 13
+Name: Lily Wang
+Age: 37
+Address: 123 Berliner Straße, Frankfurt, Germany
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 3 
+Price: 30 
+Distance: 1050
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 1 
+Seat: 1 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 137
+Name: Maddie Smith
+Age: 89
+Address: Lime Avenue, Sydney, Australia
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 5 
+Wagon: 4 
+Seat: 2 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 138
+Name: Sofia Martinez
+Age: 24
+Address: Rua Augusta, Lisbon, Portugal
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 4 
+Seat: 2 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 139
+Name: Ashley Davis
+Age: 29
+Address: 555 Sycamore St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 14
+Name: Christopher Martinez
+Age: 28
+Address: 888 Pine St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 7 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 141
+Name: Jacob Johnson
+Age: 28
+Address: Calle Mayor, Madrid, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 7 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 143
+Name: Sophia Kim
+Age: 29
+Address: 123 Rue Saint-Honoré, Paris, France
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 2 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 144
+Name: Wang Yan
+Age: 28
+Address: Beijing, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 1 
+Seat: 2 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 146
+Name: Ashley Davis
+Age: 29
+Address: 34 Sycamore St, Sydney, Australia
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 5 
+Wagon: 2 
+Seat: 4 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 148
+Name: Ethan Davis
+Age: 42
+Address: Calle Mayor, Madrid, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 7 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 152
+Name: Wii U
+Age: 38
+Address: Shenyang, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 3 
+Seat: 6 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 153
+Name: Daniel Lee
+Age: 36
+Address: 123 Avenue des Ternes, Paris, France
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 5 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 154
+Name: Zachary Davis
+Age: 35
+Address: 222 Cedar St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 157
+Name: Justin Davis
+Age: 39
+Address: 555 Pine St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 3 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 160
+Name: Yang Kang
+Age: 31
+Address: Chengdu, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 1 
+Seat: 3 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 1 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 3----------
+Date: 
+Train: 5 
+Wagon: 1 
+Seat: 2 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 162
+Name: Jessica Thompson
+Age: 36
+Address: 222 Cedar St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 10 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 163
+Name: Wang Bo
+Age: 27
+Address: Guangzhou, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 10 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 166
+Name: Gabriel Ledesma
+Age: 45
+Address: Calle de Alcalá, Madrid, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 4 
+Seat: 5 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 17
+Name: Sandra Gomez
+Age: 12
+Address: 432 Flower Av, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 7 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 170
+Name: Elizabeth Wilson
+Age: 31
+Address: 777 Elm St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 6 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 2 
+Wagon: 4 
+Seat: 3 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 171
+Name: Kayla Thompson
+Age: 27
+Address: 222 Cedar St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 7 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 174
+Name: Lu Bu
+Age: 31
+Address: Chengdu, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 4 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 2 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 177
+Name: Jacob Wilson
+Age: 48
+Address: 456 Karl-Marx-Straße, Berlin, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 3 
+Price: 30 
+Distance: 1050
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 3 
+Seat: 5 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 178
+Name: Zhao Yun
+Age: 41
+Address: Shenyang, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 6 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 179
+Name: Jane Doe
+Age: 35
+Address: 456 Oak St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 11 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 4 
+Seat: 6 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 18
+Name: Chen Lei
+Age: 31
+Address: Shenzhen, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 1 
+Seat: 4 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 183
+Name: Laura Martinez
+Age: 33
+Address: Avinguda Diagonal, Barcelona, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 2 
+Seat: 5 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 186
+Name: Xiao Long
+Age: 25
+Address: Harbin, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 6 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 187
+Name: Emily Davis
+Age: 19
+Address: 321 Pine St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 5 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 3 
+Seat: 5 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 189
+Name: Benjamin Hernandez
+Age: 41
+Address: 123 Kurfürstendamm, Berlin, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 3 
+Seat: 1 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 192
+Name: Guo Jing
+Age: 23
+Address: Tianjin, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 4 
+Seat: 6 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 193
+Name: Madison Wilson
+Age: 29
+Address: Calle de Serrano, Madrid, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 3 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 194
+Name: Samantha Martinez
+Age: 31
+Address: 888 Cedar St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 7 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 195
+Name: Maria Rodriguez
+Age: 31
+Address: 789 Königsallee, Düsseldorf, Germany
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 1 
+Price: 30 
+Distance: 1050
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 4 
+Seat: 6 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 197
+Name: Olivia Smith
+Age: 27
+Address: Carrer de Valencia, Valencia, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 1 
+Seat: 5 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 198
+Name: Huang Rong
+Age: 34
+Address: Xi'an, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 4 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 199
+Name: Nicholas Davis
+Age: 13
+Address: 777 Sycamore St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 2
+Name: Li Bai
+Age: 33
+Address: Beijing, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 5 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 9 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 200
+Name: Liu Yi
+Age: 29
+Address: Hangzhou, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 1 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 7 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 201
+Name: Rachel Wilson
+Age: 56
+Address: 999 Elm St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 6 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 202
+Name: Eric Wilson
+Age: 31
+Address: 111 Sycamore St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 12 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 205
+Name: Katherine Thompson
+Age: 26
+Address: 111 Main St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 3 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 2 
+Wagon: 4 
+Seat: 4 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 206
+Name: James Davis
+Age: 50
+Address: Calle de Alcalá, Madrid, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 1 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 3 
+Seat: 3 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 212
+Name: Guo Xiang
+Age: 28
+Address: Nanjing, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 3 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 216
+Name: Christopher Lee
+Age: 38
+Address: 333 Maple St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 6 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 3 
+Seat: 4 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 219
+Name: Rachel Thompson
+Age: 24
+Address: Calle de Serrano, Madrid, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 2 
+Seat: 3 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 11 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 22
+Name: Samantha Rodriguez
+Age: 35
+Address: 444 Elm St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 9 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 220
+Name: Michael Johnson
+Age: 28
+Address: 789 Elm St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 5 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 221
+Name: Xu Zhu
+Age: 27
+Address: Shenzhen, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 3 
+Seat: 3 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 4 
+Seat: 4 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 225
+Name: Amy Johnson
+Age: 29
+Address: 333 Birch St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 2 
+Wagon: 2 
+Seat: 2 
+Price: 30 
+Distance: 630
+
+----------Information Trip 3----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 5 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 226
+Name: Ava Smith
+Age: 23
+Address: Avinguda Diagonal, Barcelona, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 1 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 228
+Name: Li Si
+Age: 33
+Address: Beijing, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 3 
+Seat: 2 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 23
+Name: Zhao Liu
+Age: 40
+Address: Shenzhen, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 3 
+Seat: 4 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 232
+Name: Jasmine Patel
+Age: 22
+Address: Calle de Fuencarral, Madrid, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 1 
+Seat: 1 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 233
+Name: Mia Lee
+Age: 30
+Address: 123 Champs-Élysées, Paris, France
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 4 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 234
+Name: Charlotte Lee
+Age: 32
+Address: Carrer de Balmes, Barcelona, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 8 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 236
+Name: Yang Guo
+Age: 41
+Address: Shenyang, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 5 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 237
+Name: Maria Hernandez
+Age: 26
+Address: 999 Cedar St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 11 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 239
+Name: Amy Thompson
+Age: 24
+Address: 999 Maple St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 6 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 3 
+Seat: 2 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 24
+Name: Kevin Davis
+Age: 39
+Address: 111 Cherry St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 7 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 244
+Name: Luke Johnson
+Age: 30
+Address: Rua das Flores, Porto, Portugal
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 2 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 248
+Name: Grace Brown
+Age: 33
+Address: 789 Boulevard des Capucines, Paris, France
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 2 
+Seat: 4 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 2 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 249
+Name: Matthew Kim
+Age: 40
+Address: 123 Avenue des Ternes, Paris, France
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 4 
+Seat: 2 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 25
+Name: Amanda Hernandez
+Age: 24
+Address: 999 Maple St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 8 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 1 
+Seat: 5 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 26
+Name: Emma Hernandez
+Age: 21
+Address: Rua de Santa Catarina, Porto, Portugal
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 2 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 3
+Name: William Davis
+Age: 21
+Address: 444 Spruce St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 2 
+Seat: 2 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 33
+Name: Xu Mei
+Age: 27
+Address: Nanjing, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 2 
+Seat: 2 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 35
+Name: Benjamin Martinez
+Age: 44
+Address: 999 Elm St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 3 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 3 
+Seat: 3 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 37
+Name: Sarah Wilson
+Age: 27
+Address: 222 Pine St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 5 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 38
+Name: David Wilson
+Age: 55
+Address: 654 Maple St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 5 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 39
+Name: Benjamin Wilson
+Age: 29
+Address: 333 Birch St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 8 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 4
+Name: Ethan Davis
+Age: 18
+Address: 456 Maximilianstraße, Munich, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 4 
+Seat: 4 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 41
+Name: Christopher Brown
+Age: 31
+Address: Rua das Flores, Porto, Portugal
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 9 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 42
+Name: William Johnson
+Age: 47
+Address: 456 Maximilianstraße, Munich, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 1 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 43
+Name: Ryan Rodriguez
+Age: 33
+Address: Avenida de la Constitución, Seville, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 5 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 46
+Name: James Charles
+Age: 19
+Address: 43 Queens Avenue, Sydney, Australia
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 5 
+Wagon: 4 
+Seat: 3 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 49
+Name: Ethan Brown
+Age: 19
+Address: 789 Kaiserstraße, Frankfurt, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 5 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 3 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 5
+Name: Samantha Rodriguez
+Age: 26
+Address: Passeig de Gràcia, Barcelona, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 8 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 50
+Name: Zhou Ting
+Age: 33
+Address: Xi'an, China
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 2 
+Seat: 3 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 53
+Name: Victoria Hernandez
+Age: 40
+Address: Plaza Mayor, Madrid, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 5 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 3 
+Price: 30 
+Distance: 630
+
+----------Information Trip 3----------
+Date: 
+Train: 3 
+Wagon: 4 
+Seat: 4 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 54
+Name: Milly Brown
+Age: 58
+Address: 6 King Street, Sydney, Australia
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 5 
+Wagon: 1 
+Seat: 3 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 55
+Name: Ashley Wilson
+Age: 24
+Address: Calle de Atocha, Madrid, Spain
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 10 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 56
+Name: Jacob Wilson
+Age: 48
+Address: 789 Zeil, Frankfurt, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 4 
+Seat: 1 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 3 
+Seat: 5 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 58
+Name: Emily Davis
+Age: 23
+Address: 789 Kurfürstendamm, Berlin, Germany
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 1 
+Seat: 7 
+Price: 30 
+Distance: 1050
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 2 
+Seat: 5 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 6
+Name: Benjamin Wilson
+Age: 29
+Address: La Rambla, Barcelona, Spain
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 5 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 4 
+Seat: 2 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 60
+Name: Zhang Sheng
+Age: 25
+Address: Harbin, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 4 
+Seat: 5 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 1 
+Seat: 4 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 61
+Name: Alexander Brown
+Age: 28
+Address: 888 Pine St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 5 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 4 
+Seat: 1 
+Price: 30 
+Distance: 1050
+
+----------Information Trip 3----------
+Date: 
+Train: 5 
+Wagon: 2 
+Seat: 3 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 62
+Name: Ashley Wilson
+Age: 23
+Address: 666 Sycamore St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 3 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 64
+Name: Richard Lee
+Age: 41
+Address: 111 Cherry St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 9 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 67
+Name: Benjamin Hernandez
+Age: 39
+Address: 789 Kurfürstendamm, Berlin, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 4 
+Seat: 5 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 69
+Name: Michael Lee
+Age: 29
+Address: Praça do Rossio, Lisbon, Portugal
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 2 
+Seat: 4 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 4 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 7
+Name: Emily Wilson
+Age: 29
+Address: 111 Elm St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 2 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 2 
+Wagon: 3 
+Seat: 6 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 71
+Name: Michael Brown
+Age: 54
+Address: 123 Berliner Straße, Frankfurt, Germany
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 5 
+Seat: 7 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 72
+Name: Steven Davis
+Age: 40
+Address: 111 Main St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 6 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 75
+Name: Ava Johnson
+Age: 31
+Address: 789 Goethestraße, Frankfurt, Germany
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 4 
+Wagon: 2 
+Seat: 6 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 77
+Name: Zhang San
+Age: 26
+Address: Shanghai, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 6 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 3 
+Seat: 1 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 78
+Name: Samantha Johnson
+Age: 29
+Address: 555 Oak St, Anytown USA
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 79
+Name: Eric Garcia
+Age: 35
+Address: Rua da Boavista, Porto, Portugal
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 1 
+Seat: 2 
+Price: 30 
+Distance: 630
+
+
+Passenger with ID: 8
+Name: Wu Jie
+Age: 39
+Address: Chongqing, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 2 
+Seat: 1 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 81
+Name: Matthew Hernandez
+Age: 26
+Address: 666 Oak St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 7 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 82
+Name: Olivia Martinez
+Age: 39
+Address: Rua da Prata, Lisbon, Portugal
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 5 
+Seat: 6 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 1 
+Seat: 1 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 3----------
+Date: 
+Train: 5 
+Wagon: 2 
+Seat: 1 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 83
+Name: Alexander Grey
+Age: 28
+Address: 888 Pine St, Sydney, Australia
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 5 
+Wagon: 4 
+Seat: 5 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 84
+Name: Liu Bei
+Age: 25
+Address: Harbin, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 7 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 4 
+Seat: 1 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 88
+Name: Jonathan Miller
+Age: 43
+Address: 123 Oak St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 1 
+Seat: 4 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 4 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 89
+Name: Ryan Wilson
+Age: 27
+Address: 444 Maple St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 4 
+Seat: 3 
+Price: 30 
+Distance: 1255
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 3 
+Seat: 1 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 92
+Name: Matthew Thompson
+Age: 24
+Address: 555 Birch St, Anytown USA
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 1 
+Wagon: 2 
+Seat: 1 
+Price: 30 
+Distance: 1255
+
+
+Passenger with ID: 93
+Name: Noah Wilson
+Age: 31
+Address: Praça do Rossio, Lisbon, Portugal
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 2 
+Wagon: 2 
+Seat: 1 
+Price: 30 
+Distance: 630
+
+----------Information Trip 2----------
+Date: 
+Train: 5 
+Wagon: 1 
+Seat: 5 
+Price: 30 
+Distance: 870
+
+
+Passenger with ID: 95
+Name: Grace Brown
+Age: 33
+Address: 123 Rue du Faubourg Saint-Antoine, Paris, France
+Gender: FList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 5 
+Seat: 7 
+Price: 30 
+Distance: 1318
+
+----------Information Trip 2----------
+Date: 
+Train: 4 
+Wagon: 3 
+Seat: 4 
+Price: 30 
+Distance: 1050
+
+
+Passenger with ID: 98
+Name: Sun Quan
+Age: 39
+Address: Chongqing, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 3 
+Price: 30 
+Distance: 1318
+
+
+Passenger with ID: 99
+Name: Zhang Fei
+Age: 23
+Address: Tianjin, China
+Gender: MList of trips: 
+
+----------Information Trip 1----------
+Date: 
+Train: 3 
+Wagon: 6 
+Seat: 8 
+Price: 30 
+Distance: 1318
+

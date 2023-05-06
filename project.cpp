@@ -745,7 +745,7 @@ void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     }
 }
 
-void showTripsOfPassenger(map <string, Passenger> passes){
+void showTripsOfPassenger(map <string, Passenger> passes, list <Train> trenes){
     string idPass;
     cout << "Introduce the ID of the passenger: ";
     cin >> idPass;
@@ -754,7 +754,6 @@ void showTripsOfPassenger(map <string, Passenger> passes){
     bool foundID = 0;
     for (auto it = passes.begin(); it != passes.end(); ++it){
         if((*it).first == idPass){
-            cout <<(*it).second.getname();
             travelsPass = (*it).second.getTrips();
             foundID = 1;
             break;
@@ -767,6 +766,7 @@ void showTripsOfPassenger(map <string, Passenger> passes){
             for (Trip tr:travelsPass){
                 cout << "\n----------Information Trip " << count << "----------" << endl;
                 cout << "Date: ";
+                cout << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination();
                 tr.getTripDate().printDate();
                 cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << endl;
                 count++;
@@ -886,7 +886,7 @@ void endProgram(list <Train> trenes, map <string, Passenger> passes){
                 outfi << "\n----------Information Trip " << count << "----------" << endl;
                 outfi << "Date: ";
                 tr.getTripDate().printDate();
-                outfi << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << gettrainfromnum(tr.getTrain(), trenes).getDistance() << endl;
+                outfi << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << getTrainfromNum(trenes, tr.getTrain()).getDistance() << endl;
                 count++;
             }
         }else{
@@ -923,7 +923,7 @@ int main(){
                 removePassengerTrip(mytrains, mypasses);
                 break;
             case 3:
-                showTripsOfPassenger(mypasses);
+                showTripsOfPassenger(mypasses, mytrains);
                 break;
             case 4:
                 showListOfPassengers(mytrains, mypasses);
@@ -934,6 +934,7 @@ int main(){
             case 6:
                 showPassengersCities(mytrains,mypasses);
                 break;
+
         }
     }
 }
