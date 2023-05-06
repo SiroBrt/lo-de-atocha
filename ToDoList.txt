@@ -1,2 +1,0 @@
-quitar redundancia en los archivos de lectura (pasajeros en trenes y trenes en pasajeros)
-añadir funcion para escribir el output al final(hay que poner todo en un solo archivo que puede ser concatenar los dos que tenemos con un separador en medio)
