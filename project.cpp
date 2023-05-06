@@ -653,7 +653,55 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     }
     if(foundID=="0"){
         Passenger unregistered;
+        string auxS;
+        int auxI;
         unregistered.setID(myid);
+        cout <<"Passenger not registered, please introduce the their data" <<endl <<"Name: ";
+        cin >>auxS;
+        unregistered.setName(auxS);
+        cout <<"Adress(substitute spaces by .): ";
+        cin >>auxS;
+        int dots=counter(auxS,'.'),pos;
+        for(int i=0;i<dots;i++){
+            pos=auxS.find('.');
+            auxS[pos]=' ';
+        }
+        auxI=inputInt("Age: ");
+        unregistered.setAge(auxI);
+        bool correct=0,error=0;
+        do{
+            cout <<"Gender(F/M): ";
+            cin >>auxS;
+            if(auxS!="F" && auxS!="M" && auxS!="f" && auxS!="m"){
+                cout <<"\033[31;1m" <<"invalid input" <<"\033[0m\033[A\033[2K";
+                for (int i=0; i<13; i++){cout <<"\033[D";}
+                error=1;
+            }else{
+                correct=1;
+            }
+        }while(correct==0);
+        if(error==1){cout <<"\033[2K";}
+        //we take input as string and only accept F and M
+        unregistered.setGender(((auxS=="F" || auxS=="f")?'F':'M'));
+        correct=0,error=0;
+        do{
+            auxI=inputInt("Baggage: ");
+            if(auxI>25||auxI<0){
+                //mismo anti-error que en inputInt
+                cout <<"\033[31;1m" <<"invalid input" <<"\033[0m\033[A\033[2K";
+                for (int i=0; i<13; i++){cout <<"\033[D";}
+                error=1;
+            }else{
+                correct=1;
+            }
+        }while(correct==0);
+        if(error==1){cout <<"\033[2K";}
+        unregistered.setBaggage(auxI);
+
+         
+        
+
+        
         passes[myid] = unregistered;
     }
     //comprobar trenes que coincidan en fecha e itinerario
