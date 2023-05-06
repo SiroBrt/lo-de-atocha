@@ -697,11 +697,6 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
         }while(correct==0);
         if(error==1){cout <<"\033[2K";}
         unregistered.setBaggage(auxI);
-
-         
-        
-
-        
         passes[myid] = unregistered;
     }
     //comprobar trenes que coincidan en fecha e itinerario
@@ -813,8 +808,7 @@ void showTripsOfPassenger(map <string, Passenger> passes, list <Train> trenes){
             int count = 1;
             for (Trip tr:travelsPass){
                 cout << "\n----------Information Trip " << count << "----------" << endl;
-                cout << "Date: ";
-                cout << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination();
+                cout << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination() << "\nDate: ";;
                 tr.getTripDate().printDate();
                 cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << endl;
                 count++;
