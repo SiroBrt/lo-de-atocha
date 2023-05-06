@@ -894,20 +894,21 @@ void endProgram(list <Train> trenes, map <string, Passenger> passes){
     }
     outfi << "\n~~~~~~~~ "<< "INFORMATION ABOUT PASSENGERS" <<" ~~~~~~~~" << endl;
     for (auto p:passes){
-        outfi << "\nPassenger with ID " << p.second.getID() << " :\nName: "<<p.second.getname() << " :\nAge: "<<p.second.getage() << " :\nAddress: "<<p.second.getaddress() << " :\nGender: "<<p.second.getgender();
+        outfi << "\nPassenger with ID: " << p.second.getID() << "\nName: "<<p.second.getname() << "\nAge: "<<p.second.getage() << "\nAddress: "<<p.second.getaddress() << "\nGender: "<<p.second.getgender();
         if(p.second.getTrips().size()>0){
-            cout << "List of trips: " << endl;
+            outfi << "List of trips: " << endl;
             int count = 1;
             for (Trip tr:p.second.getTrips()){
-                cout << "\n----------Information Trip " << count << "----------" << endl;
-                cout << "Date: ";
+                outfi << "\n----------Information Trip " << count << "----------" << endl;
+                outfi << "Date: ";
                 tr.getTripDate().printDate();
-                cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << gettrainfromnum(tr.getTrain(), trenes).getDistance() << endl;
+                outfi << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << gettrainfromnum(tr.getTrain(), trenes).getDistance() << endl;
                 count++;
             }
         }else{
-            cout <<"The passenger "<< p.first <<" has no trips" <<endl;
+            outfi <<"The passenger "<< p.first <<" has no trips" <<endl;
         }
+        outfi << endl;
     }
 }
 int main(){
