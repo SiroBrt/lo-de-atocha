@@ -206,7 +206,7 @@ class Trip{
     private:
     Date tripDate;
     int train, wagon, seat, price;
-    float distance;
+    int distance;
     public:
     Trip(){
         train = wagon = seat = 0;
@@ -266,7 +266,7 @@ public:
     void setTrainNum(int input){trainnum = input;}
     void setOrigin(string originst){origin = originst;}
     void setDest(string destst){destination = destst;}
-    void setDist(float mydist){distance = mydist;}
+    void setDist(int mydist){distance = mydist;}
     void setDate(Date input){dateoftrip=input;}
     string getOrigin(){return origin;}
     string getDestination(){return destination;}
@@ -292,7 +292,7 @@ public:
             }
         }
         if(found==0){
-            cout <<"passenger not found" <<endl;
+            cout <<"\nThis passenger not found" <<endl;
         }
     }
     pair <int,int> findPassenger(string myid){
@@ -345,7 +345,7 @@ Train getTrainfromNum(list <Train> mytrenecitos, int n){
     //si ha hecho return no llega hasta aqui, solo para evitar posibles errores
     Train problemas;
     problemas.setTrainNum(-1);
-    cout <<"train not found" <<endl;
+    cout <<"The train was not found" <<endl;
     return problemas;
 }
 
@@ -599,7 +599,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
         }
         trainfi.close();
     }catch(...){
-        cout <<"\033[1;31m" <<"error reading files" <<"\033[0m" <<endl;
+        cout <<"\033[1;31m" <<"Error reading files" <<"\033[0m" <<endl;
         exit(1);
     }
 }
@@ -788,7 +788,7 @@ void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     }
 }
 
-void showTripsOfPassenger(map <string, Passenger> passes, list <Train> trenes){
+void showTripsOfPassenger(map <string, Passenger> &passes, list <Train> &trenes){
     string idPass;
     cout << "Introduce the ID of the passenger: ";
     cin >> idPass;
@@ -804,7 +804,7 @@ void showTripsOfPassenger(map <string, Passenger> passes, list <Train> trenes){
     }
     if(foundID){
         if(travelsPass.size()>0){
-            cout << "This is the list of trips for passenger " << idPass << ":" << endl;
+            cout << "\nThis is the list of trips for passenger " << idPass << ":" << endl;
             int count = 1;
             for (Trip tr:travelsPass){
                 cout << "\n----------Information Trip " << count << "----------" << endl;
@@ -822,7 +822,7 @@ void showTripsOfPassenger(map <string, Passenger> passes, list <Train> trenes){
     }
 }
 
-void showListOfPassengers(list <Train> trenes, map <string, Passenger> passes){
+void showListOfPassengers(list <Train> &trenes, map <string, Passenger> &passes){
     int t;
     bool found=0;
     t=inputInt("Introduce the number of the train: ");
@@ -851,7 +851,7 @@ void showListOfPassengers(list <Train> trenes, map <string, Passenger> passes){
     }
 }
 
-list <Passenger> showOrderedListOfPassengers(map <string,Passenger> input){
+list <Passenger> showOrderedListOfPassengers(map <string,Passenger> &input){
     list <Passenger> output;
     for(auto inserting:input){
         auto it=output.begin();
@@ -879,7 +879,7 @@ list <Passenger> showOrderedListOfPassengers(map <string,Passenger> input){
     return output;
 }
 
-map <string,list<string>> showPassengersCities(list <Train> trenes, map <string, Passenger> passes){
+map <string,list<string>> showPassengersCities(list <Train> &trenes, map <string, Passenger> &passes){
     map <string,list<string>> output;
     for(auto t:trenes){
         for(auto w:t.getWagons()){
@@ -919,22 +919,25 @@ void endProgram(list <Train> trenes, map <string, Passenger> passes){
             }
         }
     }
-    outfi << "\n~~~~~~~~ "<< "INFORMATION ABOUT PASSENGERS" <<" ~~~~~~~~" << endl;
+    outfi << "\n~~~~~~~~~~~~~~~~~~~~~~~~ "<< "INFORMATION ABOUT PASSENGERS" << " ~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     for (auto p:passes){
         outfi << "\nPassenger with ID: " << p.second.getID() << "\nName: "<<p.second.getname() << "\nAge: "<<p.second.getage() << "\nAddress: "<<p.second.getaddress() << "\nGender: "<<p.second.getgender();
         if(p.second.getTrips().size()>0){
-            outfi << "List of trips: " << endl;
+            outfi << "\n-------------------- List of trips: --------------------" << endl;
             int count = 1;
             for (Trip tr:p.second.getTrips()){
-                outfi << "\n----------Information Trip " << count << "----------" << endl;
-                outfi << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination() <<"\nDistance: " << tr.getDistance() << "\nDate: ";
-                tr.getTripDate().printDate();
+                outfi << "----------Information Trip " << count << "----------" << endl;
+                outfi << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination() <<"\nDistance: " << tr.getDistance() << "km\nDate: ";
+                outfi <<(tr.getTripDate().getDay()<10?"0":"") << tr.getTripDate().getDay() << ":" <<(tr.getTripDate().getMonth()<10?"0":"") << tr.getTripDate().getMonth() << ":";
+                for(int i=1;i<4-floor(log10(tr.getTripDate().getYear()));i++){outfi <<"0";}
+                outfi << tr.getTripDate().getYear() << endl;
                 outfi << "Prize of the trip: " << tr.getprice();
                 outfi << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << endl;
                 count++;
+                outfi << "\n";
             }
         }else{
-            outfi <<"The passenger "<< p.first <<" has no trips" <<endl;
+            outfi <<"Passenger "<< p.first <<" has no trips" <<endl;
         }
         outfi << endl;
     }
