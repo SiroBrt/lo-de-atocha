@@ -808,8 +808,9 @@ void showTripsOfPassenger(map <string, Passenger> passes, list <Train> trenes){
             int count = 1;
             for (Trip tr:travelsPass){
                 cout << "\n----------Information Trip " << count << "----------" << endl;
-                cout << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination() << "\nDate: ";;
+                cout << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination() <<"\nDistance: " << tr.getDistance() << "\nDate: ";
                 tr.getTripDate().printDate();
+                cout << "Prize of the trip: " << tr.getprice();
                 cout << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << endl;
                 count++;
             }
@@ -926,9 +927,10 @@ void endProgram(list <Train> trenes, map <string, Passenger> passes){
             int count = 1;
             for (Trip tr:p.second.getTrips()){
                 outfi << "\n----------Information Trip " << count << "----------" << endl;
-                outfi << "Date: ";
+                outfi << "Origin: " << getTrainfromNum(trenes, tr.getTrain()).getOrigin() <<"\nDestination: " << getTrainfromNum(trenes, tr.getTrain()).getDestination() <<"\nDistance: " << tr.getDistance() << "\nDate: ";
                 tr.getTripDate().printDate();
-                outfi << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << " \nPrice: " << tr.getprice() << " \nDistance: " << getTrainfromNum(trenes, tr.getTrain()).getDistance() << endl;
+                outfi << "Prize of the trip: " << tr.getprice();
+                outfi << "\nTrain: " << tr.getTrain() << " \nWagon: " << tr.getWagon()  << " \nSeat: " << tr.getSeat() << endl;
                 count++;
             }
         }else{
