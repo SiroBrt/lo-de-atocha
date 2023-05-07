@@ -44,15 +44,15 @@ int inputInt(string question){
     return num;
 }
 
-bool validDate(int num1,int num2,int num3){
+bool validDate(int day,int month,int year){
     bool leapYear;
-        if(num1>0 && num2>0 && num2<=12 && num3>0){
-            leapYear=(num3%400==0?1:num3%100==0?0:num3%4==0?1:0);
-            if(num2==2 && ((leapYear==1 && num1>29) || (leapYear==0 && num1>28))){
+        if(day>0 && month>0 && month<=12 && year>0){
+            leapYear=(year%400==0?1:year%100==0?0:year%4==0?1:0);
+            if(month==2 && ((leapYear==1 && day>29) || (leapYear==0 && day>28))){
                 return 0;
-            }else if((num2==1 || num2==3 || num2==5 || num2==7 || num2==8 || num2==10 || num2==12) && num1>31){
+            }else if((month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) && day>31){
                 return 0;
-            }else if((num2==4 || num2==6 || num2==9 || num2==11) && num1>30){
+            }else if((month==4 || month==6 || month==9 || month==11) && day>30){
                 return 0;
             }else{
                 return 1;
@@ -67,50 +67,40 @@ class Date{
     int day,month,year;
     public:
     Date(){day=month=year=1;}
-    Date(int num1,int num2,int num3){
-        if(validDate(num1,num2,num3)==1){
-            day=num1;
-            month=num2;
-            year=num3;
+    Date(int myday,int mymonth,int myyear){
+        if(validDate(myday,mymonth,myyear)==1){
+            day=myday;
+            month=mymonth;
+            year=myyear;
         }else{
             cout <<"invalid date" <<endl;
             day=month=year=1;
         }
     }
-    void setDay(int num){
-        if(validDate(num,month,year)){day=num;}
-        else{cout <<"invalid date" <<endl;}
-    }
-    void setMonth(int num){
-        if(validDate(day,num,year)){month=num;}
-        else{cout <<"invalid date" <<endl;}
-    }
-    void setYear(int num){
-        if(validDate(day,month,num)){year=num;}
-        else{cout <<"invalid date" <<endl;}
-    }
+    
     int getDay(){return day;}
     int getMonth(){return month;}
     int getYear(){return year;}
+    
+    void setDay(int myday){
+        if(validDate(myday,month,year)){day=myday;}
+        else{cout <<"invalid date" <<endl;}
+    }
+    void setMonth(int mymonth){
+        if(validDate(day,mymonth,year)){month=mymonth;}
+        else{cout <<"invalid date" <<endl;}
+    }
+    void setYear(int myyear){
+        if(validDate(day,month,myyear)){year=myyear;}
+        else{cout <<"invalid date" <<endl;}
+    }
+    
     bool operator ==(Date input){
         if(input.day==day && input.month==month && input.year==year){
             return 1;
         }else{
             return 0;
         }
-    }
-    bool operator <(Date input){
-        long long int a,b;
-        //y0000+m00+d=y/mm/dd
-        a=day+month*100+year*10000;
-        b=input.day+input.month*100+input.year*10000;
-        return a<b;
-    }
-    bool operator >(Date input){
-        long long int a,b;
-        a=day+month*100+year*10000;
-        b=input.day+input.month*100+input.year*10000;
-        return a>b;
     }
     
     void printDate(){
@@ -129,24 +119,25 @@ class Wagon{
         capacity=5;
         wagonNumber=1;
     }
-    Wagon(int numseats, int numofwaagon, vector <pair <int,string>> reserv_seats){
+    Wagon(int numseats, int numofwagon, vector <pair <int,string>> reserv_seats){
         if(numseats>=5){
             capacity=numseats;
         }else{
             cout <<"\nThe minimum number of seats in a wagon is 5" <<endl;
             capacity = 5;
         }
-        wagonNumber = numofwaagon;
+        wagonNumber = numofwagon;
         reservedSeats = reserv_seats;
 
     }
+    
     int getCapacity(){return capacity;}
     int getWagonNum(){return wagonNumber;}
     //returns the ID corresponding to the seat. if it is not found it returns a -1
-    string getPassenger(int input){
+    string getPassenger(int seat){
         string output="-1";
         for(auto i:reservedSeats){
-            if(input==i.first){
+            if(seat==i.first){
                 output=i.second;
                 break;
             }
@@ -165,24 +156,25 @@ class Wagon{
         return output;
     }
     
-    void setCapacity(int input){
-        if(reservedSeats.size()>input){
+    void setCapacity(int mycapacity){
+        if(reservedSeats.size()>mycapacity){
             cout <<"The wagon is full!" <<endl;
         }else{
-            capacity=input;
+            capacity=mycapacity;
         }
     }
-    void setNumber(int input){
-        if(input>0){
-            wagonNumber=input;
+    void setNumber(int mynumber){
+        if(mynumber>0){
+            wagonNumber=mynumber;
         }else{
             cout <<"introduce a valid wagon number" <<endl;
         }
     }
-    void addPassengerW(string id){
+    
+    void addPassengerW(string myid){
         pair <int,string> info;
         info.first=reservedSeats.size()+1;
-        info.second=id;
+        info.second=myid;
         reservedSeats.push_back(info);
     }
     void removePassengerW(string myid){
@@ -213,7 +205,6 @@ class Trip{
         tripDate = Date(1,1,1);
         price = 0;
     }
-
     Trip(Date dateoftrip, int numtrain, int numwagon, int numseat, int tripprice){
         tripDate = dateoftrip;
         train = numtrain;
@@ -229,11 +220,10 @@ class Trip{
     int getprice(){return price;}
     float getDistance(){return distance;}
 
-    
     void setDate(Date dateoftrip){tripDate = dateoftrip;}
-    void setTrain(int num){train = num;}
-    void setWagon(int num){wagon = num;}
-    void setSeat(int num){seat = num;}
+    void setTrain(int mytrain){train = mytrain;}
+    void setWagon(int mywagon){wagon = mywagon;}
+    void setSeat(int myseat){seat = myseat;}
     void setprice(int myprice){price = myprice;}
     void setDistance(float tripdistanceinkm){distance = tripdistanceinkm;}    
 };
@@ -263,16 +253,21 @@ public:
         dateoftrip = tripdate;
         wagonsvect = vectorofwagons;
     }
-    void setTrainNum(int input){trainnum = input;}
-    void setOrigin(string originst){origin = originst;}
-    void setDest(string destst){destination = destst;}
-    void setDist(int mydist){distance = mydist;}
-    void setDate(Date input){dateoftrip=input;}
+    
     string getOrigin(){return origin;}
     string getDestination(){return destination;}
     float getDistance(){return distance;}
     Date getDate(){return dateoftrip;}
     int getTrainNum(){return trainnum;}
+    //only for consulting (the same as Wagon)
+    vector <Wagon> getWagons(){return wagonsvect;}
+
+    void setTrainNum(int mytrainnum){trainnum = mytrainnum;}
+    void setOrigin(string originst){origin = originst;}
+    void setDest(string destst){destination = destst;}
+    void setDist(int mydist){distance = mydist;}
+    void setDate(Date day){dateoftrip=day;}
+    
     void addPassengerT(string myid){
         for(int w=0; w<wagonsvect.size(); w++){
             if(wagonsvect[w].getCapacity()>wagonsvect[w].getSeatVector().size()){
@@ -331,9 +326,6 @@ public:
         }
         return 1;
     }
-    
-    //only for consulting (the same as Wagon)
-    vector <Wagon> getWagons(){return wagonsvect;}
 };
 
 Train getTrainfromNum(list <Train> mytrenecitos, int n){
@@ -370,6 +362,7 @@ public:
         baggage = pass_baggage;
         gender = pass_gender;
     }
+    
     string getID(){return ID;}
     string getname(){return name;}
     string getaddress(){return adress;}
@@ -381,12 +374,12 @@ public:
     void setID(string myid){ID = myid;}
     void setName(string myname){name = myname;}
     void setAddress(string myaddress){adress = myaddress;}
-    void setAge(int num){age = num;}
-    void setBaggage(float num){
-        if (num<0 || num>25){
+    void setAge(int myage){age = myage;}
+    void setBaggage(float mybag){
+        if (mybag<0 || mybag>25){
             cout << "The weight of the baggage isnt valid!";
         }else{
-            baggage = num;
+            baggage = mybag;
         }
     }
     void setGender(char mygender){
@@ -532,7 +525,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                 string id_substr = input.substr(0, pos);
                 int occupiedseats = counter(id_substr, ',')+1;
                 if(occupiedseats>seatsperwagon[k-1]){
-                    cout <<"\033[1;31m" <<"limit of passengers exceeded" <<"\033[0m" <<endl;
+                    cout <<"\033[1;31m" <<"limit of passengers exceeded in train " <<trainNumber <<" \033[0m" <<endl;
                     exit(1);
                 }
                 for (int j=1; j<occupiedseats; j++){
@@ -854,6 +847,7 @@ void showListOfPassengers(list <Train> &trenes, map <string, Passenger> &passes)
 
 list <Passenger> showOrderedListOfPassengers(map <string,Passenger> &input){
     list <Passenger> output;
+    //Insertion sort
     for(auto inserting:input){
         auto it=output.begin();
         int preInsertionSize=output.size();
@@ -863,6 +857,7 @@ list <Passenger> showOrderedListOfPassengers(map <string,Passenger> &input){
                 break;
             }else{it++;}
         }
+        //If the new passenger is going to be last the while doesn't reach and it's not added, so we add it last
         if(preInsertionSize==output.size()){
             output.push_back(inserting.second);
         }
