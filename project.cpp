@@ -608,21 +608,31 @@ int mainMenu(){
 }
 
 void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
-    string origin,destination,myid;
+    string origin, destination, myid;
+    int day, month, year, priceofthetrip;
     Date dia;
-    int num, priceofthetrip;
-    cout <<"Introduce your ID: ";
+    cout << "Introduce your ID: ";
     cin >> myid;
-    cout <<"Introduce the origin: ";
+    cout << "Introduce the origin: ";
     cin >> origin;
-    cout <<"Introduce the destination: ";
+    cout << "Introduce the destination: ";
     cin >> destination;
-    num=inputInt("Introduce the day: ");
-    dia.setDay(num);
-    num=inputInt("Introduce the month: ");
-    dia.setMonth(num);
-    num=inputInt("Introduce the year: ");
-    dia.setYear(num);
+    bool done = 0, error = 0;
+    do{
+        day = inputInt("Introduce the day: ");
+        month = inputInt("Introduce the month: ");
+        year=inputInt("Introduce the year: ");
+        dia.setYear(year);
+        dia.setMonth(month);
+        dia.setDay(day);
+        if(dia.getDay()!=day || dia.getMonth()!=month || dia.getYear()!=year){
+            cout <<"\033[A\033[A\033[2K\033[A\033[2K\033[A\033[2K";
+            error=1;
+        }else{
+            done=1;
+        }
+    } while (!done);
+    if(error==1){cout <<"\033[2K";}
     priceofthetrip=inputInt("Introduce the price of the trip: ");
     //we check if the passenger exists
     string foundID = "0";
@@ -724,21 +734,31 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
 }
 
 void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
-    int num;
-    string myid, origin, destination;
+    string origin, destination, myid;
+    int day, month, year;
     Date dia;
-    cout <<"Introduce your ID: ";
+    cout << "Introduce your ID: ";
     cin >> myid;
-    cout <<"Introduce the origin: ";
+    cout << "Introduce the origin: ";
     cin >> origin;
-    cout <<"Introduce the destination: ";
+    cout << "Introduce the destination: ";
     cin >> destination;
-    num=inputInt("Introduce the day: ");
-    dia.setDay(num);
-    num=inputInt("Introduce the month: ");
-    dia.setMonth(num);
-    num=inputInt("Introduce the year: ");
-    dia.setYear(num);
+    bool done = 0, error = 0;
+    do{
+        day = inputInt("Introduce the day: ");
+        month = inputInt("Introduce the month: ");
+        year=inputInt("Introduce the year: ");
+        dia.setYear(year);
+        dia.setMonth(month);
+        dia.setDay(day);
+        if(dia.getDay()!=day || dia.getMonth()!=month || dia.getYear()!=year){
+            cout <<"\033[A\033[A\033[2K\033[A\033[2K\033[A\033[2K";
+            error=1;
+        }else{
+            done=1;
+        }
+    } while (!done);
+    if(error==1){cout <<"\033[2K";}
     //check that the passenger exists
     string foundID = "0";
     for (auto it = passes.begin(); it != passes.end(); ++it){
