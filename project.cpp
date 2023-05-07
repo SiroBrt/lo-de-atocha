@@ -889,7 +889,7 @@ map <string,list<string>> showPassengersCities(list <Train> &trenes, map <string
 void endProgram(list <Train> trenes, map <string, Passenger> passes){
     ofstream outfi;
     outfi.open("output.txt");
-    outfi << "\n~~~~~~~~ "<< "INFORMATION ABOUT TRAINS" <<" ~~~~~~~~" << endl;
+    outfi << "\n~~~~~~~~~~~~~~~~~~~~~~~~ "<< "INFORMATION ABOUT TRAINS" << " ~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
     for (Train t : trenes){
         outfi << "\n~~~~~~~~ "<< "TRAIN "<< t.getTrainNum() <<" ~~~~~~~~" << endl << endl;
         for(int i=0;i<t.getWagons().size();i++){
