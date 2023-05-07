@@ -26,7 +26,7 @@ int counter(string s, char x){
 int inputInt(string question){
     string aux;
     int num;
-    bool done=0,error=0;
+    bool done=0, error=0;
     do {
         try {
             cout <<question;
@@ -36,7 +36,7 @@ int inputInt(string question){
         }
         catch (...) {
             cout <<"\033[31;1m" <<"invalid input" <<"\033[0m\033[A\033[2K";
-            for (int i=0; i<13; i++){cout <<"\033[D";}      //13 porque "invalid input".size()=13
+            for (int i=0; i<13; i++){cout <<"\033[D";}      //13 since "invalid input".size()=13
             error=1;
         }
     }while(!done);
@@ -115,7 +115,7 @@ class Date{
     
     void printDate(){
         cout <<(day<10?"0":"") << day << ":" <<(month<10?"0":"") << month << ":";
-        for(int i=1;i<4-floor(log10(year));i++){cout <<"0";}    //añadimos ceros al año
+        for(int i=1;i<4-floor(log10(year));i++){cout <<"0";}    //we add zeros to the year
         cout << year << endl;
     }
 };
@@ -142,7 +142,7 @@ class Wagon{
     }
     int getCapacity(){return capacity;}
     int getWagonNum(){return wagonNumber;}
-    //da el ID a partir del sitio. si no está da -1
+    //returns the ID corresponding to the seat. if it is not found it returns a -1
     string getPassenger(int input){
         string output="-1";
         for(auto i:reservedSeats){
@@ -153,7 +153,7 @@ class Wagon{
         }
         return output;
     }
-    //el contrario. si no está da -1
+    //returns the seat corresponding to a given ID. if it is not found it returns a -1
     int getSeatfromID(string id){
         int output=-1;
         for(auto i:reservedSeats){
@@ -198,7 +198,7 @@ class Wagon{
             reservedSeats.erase(reservedSeats.begin()+found);
         }
     }
-    //solo para consultar, si editas el vector devuelto el original no cambia
+    //only for consulting, if you edit the vector, the original does not change
     vector <pair <int,string>> getSeatVector(){return reservedSeats;}
 };
 
@@ -248,7 +248,7 @@ private:
 public:
     Train(){
         origin = destination = "";
-        //mínimo de dos vagones
+        //minimum of two wagons
         Wagon vacio;
         wagonsvect.push_back(vacio);
         vacio.setNumber(2);
@@ -276,7 +276,7 @@ public:
     void addPassengerT(string myid){
         for(int w=0; w<wagonsvect.size(); w++){
             if(wagonsvect[w].getCapacity()>wagonsvect[w].getSeatVector().size()){
-                //aquí hay sitio
+                //there is space
                 wagonsvect[w].addPassengerW(myid);
                 break;
             }
@@ -332,7 +332,7 @@ public:
         return 1;
     }
     
-    //solo consulta (igual que el de Wagon)
+    //only for consulting (the same as Wagon)
     vector <Wagon> getWagons(){return wagonsvect;}
 };
 
@@ -342,7 +342,7 @@ Train getTrainfromNum(list <Train> mytrenecitos, int n){
             return t;
         }
     }
-    //si ha hecho return no llega hasta aqui, solo para evitar posibles errores
+    //only for avoiding problems if the train is not found
     Train problemas;
     problemas.setTrainNum(-1);
     cout <<"The train was not found" <<endl;
@@ -554,25 +554,6 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
                 idsintrain.push_back(idsinwagon);
                 input = input.substr(pos+3);
             }
-            // Prints the info so we know its working correctly
-            /*cout << "\nTrain " << trainNumber << " goes from: " << originStation << " to " << destStation << ", covering " << distanceInKm <<" km.\n";
-            cout << "The date of the trip is " << day << ":" << month << ":" << year;
-            cout << "\nThis train has " << numWagons << " wagons.\n";
-            int count = 1;
-            for (auto p:seatsperwagon){
-                cout << "Wagon " << count << " has " << p << " seats\n";
-                count++;
-            }
-            int c1 = 1;
-            cout << "These are the IDs of the people in each train per wagon: \n";
-            for(auto idsinwag:idsintrain){
-                cout << "Wagon " << c1 << ":\n";
-                for (int i = 0; i<idsinwag.size(); i++){
-                    cout << idsinwag[i] << endl;
-                }
-                c1++;
-            }*/
-
             vector <Wagon> myWagons;
             myWagons.clear();
             for (int q=0; q < idsintrain.size(); q++){
@@ -605,7 +586,7 @@ void readInitialData(list <Train> &initialLstOfTrains, map <string,Passenger> &i
 }
 
 int mainMenu(){
-    //usamos string para aceptar cualquier input
+    //we use string to accept any input
     string output;
     cout <<"\033[32m"
     <<"+--------------------- Choose an option ---------------------+" <<endl
@@ -622,7 +603,7 @@ int mainMenu(){
     for(int i=0;i<31;i++){cout <<"\033[D";}
     cin >>output;
     cout <<endl;
-    //pasar string a int sin stoi (solo queremos del 1 al 7) y si no se puede devuelve 0
+    //go from string to int without using stoi (we only want from 1 to 7) if it is not found it returns 0
     return (output=="1"? 1 : output=="2"? 2 : output=="3"? 3 : output=="4"? 4 : output=="5"? 5 : output=="6" ? 6 :output=="7"? 7 : 0);
 }
 
@@ -643,7 +624,7 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     num=inputInt("Introduce the year: ");
     dia.setYear(num);
     priceofthetrip=inputInt("Introduce the price of the trip: ");
-    //comprobar si el pasajero existe
+    //we check if the passenger exists
     string foundID = "0";
     for (auto it = passes.begin(); it != passes.end(); ++it){
         if((*it).first==myid){
@@ -687,7 +668,7 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
         do{
             auxI=inputInt("Baggage: ");
             if(auxI>25||auxI<0){
-                //mismo anti-error que en inputInt
+                //we try to avoid the same error as in inputInt
                 cout <<"\033[31;1m" <<"invalid input" <<"\033[0m\033[A\033[2K";
                 for (int i=0; i<13; i++){cout <<"\033[D";}
                 error=1;
@@ -699,12 +680,12 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
         unregistered.setBaggage(auxI);
         passes[myid] = unregistered;
     }
-    //comprobar trenes que coincidan en fecha e itinerario
+    //check trains that coincide on date and itenerary
     bool personfound=0;
     bool trainfound=0;
     for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
         if((*train_it).getDate()==dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
-            //este tren coincide
+            //this train matches the requirements
             trainfound = 1;
             if ((*train_it).findPassenger(myid).first != -1 && (*train_it).findPassenger(myid).second != -1){
                 personfound = 1;
@@ -714,10 +695,10 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
         }
         if(personfound==1){break;}
     }
-    //si no está lo añadimos
+    //if the passenger is not found we add it to the train
     if(personfound==0 && trainfound==1){
         bool added=0;
-        //mismo sistema para trenes y vagones
+        //same system for trains and wagons
         for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
             if((*train_it).getDate()==dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
                 //este tren coincide
@@ -725,7 +706,7 @@ void addNewPassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
                 auto w = (*train_it).findPassenger(myid);
                 if(w.first != -1 && w.second != -1){
                     cout <<"Passenger " << myid <<" added to train " << (*train_it).getTrainNum() <<", wagon " << w.first <<", seat " << w.second << endl;
-                    //También hay que añadirle el viaje al pasajero
+                    //We also have to add the trip to the passenger
                     passes[myid].addTrip(dia,(*train_it).getTrainNum(),w.first,w.second, priceofthetrip);
                     added=1;
                     break;
@@ -758,7 +739,7 @@ void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     dia.setMonth(num);
     num=inputInt("Introduce the year: ");
     dia.setYear(num);
-    //comprobar si el pasajero existe
+    //check that the passenger exists
     string foundID = "0";
     for (auto it = passes.begin(); it != passes.end(); ++it){
         if((*it).second.getID()==myid){
@@ -770,7 +751,7 @@ void removePassengerTrip(list <Train> &trenes, map <string, Passenger> &passes){
     if(foundID != "0"){
         for(auto train_it = trenes.begin(); train_it != trenes.end(); train_it++){
             if((*train_it).getDate()== dia && (*train_it).getOrigin()==origin && (*train_it).getDestination()==destination){
-                //tren coincide con la ruta
+                //this train meets our criteria
                 if((*train_it).findPassenger(myid).first !=-1 && (*train_it).findPassenger(myid).second!=-1){
                     cout <<"\nPassenger " << myid <<" has been removed from train " << (*train_it).getTrainNum() << ", wagon " << (*train_it).findPassenger(myid).first << ", seat " << (*train_it).findPassenger(myid).second <<endl;
                     passes[myid].removeTrip(dia,(*train_it).getTrainNum(), (*train_it).findPassenger(myid).first, (*train_it).findPassenger(myid).second);
@@ -856,8 +837,6 @@ list <Passenger> showOrderedListOfPassengers(map <string,Passenger> &input){
     for(auto inserting:input){
         auto it=output.begin();
         int preInsertionSize=output.size();
-        //Un poquito de insertion sort en su estado mas lamentable
-        //se puede optimizar partiendo la lista a la mitad, comparando y repitiendo
         while(it!=output.end()){
             if((*it).getname()>inserting.second.getname()){
                 output.insert(it,inserting.second);
@@ -868,14 +847,7 @@ list <Passenger> showOrderedListOfPassengers(map <string,Passenger> &input){
             output.push_back(inserting.second);
         }
     }
-    if(output.size()==0){
-        cout <<"No passenger registered" <<endl;
-    }else{
-        for(auto p:output){
-            cout <<p.getID() <<" " <<p.getname() <<endl;
-        }
-    }
-    cout <<endl;
+    
     return output;
 }
 
@@ -884,17 +856,11 @@ map <string,list<string>> showPassengersCities(list <Train> &trenes, map <string
     for(auto t:trenes){
         for(auto w:t.getWagons()){
             for(auto p:w.getSeatVector()){
-                //primero añadimos pasajeros a la ciudad de donde salen
+                //We add the passengers to the city they are traveling from
                 output[t.getOrigin()].push_back(passes[p.second].getname());
-                //y ahora a la que llegan
+                //and to the city they are arriving to
                 output[t.getDestination()].push_back(passes[p.second].getname());
             }
-        }
-    }
-    for(auto i:output){
-        cout <<"\n\033[1m ~~~~~~~~ " <<i.first <<" ~~~~~~~~ \033[0m" <<endl;
-        for(auto p:i.second){
-            cout <<"    " <<p <<endl;
         }
     }
     return output;
@@ -948,40 +914,58 @@ int main(){
     map <string, Passenger> mypasses;
     readInitialData(mytrains, mypasses);
     int selection;
-    bool borrar=0;;
+    bool borrar=0;
     while(selection!=7){
         selection=mainMenu();
         if(borrar){cout <<"\033[2K";borrar=0;}
-        switch (selection){
+        switch (selection) {
             case 0: 
                 cout <<"Please, choose a valid option";
                 for(int i=0;i<11;i++){cout <<"\033[A";}
                 for(int i=0;i<29;i++){cout <<"\033[D";}
                 borrar=1;
                 break;
-            case 7:
+            case 7:{
                 cout <<"Goodbye";
                 endProgram(mytrains, mypasses);
                 break;
-            case 1:
+                }
+            case 1:{
                 addNewPassengerTrip(mytrains, mypasses);
                 break;
-            case 2:
+                }
+            case 2:{
                 removePassengerTrip(mytrains, mypasses);
                 break;
-            case 3:
+                }
+            case 3:{
                 showTripsOfPassenger(mypasses, mytrains);
                 break;
-            case 4:
+                }
+            case 4:{
                 showListOfPassengers(mytrains, mypasses);
                 break;
-            case 5:
-                showOrderedListOfPassengers(mypasses);
+                }
+            case 5:{
+                list <Passenger> orderedpasses = showOrderedListOfPassengers(mypasses);
+                if(orderedpasses.size()==0){
+                    cout <<"No passenger registered" <<endl;
+                }else{
+                    for(auto p:orderedpasses){
+                        cout <<p.getID() <<" " <<p.getname() <<endl;
+                    }
+                }
                 break;
-            case 6:
-                showPassengersCities(mytrains,mypasses);
-                break;
-
+                }
+            case 6: {
+                map <string,list<string>> mymap = showPassengersCities(mytrains,mypasses);
+                for(auto i:mymap){
+                    cout <<"\n\033[1m ~~~~~~~~ " << i.first <<" ~~~~~~~~ \033[0m" <<endl;
+                    for(auto p:i.second){
+                        cout <<"    " << p <<endl;
+                    }
+                }
+                }
         }
     }
 }
